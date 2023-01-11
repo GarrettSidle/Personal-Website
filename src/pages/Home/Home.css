@@ -1,0 +1,46 @@
+.Home {
+  background-color: white;
+  background-image: url(/public/home.jpg);
+  font-family: "Raleway", sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 93vh;
+}
+
+.Name {
+  color: GRAY;
+  font-size: 85px;
+  font-weight: bold;
+}
+
+.JobTitle {
+  color: #f05c0c;
+  font-size: 40px;
+  padding-top: 0.5em;
+  font-weight: bold;
+}
+
+.About {
+  padding-top: 0.5em;
+  color: gray;
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+}
+.About p {
+    max-width: 750px;
+}
+
+.Introduction div {
+  text-align: center;
+}
+
+.Introduction{
+  padding-top: 40vh;
+}
+
+.Home-Button{
+  background-color: #f05c0c !important;
+  border-color: black !important;
+}

@@ -1,0 +1,86 @@
+.Contact-Form {
+  padding: 1em;
+  max-width: 80%;
+  margin: auto;
+}
+
+.Form-Name-Email {
+  display: inline-block;
+  text-align: center;
+}
+.Form-Name-Email div {
+  width: 100%;
+  display: inline-block;
+}
+
+.Form-Message {
+  height: 300px;
+}
+
+.Social-Card {
+  padding: 50px;
+  text-decoration: none;
+}
+
+.Email {
+  background-color: rgba(255, 0, 0, 0.507);
+}
+
+.Linked-In {
+  background-color: #0e76a8;
+}
+
+.Git-Hub {
+  background-color: purple;
+}
+
+.Social-Card:hover {
+  background-color: rgb(77, 77, 77);
+  transition: 500ms;
+}
+
+.Social-Links {
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+}
+.Contact-Title {
+  font-size: 40px;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  padding: 3%;
+}
+
+.Social-Info {
+  text-decoration: none;
+  color: white;
+}
+
+.Contact {
+  font-family: "Raleway", sans-serif;
+  height: 100%;
+}
+
+.Social-Header {
+  font-size: 20px;
+}
+
+.Social-Site {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Social-Image {
+  float: left;
+  margin-right: 1vw;
+}
+
+.Social-Card div {
+  max-width: 20vw;
+  
+}
+
+.Connect-Button {
+  background-color: #f05c0c !important;
+  border-color: #f05c0c !important;
+  text-align: center;
+}

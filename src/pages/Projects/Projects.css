@@ -1,0 +1,94 @@
+.Projects {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.Project {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Project-Devider {
+  background-color: white;
+  color: white;
+}
+
+.Project-Meta-Stack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.Project-Meta-Stack p {
+  font-size: 1rem;
+  padding: 0.4rem;
+  font-family: "railway";
+  background-color: #616161;
+  color: white;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  letter-spacing: 0.5px;
+  initial-letter: 1px;
+  margin: 0;
+}
+
+.Project-Description {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.Project-Description p {
+  font-size: 1.3rem;
+}
+
+.Project-Image {
+  object-fit: cover;
+  transition: all 0.4s ease;
+  opacity: 0.7;
+  width: 50vw;
+}
+
+.Project-Links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.Project-Links img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.Portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  grid-column: span 3;
+  padding: 2rem;
+}
+
+.Portfolio-Text {
+  padding: 1.5rem;
+}
+
+.Portfolio-Text h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.Portfolio-Text p {
+  font-size: 1.5rem;
+}
