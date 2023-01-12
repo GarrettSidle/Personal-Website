@@ -1,3 +1,57 @@
-.Education div{
-    display: inline-grid;
+.Cards {
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
 }
+.Card {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  padding: 2em;
+  border: 1px solid gray;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+  border: 4px solid #f05c0c;
+  transition: 500ms;
+}
+
+.Card-Desc {
+  text-align: left;
+  color: white;
+}
+
+.Education {
+  height: 100%;
+}
+
+.Card-Header {
+  color: white;
+  font-size: 30px;
+  margin: 1vw;
+  font-weight: bold;
+  
+}
+
+.Card-SubHeader {
+  font-size: 25px;
+  color: white;
+}
+.Card-Dates {
+  font-size: 15pxvw;
+  color: white;
+  text-decoration: none;
+}
+.Card-Desc{
+    font-size: 20px;
+}
+
+@media (max-width: 550px) {
+    .Card-Logo {
+      visibility: hidden;
+    }
+  }

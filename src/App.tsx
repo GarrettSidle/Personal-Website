@@ -9,7 +9,6 @@ import "./App.css";
 import { Route, Routes, Outlet } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Education from "./pages/Education/Education";
-import Experience from "./pages/Experience/Experience";
 import Projects from "./pages/Projects/Projects";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
@@ -25,7 +24,6 @@ export class App extends PureComponent<{}> {
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="Education" element={<Education />} />
-            <Route path="Experience" element={<Experience />} />
             <Route path="Projects" element={<Projects />} />
             <Route path="About" element={<About />} />
             <Route path="Contact" element={<Contact />} />

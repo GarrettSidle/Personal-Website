@@ -44,7 +44,7 @@ export class Contact extends Component<{}, ContactState> {
     const encodedMessage = encodeURIComponent(this.state.Message);
 
     // Compose the mailto link
-    const mailtoLink = `mailto:garrett.sidle@gmail.com?subject=${this.state.Subject}Email&body=${encodedMessage}`;
+    const mailtoLink = `mailto:garrett.sidle.rec@gmail.com?subject=${this.state.Subject}Email&body=${encodedMessage}`;
 
     // Open the mailto link
     window.location.href = mailtoLink;
@@ -115,8 +115,8 @@ export class Contact extends Component<{}, ContactState> {
           {this.printSocial(
             "Email.svg",
             "REACH ME AT ",
-            "GARRRETT.SIDLE@GMAIL.COM",
-            "mailto:garrett.sidle@gmail.com",
+            "GARRETT.SIDLE.REC@GMAIL.COM",
+            "mailto:garrett.sidle.rec@gmail.com",
             "Email"
           )}
         </div>

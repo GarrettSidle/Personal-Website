@@ -3,13 +3,7 @@ import { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { CgCPlusPlus } from "react-icons/cg";
 import { AiOutlineConsoleSql } from "react-icons/ai";
-import {
-  DiReact,
-  DiPython,
-  DiGit,
-  DiCss3,
-  DiJava,
-} from "react-icons/di";
+import { DiReact, DiPython, DiGit, DiCss3, DiJava } from "react-icons/di";
 import {
   SiLinux,
   SiVisualstudiocode,
@@ -49,7 +43,7 @@ const toolStack = [
 export class About extends Component<{}> {
   private TechStack() {
     return (
-      <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+      <Row className="Tech-Stack">
         {techStack.map((tech) => (
           <Col xs={4} md={2} className="Tech-Icons">
             <tech.Component />
@@ -59,18 +53,13 @@ export class About extends Component<{}> {
     );
   }
 
-
-
   private ToolStack() {
-    
     const renderTooltip = () => (
-      <Tooltip id="button-tooltip">
-        Simple tooltip
-      </Tooltip>
+      <Tooltip id="button-tooltip">Simple tooltip</Tooltip>
     );
 
     return (
-      <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+      <Row className="Tech-Stack">
         {toolStack.map((tool) => (
           <Col xs={4} md={2} className="Tech-Icons">
             <OverlayTrigger
@@ -91,38 +80,35 @@ export class About extends Component<{}> {
       <div className="About Page">
         <Container fluid className="About-Section">
           <Container>
-            <Row style={{ justifyContent: "center", padding: "10px" }}>
-              <Col
-                md={7}
-                style={{
-                  justifyContent: "center",
-                  paddingTop: "30px",
-                  paddingBottom: "50px",
-                }}
-              >
-                <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+            <Row>
+              <Col className="Email-Header">Garrett.Sidle.Rec@Gmail.com</Col>
+
+              <Col className="Phone-Header">(419)-956-7970</Col>
+            </Row>
+            <hr />
+            <Row className="About-Me">
+              <Col md={7} className="About-Paragraph">
+                <h1
+                  className="Project-Heading"
+                  style={{ paddingBottom: "20px" }}
+                >
                   More About <strong className="Orange">Me</strong>
                 </h1>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque corrupti quos
-                dolores et quas molestias excepturi sint occaecati cupiditate
-                non provident, similique sunt in culpa qui officia deserunt
-                mollitia animi, id est laborum et dolorum fuga. Et harum quidem
-                rerum facilis est et expedita distinctio. Nam libero tempore,
-                cum soluta nobis est eligendi optio cumque nihil impedit quo
-                minus id quod maxime placeat facere possimus, omnis voluptas
-                assumenda est, omnis dolor repellendus. Temporibus autem
-                quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-                eveniet ut et voluptates repudiandae sint et molestiae non
-                recusandae. Itaque earum rerum hic tenetur a sapiente delectus,
-                ut aut reiciendis voluptatibus maiores alias consequatur aut
-                perferendis doloribus asperiores repellat
+                I am Garrett Sidle, currently pursuing a bachelor's degree in
+                Electrical and Computer Engineering Technology at Miami
+                University of Ohio. I have already received my associate's
+                degree in Computer Science, and I am also currently enrolled in
+                an Electro-Mechanical Engineering program. My experience
+                includes my software engineering internship at Automatic Feed
+                Company, where I developed and maintained a plant analysis
+                website and an internal company website. I also gained hands-on
+                experience in full-stack web development, C# programming, and
+                troubleshooting industrial systems. In my spare time, I like to
+                stay active by going to the gym, playing sports, and I also
+                spend time on my own learning new technologies and frameworks
+                that interest me.
               </Col>
-              <Col
-                md={5}
-                style={{ paddingTop: "120px", paddingBottom: "50px" }}
-                className="about-img"
-              >
+              <Col md={5} className="About-Image">
                 <img
                   src={"/Headshot.jpg"}
                   alt="about"

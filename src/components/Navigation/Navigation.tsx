@@ -17,7 +17,7 @@ export class Navigation extends Component<{}, NavigationState> {
   public render() {
     return (
       <div>
-        <Navbar expand="lg" className="Navigation" color="#f05c0c">
+        <Navbar   expand="lg" className="Navigation" color="#f05c0c">
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse>
             <Container fluid>
@@ -30,9 +30,6 @@ export class Navigation extends Component<{}, NavigationState> {
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="Education">EDUCATION</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href="Experience">EXPERIENCE</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="Projects">PROJECTS</Nav.Link>
