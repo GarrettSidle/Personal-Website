@@ -20,6 +20,7 @@
 .Social-Card {
   padding: 50px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .Email {
@@ -43,6 +44,12 @@
   display: grid;
   grid-template-columns: 33% 34% 33%;
 }
+@media (max-width: 1400px) {
+  .Social-Links {
+    grid-template-columns: auto;
+  }
+}
+
 .Contact-Title {
   font-size: 40px;
   font-family: "Raleway", sans-serif;
@@ -66,7 +73,7 @@
 
 .Social-Site {
   font-weight: bold;
-  font-size: 20px;
+  font-size: calc(25px+10vw);
 }
 
 .Social-Image {
@@ -76,7 +83,6 @@
 
 .Social-Card div {
   max-width: 20vw;
-  
 }
 
 .Connect-Button {

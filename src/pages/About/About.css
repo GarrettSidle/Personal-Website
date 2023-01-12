@@ -1,0 +1,55 @@
+.About-Section {
+  position: relative ;
+  padding-top: 150px ;
+  padding-bottom: 30px ;
+  background-image: var(--section-background-color) ;
+  color: white ;
+}
+
+.Tech-Icons {
+  font-size: 4.5em ;
+  margin: 15px !important;
+  padding: 10px ;
+  opacity: 0.93 ;
+  border: 1.7px solid #f05c0c ;
+  vertical-align: middle ;
+  text-align: center ;
+  border-radius: 5px ;
+  display: table ;
+  box-shadow: 4px 5px 4px 3px #3d1600 ;
+  overflow: hidden ;
+  transition: all 0.4s ease 0s ;
+}
+
+@media (max-width: 767px) {
+  .Tech-Icons {
+    margin: 10px ;
+  }
+}
+
+.Tech-Icons:hover {
+  transform: scale(1.05);
+  overflow: hidden ;
+  border: 2.2px solid #f05c0c ;
+}
+
+@media (max-width: 767px) {
+  .About-Image {
+    padding-top: 0 ;
+  }
+}
+
+.Project-Heading {
+  color: white ;
+  font-size: 2.3em ;
+  font-weight: 500 ;
+  padding-top: 10px ;
+}
+
+.Orange {
+  color: #f05c0c;
+}
+
+.About-Headshot{
+    border-radius: 50% !important;
+}

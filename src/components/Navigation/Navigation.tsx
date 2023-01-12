@@ -17,44 +17,42 @@ export class Navigation extends Component<{}, NavigationState> {
   public render() {
     return (
       <div>
-        <Navbar expand="sm" className="Navigation">
-          <Container fluid>
-            <Navbar.Brand className="Nav-Brand">Garrett Sidle</Navbar.Brand>
-          </Container>
+        <Navbar expand="lg" className="Navigation" color="#f05c0c">
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-
-              activeKey={this.state.SelectedNav}
-              className="Nav-Links"
-            >
-              <Nav.Item>
-                <Nav.Link href="Home">HOME</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="Education">EDUCATION</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="Experience">EXPERIENCE</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="Projects">PROJECTS</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="About">ABOUT</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="Contact">CONNECT</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="Garrett_Sidle_Resume.pdf">RESUME</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="https://github.com/GarrettSidle">
-                  GITHUB
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
+          <Navbar.Collapse>
+            <Container fluid>
+              <Navbar.Brand className="Nav-Brand">Garrett Sidle</Navbar.Brand>
+            </Container>
+            <Container>
+              <Nav activeKey={this.state.SelectedNav} className="Nav-Links">
+                <Nav.Item>
+                  <Nav.Link href="Home">HOME</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="Education">EDUCATION</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="Experience">EXPERIENCE</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="Projects">PROJECTS</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="About">ABOUT</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="Contact">CONNECT</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="Garrett_Sidle_Resume.pdf" target="blank">RESUME</Nav.Link >
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="https://github.com/GarrettSidle" target="blank">
+                    GITHUB
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Container>
           </Navbar.Collapse>
         </Navbar>
       </div>

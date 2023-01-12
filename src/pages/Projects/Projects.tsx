@@ -16,7 +16,7 @@ export class Projects extends Component<{}> {
           courses and challenges to learn the basics. You can check them on my{" "}
           <span>
             <a
-              href="https://github.com/GarrettSidle"
+              href="https://github.com/GarrettSidle" 
               className="Portfolio-Text-Github"
               target="_blank"
               rel="noreferrer"

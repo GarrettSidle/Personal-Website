@@ -7,21 +7,17 @@ import "./Contact.css";
 interface ContactState {
   Name: string;
   Email: string;
-  Subject:string;
-  Message:string;
+  Subject: string;
+  Message: string;
 }
 
-
 export class Contact extends Component<{}, ContactState> {
-
   public state: Readonly<ContactState> = {
     Name: "",
-    Email:"",
-    Subject:"",
-    Message:"",
+    Email: "",
+    Subject: "",
+    Message: "",
   };
-
-
 
   private printSocial(
     imgPath: string,
@@ -31,20 +27,19 @@ export class Contact extends Component<{}, ContactState> {
     className: string
   ) {
     return (
-      <a className={"Social-Card " + className} href={url}>
-        <div>
-          <img className="Social-Image" src={imgPath} />
-          <div className="Social-Info">
-            <div className="Social-Header">{header}</div>
-            <div className="Social-Site">{site}</div>
+        <a className={"Social-Card " + className} href={url} target="blank">
+          <div>
+            <img className="Social-Image" src={imgPath} />
+            <div className="Social-Info">
+              <div className="Social-Header">{header}</div>
+              <div className="Social-Site">{site}</div>
+            </div>
           </div>
-        </div>
-      </a >
+        </a>
     );
   }
 
   private sendEmail() {
-
     // Encode the message to make sure it can be sent in the URL
     const encodedMessage = encodeURIComponent(this.state.Message);
 
@@ -87,7 +82,7 @@ export class Contact extends Component<{}, ContactState> {
         <Row>
           <Button
             onClick={() => {
-              this.sendEmail()
+              this.sendEmail();
             }}
             size="lg"
             className="Connect-Button"
