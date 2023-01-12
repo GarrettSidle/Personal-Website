@@ -22,6 +22,11 @@
   padding-bottom: 25px;
 }
 
+.Tech-Title{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
 @media (max-width: 767px) {
   .Tech-Icons {
     margin: 10px;
@@ -67,7 +72,7 @@
 }
 
 .About-Image {
-  padding-top: 120px;
+  padding-top: 40px;
   padding-bottom: 50px;
 }
 @media (max-width: 900px) {

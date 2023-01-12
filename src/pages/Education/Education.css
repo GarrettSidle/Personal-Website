@@ -11,7 +11,10 @@
   border: 1px solid gray;
   text-align: center;
   min-height: 80vh;
+  opacity: .9;
 }
+
+
 
 .Card:hover {
   transform: scale(1.05);

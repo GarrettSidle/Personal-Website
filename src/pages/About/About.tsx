@@ -14,8 +14,6 @@ import {
   SiTypescript,
   SiCsharp,
 } from "react-icons/si";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 
 import "./About.css";
 
@@ -44,9 +42,10 @@ export class About extends Component<{}> {
   private TechStack() {
     return (
       <Row className="Tech-Stack">
-        {techStack.map((tech) => (
+        {techStack.map((Tech) => (
           <Col xs={4} md={2} className="Tech-Icons">
-            <tech.Component />
+              <Tech.Component />
+              <div className="Tech-Title">{Tech.Tooltip}</div>
           </Col>
         ))}
       </Row>
@@ -54,21 +53,13 @@ export class About extends Component<{}> {
   }
 
   private ToolStack() {
-    const renderTooltip = () => (
-      <Tooltip id="button-tooltip">Simple tooltip</Tooltip>
-    );
-
     return (
       <Row className="Tech-Stack">
-        {toolStack.map((tool) => (
+        {toolStack.map((Tool) => (
           <Col xs={4} md={2} className="Tech-Icons">
-            <OverlayTrigger
-              placement="top"
-              delay={{ show: 250, hide: 400 }}
-              overlay={renderTooltip}
-            >
-              <tool.Component />
-            </OverlayTrigger>
+            <Tool.Component />
+            <div className="Tech-Title">{Tool.Tooltip}</div>
+            
           </Col>
         ))}
       </Row>
