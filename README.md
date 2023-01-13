@@ -1,3 +1,14 @@
+# Description
+
+This project is the website you are currently on, built using the React framework. The website was designed from scratch utilizing the React-Bootstrap library. It was deployed to AWS for hosting. The website serves as an online portfolio and personal branding platform for me. It showcases my skills, experiences and other projects of mine. It was later updated to communicate with an API backend to allow for messages to be sent through the website.
+
+# Getting Started
+
+To begin the project, simply git clone to your local machine, and run `npm install` then `npm start`
+
+`----------------------------------------------------------------------------------------------------------------------------------------------------------------------------`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
