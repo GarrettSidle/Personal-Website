@@ -8,8 +8,6 @@ interface NavigationState {
   SelectedNav: string;
 }
 
-const resume = require("../../assets/Garrett_Sidle_Resume.pdf")
-
 export class Navigation extends Component<{}, NavigationState> {
   public state: Readonly<NavigationState> = {
     //Get just the postfix of the URL
@@ -43,7 +41,7 @@ export class Navigation extends Component<{}, NavigationState> {
                   <Nav.Link href="/Contact">CONNECT</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href={resume} target="blank">RESUME</Nav.Link >
+                  <Nav.Link href="garrett_sidle_resume.pdf" target="blank">RESUME</Nav.Link >
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="https://github.com/GarrettSidle" target="blank">
