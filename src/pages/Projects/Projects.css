@@ -6,12 +6,27 @@
   position: relative;
 }
 
+.Project-Intro{
+  font-size: 25px;
+  margin-top: 20px;
+}
+
 .Project {
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
   gap: 1rem;
   align-items: center;
+  margin: 2em;
+  border: 2px solid #888888;
+  background-color: #222222;
+}
+
+.Project:hover {
+  transform: scale(1.02);
+  overflow: hidden;
+  border: 3px solid #f05c0c;
+  transition: 500ms;
 }
 
 .Project-Devider {
@@ -51,24 +66,24 @@
   font-size: 1.3rem;
 }
 
-.Project-Image {
+.Project-Image-Single {
   object-fit: cover;
   transition: all 0.4s ease;
   opacity: 0.7;
-  width: 50vw;
+  width: 60vw;
+  margin: auto;
 }
 
-.Project-Links {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  font-size: 1.5rem;
-  text-decoration: underline;
+.Project-Image-Double {
+  object-fit: cover;
+  transition: all 0.4s ease;
+  opacity: 0.7;
+  width: 30vw;
+  margin: auto;
 }
 
-.Project-Links img {
-  width: 2.5rem;
-  height: 2.5rem;
+.Right{
+  float: right;
 }
 
 .Portfolio {
@@ -78,6 +93,30 @@
   align-items: center;
   grid-column: span 3;
   padding: 2rem;
+}
+
+.Project-Link:hover {
+  transform: scale(1.02);
+  overflow: hidden;
+  border: 2px solid #f05c0c;
+  transition: 500ms;
+}
+
+.Project-Link {
+  float: left;
+  padding: 1em;
+  border: #888888 1px solid;
+  border-radius: 15px;
+}
+
+.Link-Img {
+  width: 2em;
+  height: 2em;
+}
+
+.Link-Desc {
+  color: white;
+  font-size: 20px;
 }
 
 .Portfolio-Text {
@@ -91,4 +130,24 @@
 
 .Portfolio-Text p {
   font-size: 1.5rem;
+}
+
+.Orange {
+  color: #f05c0c;
+}
+
+.Project-Links {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+}
+
+.Project-Title{
+  font-size: 50px;
+  text-align: center;
+  color: #f05c0c;
+}
+
+.Project-Date{
+  font-size: 20px;
+  text-align: center;
 }
