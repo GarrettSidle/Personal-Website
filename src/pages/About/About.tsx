@@ -17,6 +17,8 @@ import {
 
 import "./About.css";
 
+const headshot = require("../../assets/headshot.jpg")
+
 const techStack = [
   { Component: SiTypescript, Tooltip: "TypeScript" },
   { Component: SiJavascript, Tooltip: "JavaScript" },
@@ -101,7 +103,7 @@ export class About extends Component<{}> {
               </Col>
               <Col md={5} className="About-Image">
                 <img
-                  src={"headshot.jpg"}
+                  src={headshot}
                   alt="about"
                   className="About-Headshot"
                 />
