@@ -4,6 +4,8 @@ import { Nav, Navbar, Container, Collapse } from "react-bootstrap";
 
 import "./Navigation.css";
 
+const PDF = require("../../assets/Garrett_Sidle_Resume.pdf");
+
 interface NavigationState {
   SelectedNav: string;
 }
@@ -17,7 +19,7 @@ export class Navigation extends Component<{}, NavigationState> {
   public render() {
     return (
       <div>
-        <Navbar   expand="lg" className="Navigation" color="#f05c0c">
+        <Navbar expand="lg" className="Navigation" color="#f05c0c">
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse>
             <Container fluid>
@@ -41,10 +43,19 @@ export class Navigation extends Component<{}, NavigationState> {
                   <Nav.Link href="/Contact">CONNECT</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="garrett_sidle_resume.pdf" target="blank">RESUME</Nav.Link >
+                  <Nav.Link
+                    onClick={() => {
+                      window.open(PDF);
+                    }}
+                  >
+                    RESUME
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="https://github.com/GarrettSidle" target="blank">
+                  <Nav.Link
+                    href="https://github.com/GarrettSidle"
+                    target="blank"
+                  >
                     GITHUB
                   </Nav.Link>
                 </Nav.Item>
