@@ -25,7 +25,7 @@ const techStack = [
   { Component: SiCsharp, Tooltip: "C#" },
   { Component: SiHtml5, Tooltip: "HTML" },
   { Component: DiCss3, Tooltip: "CSS" },
-  { Component: AiOutlineConsoleSql, Tooltip: "MSSQL (Micosoft SQL)" },
+  { Component: AiOutlineConsoleSql, Tooltip: "MSSQL (Microsoft SQL)" },
   { Component: CgCPlusPlus, Tooltip: "C++" },
   { Component: DiJava, Tooltip: "Java" },
 ];
