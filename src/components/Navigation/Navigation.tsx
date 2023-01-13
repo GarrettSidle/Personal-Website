@@ -14,24 +14,6 @@ export class Navigation extends Component<{}, NavigationState> {
     SelectedNav: document.URL.split("/").reverse()[0],
   };
 
-
-private downloadResume(){
-  {
-    //get PDF file
-    fetch('Garrett_Sidle_Resume.pdf').then(response => {
-        response.blob().then(blob => {
-            // Creating new object of PDF file
-            const fileURL = window.URL.createObjectURL(blob);
-            // Setting various property values
-            let alink = document.createElement('a');
-            alink.href = fileURL;
-            alink.download = 'Garrett_Sidle_Resume.pdf';
-            alink.click();
-        })
-    })
-}
-}
-  
   public render() {
     return (
       <div>
@@ -58,15 +40,7 @@ private downloadResume(){
                 <Nav.Item>
                   <Nav.Link href="/Contact">CONNECT</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link
-                    onClick={() => {
-                      this.downloadResume()
-                    }}
-                  >
-                    RESUME
-                  </Nav.Link>
-                </Nav.Item>
+
                 <Nav.Item>
                   <Nav.Link
                     href="https://github.com/GarrettSidle"
