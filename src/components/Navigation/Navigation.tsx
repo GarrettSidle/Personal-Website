@@ -26,19 +26,19 @@ export class Navigation extends Component<{}, NavigationState> {
             <Container>
               <Nav activeKey={this.state.SelectedNav} className="Nav-Links">
                 <Nav.Item>
-                  <Nav.Link href="Home">HOME</Nav.Link>
+                  <Nav.Link href="/Home">HOME</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="Education">EDUCATION</Nav.Link>
+                  <Nav.Link href="/Education">EDUCATION</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="Projects">PROJECTS</Nav.Link>
+                  <Nav.Link href="/Projects">PROJECTS</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="About">ABOUT</Nav.Link>
+                  <Nav.Link href="/About">ABOUT</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="Contact">CONNECT</Nav.Link>
+                  <Nav.Link href="/Contact">CONNECT</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="Garrett_Sidle_Resume.pdf" target="blank">RESUME</Nav.Link >
