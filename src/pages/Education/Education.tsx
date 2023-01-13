@@ -4,7 +4,6 @@ import { Col, Row } from "react-bootstrap";
 
 import "./Education.css";
 
-const test = require("../../images/logo192.png");
 
 export class Education extends Component<{}> {
   private card(

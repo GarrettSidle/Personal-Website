@@ -2,27 +2,27 @@ const ProjectsData = [
   {
     id: "personal-website",
     name: "Personal Website",
-    stack: ["< React.js />", "< CSS3 />", "< Typescript />"],
+    stack: ["< React.js />", "< CSS3 />","< HTML5 />", "< Typescript />"],
     source: "https://github.com/GarrettSidle/Personal-Website",
     date:"June 2022 - Present",
     demo:"/Home",
     imgPath:"/Personal-Website.png",
     secondayImgPath:"",
     description:
-      "This project is the website you are currently on, built using the React framework. The website was designed from scratch utilizing the React-Bootstrap library. It was deployed to AWS for hosting. The website serves as an online portfolio and personal branding platform for me. It showcases my skills, experiences and other projects of mine. It was later updated to communicate with an API backend to allow for messages to be sent through the website.",
+      "This project is the website you are currently on, built using the React framework. The website was designed from scratch utilizing the React-Bootstrap library. The website serves as an online portfolio and personal branding platform for me, showcasing my skills, experiences, and other projects. It was later deployed through Amazon Web Services. I believe this project showcases my design skills through the visually appealing layout and user-friendly navigation of the website, and also highlights my ability to effectively utilize cloud-based hosting solutions.",
   },
-  {
-    id: "crud-web-application",
-    name: "CRUD Web Application",
-    stack: ["< RESTful API />", "< CSS3 />", "< React.js />", "< Nest.js />", , "< Typescript />", "< MySQL />"],
-    source: "",
-    date:"December 2022",
-    demo:"",
-    imgPath:"",
-    secondayImgPath:"",
-    description:
-      "This project is a CRUD (Create, Read, Update, and Delete) web application that allows users to interact with a database through a front-end interface. The backend of the application is built using the Nest.js framework, which is a powerful and flexible JavaScript framework for building efficient and scalable server-side applications. The database used in this project is MySQL, a popular open-source relational database management system. The application allows users to create new records, view existing records, update existing records, and delete records from the database. The communication between the front-end and the backend is done through RESTful API calls, which allow the webpage to securely and efficiently access the database and make the necessary changes. REST(Representational State Transfer) is a standard architectural style for building web services, these API calls are based on the REST principles and can be easily consumed by any web-based client.",
-  },
+  // {
+  //   id: "crud-web-application",
+  //   name: "CRUD Web Application",
+  //   stack: ["< RESTful API />", "< CSS3 />", "< React.js />", "< Nest.js />", , "< Typescript />", "< MySQL />"],
+  //   source: "",
+  //   date:"December 2022",
+  //   demo:"",
+  //   imgPath:"",
+  //   secondayImgPath:"",
+  //   description:
+  //     "This project is a CRUD (Create, Read, Update, and Delete) web application that allows users to interact with a database through a front-end interface. The backend of the application is built using the Nest.js framework, which is a powerful and flexible JavaScript framework for building efficient and scalable server-side applications. The database used in this project is MySQL, a popular open-source relational database management system. The application allows users to create new records, view existing records, update existing records, and delete records from the database. The communication between the front-end and the backend is done through RESTful API calls, which allow the webpage to securely and efficiently access the database and make the necessary changes. REST(Representational State Transfer) is a standard architectural style for building web services, these API calls are based on the REST principles and can be easily consumed by any web-based client.",
+  // },
   {
     id: "rc-car",
     name: "Remote-Control Car",

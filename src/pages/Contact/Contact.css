@@ -1,21 +1,10 @@
 .Contact-Form {
   padding: 1em;
-  max-width: 80%;
+  max-width: 60%;
   margin: auto;
 }
 
-.Form-Name-Email {
-  display: inline-block;
-  text-align: center;
-}
-.Form-Name-Email div {
-  width: 100%;
-  display: inline-block;
-}
 
-.Form-Message {
-  height: 300px;
-}
 
 .Social-Card {
   padding: 50px;
@@ -73,7 +62,7 @@
 
 .Social-Site {
   font-weight: bold;
-  font-size: calc(25px+10vw);
+  font-size: 25px;
 }
 
 .Social-Image {
@@ -85,8 +74,45 @@
   max-width: 20vw;
 }
 
-.Connect-Button {
-  background-color: #f05c0c !important;
-  border-color: #f05c0c !important;
+
+.Contact-Message {
+  background-color: #131313;
+  border: #b9b9b9 1px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  height: 200px;
+}
+
+.Contact-Message-Row{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Contact-Email {
+  background-color: #131313;
+  border: #b9b9b9 1px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.Contact-Button {
+  background-color: #f05c0c;
+  border: #f05c0c 1px solid;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 25px;
+}
+
+.Contact-Response{
   text-align: center;
+  font-size: x-large;
+
+}
+
+.Contact-Thank-You{
+  text-align: center;
+  font-size: x-large;
+  color: #f05c0c;
 }

@@ -101,7 +101,7 @@ export class About extends Component<{}> {
               </Col>
               <Col md={5} className="About-Image">
                 <img
-                  src={"/Headshot.jpg"}
+                  src={"headshot.jpg"}
                   alt="about"
                   className="About-Headshot"
                 />

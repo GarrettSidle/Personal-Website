@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import ConnectForm from "./form"
 
 import "./Contact.css";
 
@@ -53,43 +54,7 @@ export class Contact extends Component<{}, ContactState> {
   private printForm() {
     return (
       <div className="Contact-Form">
-        <Row className="Form-Name-Email">
-          <Col>
-            <Form.Group className="mb-3" controlId="FormName">
-              <Form.Control type="text" placeholder="Your Name" />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3" controlId="FormEmail">
-              <Form.Control type="email" placeholder="Your Email" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Form.Group className="mb-3" controlId="FormSubject">
-            <Form.Control type="text" placeholder="Your Subject" />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group className="mb-3" controlId="FormSubject">
-            <Form.Control
-              className="Form-Message"
-              type="text"
-              placeholder="Your Message"
-            />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Button
-            onClick={() => {
-              this.sendEmail();
-            }}
-            size="lg"
-            className="Connect-Button"
-          >
-            Send
-          </Button>
-        </Row>
+        <ConnectForm/>
       </div>
     );
   }
