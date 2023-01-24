@@ -44,6 +44,12 @@
   font-family: "Raleway", sans-serif;
   text-align: center;
   padding: 3%;
+  color: white;
+}
+
+.Contact-HR{
+  color: white;
+  margin:1em
 }
 
 .Social-Info {
@@ -54,6 +60,7 @@
 .Contact {
   font-family: "Raleway", sans-serif;
   height: 100%;
+  padding-bottom: 25vh;
 }
 
 .Social-Header {
@@ -103,12 +110,12 @@
   border-radius: 10px;
   height: 50px;
   font-size: 25px;
+  color: white;
 }
 
 .Contact-Response{
   text-align: center;
   font-size: x-large;
-
 }
 
 .Contact-Thank-You{

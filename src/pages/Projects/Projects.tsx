@@ -17,7 +17,7 @@ export class Projects extends Component<{}> {
         <div className="Project-Intro">
           I have spent a lot of time on different projects. I love doing
           everything from scratch. Although I have done many small projects that
-          are not inclueded here.
+          are not included here.
         </div>
       </div>
     );
@@ -32,7 +32,7 @@ export class Projects extends Component<{}> {
             <div className="Project-Date"> {project.date}</div>
             {this.projectImages(project)}
             <div className="Project-Description">
-              <p className="">{project.description}</p>
+              <p >{project.description}</p>
               <div className="Project-Meta-Stack ">
                 {project.stack.map((stackName, index) => (
                   <p key={index}>{stackName}</p>

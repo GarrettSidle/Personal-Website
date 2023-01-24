@@ -40,16 +40,6 @@ export class Contact extends Component<{}, ContactState> {
     );
   }
 
-  private sendEmail() {
-    // Encode the message to make sure it can be sent in the URL
-    const encodedMessage = encodeURIComponent(this.state.Message);
-
-    // Compose the mailto link
-    const mailtoLink = `mailto:garrett.sidle.rec@gmail.com?subject=${this.state.Subject}Email&body=${encodedMessage}`;
-
-    // Open the mailto link
-    window.location.href = mailtoLink;
-  }
 
   private printForm() {
     return (
@@ -87,7 +77,7 @@ export class Contact extends Component<{}, ContactState> {
         </div>
         <div className="Contact-Sheet">
           <div className="Contact-Title">CONNECT</div>
-          <hr />
+          <hr  className="Contact-HR"/>
           {this.printForm()}
         </div>
       </div>

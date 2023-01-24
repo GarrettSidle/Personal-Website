@@ -22,11 +22,11 @@ export class Education extends Component<{}> {
             <img src={imgPath} />
           </div>
           <div className="Card-Header">{header}</div>
-          <hr />
+          <hr className="Edu-HR"/>
           <div className="Card-SubHeader">{subHeader}</div>
 
           <div className="Card-Dates">{dates}</div>
-          <hr />
+          <hr className="Edu-HR" />
           <div className="Card-Desc">{description}</div>
         </a>
       </div>

@@ -1,15 +1,21 @@
  .Navigation {
   background-color: #f05c0c;
   font-family: "Raleway", sans-serif;
+  
 }
 
 .Nav-Brand {
   font-size: 3.5vh !important;
   font-weight: bold !important;
+  color: #ffffff !important;
 }
 
 .Nav-Brand:hover {
   color: gray !important;
   transition: 1000ms;
+}
+
+.Nav-Links{
+  color: #ffffff !important;
 }
 
