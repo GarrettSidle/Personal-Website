@@ -7,11 +7,8 @@ import { createBrowserHistory } from "history";
 import { Navigation } from "./components/Navigation/Navigation";
 import "./App.css";
 import { Route, Routes, Outlet } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Education from "./pages/Education/Education";
 import Projects from "./pages/Projects/Projects";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
+import Layout from "./pages/Home/Layout";
 
 export const history = createBrowserHistory();
 
@@ -20,13 +17,10 @@ export class App extends PureComponent<{}> {
     return (
       <div className="App">
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="Education" element={<Education />} />
+          <Route path="/" element={<NavLayout />}>
+            <Route index element={<Layout />} />
+            <Route path="home" element={<Layout />} />
             <Route path="Projects" element={<Projects />} />
-            <Route path="About" element={<About />} />
-            <Route path="Contact" element={<Contact />} />
           </Route>
         </Routes>
       </div>
@@ -34,7 +28,7 @@ export class App extends PureComponent<{}> {
   }
 }
 
-function Layout() {
+function NavLayout() {
   return (
     <div>
       <Navigation />
