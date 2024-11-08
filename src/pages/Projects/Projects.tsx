@@ -8,48 +8,7 @@ import "./Projects.css";
 import { Col, Row } from "react-bootstrap";
 
 export class Projects extends Component<{}> {
-  private projectHeader() {
-    return (
-      <div className="Portfolio-Text">
-        <h2>
-          My <strong className="Orange">Portfolio</strong>
-        </h2>
-        <div className="Project-Intro">
-          I have spent a lot of time on different projects. I love doing
-          everything from scratch. Although I have done many small projects that
-          are not included here.
-        </div>
-      </div>
-    );
-  }
 
-  private projects() {
-    return (
-      <div className="Pojects">
-        {ProjectsData.map((project) => (
-          <div key={project.id} className="Project">
-            <div className="Project-Title"> {project.name}</div>
-            <div className="Project-Date"> {project.date}</div>
-            {this.projectImages(project)}
-            <div className="Project-Description">
-              <p >{project.description}</p>
-              <div className="Project-Meta-Stack ">
-                {project.stack.map((stackName, index) => (
-                  <p key={index}>{stackName}</p>
-                ))}
-              </div>
-              <div>
-                <div className="Project-Links">
-                  {project.source !== "" ? this.github(project.source) : ""}
-                  {project.demo !== "" ? this.demo(project.demo) : ""}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
 
   private github(source: string) {
     return (
@@ -85,44 +44,69 @@ export class Projects extends Component<{}> {
     );
   }
 
-  private projectImages(project: any) {
-    if (project.secondayImgPath === "") {
-      return (
+  private projectCard(project: any) {
+    return (
+      <div className="Project-Card" key={project.id}>
+        <div className="Project-Title"> {project.name}</div>
+        <div className="Project-Date"> {project.date}</div>
         <img
           src={project.imgPath}
           alt={project.name}
-          className={"Project-Image-Single"}
+          className={"Project-Image"}
         />
-      );
-    } else {
-      return (
-        <Row>
-          <Col>
-            <img
-              src={project.imgPath}
-              alt={project.name}
-              className="Project-Image-Double Right"
-            />
-          </Col>
-          <Col>
-            <img
-              src={project.secondayImgPath}
-              alt={project.name}
-              className="Project-Image-Double " 
-            />
-          </Col>
-        </Row>
-      );
-    }
+        <div className="Project-Links">
+          {project.source !== "" ? this.github(project.source) : ""}
+          {project.demo !== "" ? this.demo(project.demo) : ""}
+        </div>
+      </div>
+    )
   }
 
   public render() {
     return (
-      <div className="Portfolio Page">
-        {this.projectHeader()}
-        {this.projects()}
+
+      <div className="Port-Shell Page">
+        <div className="Portfolio">
+          <div className="Projects">
+            {ProjectsData.map((project) => (
+              this.projectCard(project)
+            ))
+            }
+
+          </div>
+        </div>
       </div>
     );
   }
 }
 export default Projects;
+
+
+/*
+
+      <div className="Portfolio Page">
+        <div className="Pojects">
+          {ProjectsData.map((project) => (
+            <div key={project.id} className="Project">
+              <div className="Project-Title"> {project.name}</div>
+              <div className="Project-Date"> {project.date}</div>
+              {this.projectImages(project)}
+              <div className="Project-Description">
+                <p >{project.description}</p>
+                <div className="Project-Meta-Stack ">
+                  {project.stack.map((stackName, index) => (
+                    <p key={index}>{stackName}</p>
+                  ))}
+                </div>
+                <div>
+                  <div className="Project-Links">
+                    {project.source !== "" ? this.github(project.source) : ""}
+                    {project.demo !== "" ? this.demo(project.demo) : ""}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+*/

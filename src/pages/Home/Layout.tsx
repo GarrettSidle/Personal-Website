@@ -13,10 +13,7 @@ export class Layout extends Component<{}> {
   public render() {
     return (
       <div>
-        <Home/>
-        <Education/>
         <Projects/>
-        <About/>
       </div>
     );
   }
