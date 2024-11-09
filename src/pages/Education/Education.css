@@ -3,10 +3,7 @@
   flex-direction: row; 
 }
 .Card {
-  margin-top: 2.5vh;
-  margin-bottom: 2vh;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  margin: 1vw .75vw .75vw .75vw;
   padding: 2em;
   border: 1px solid gray;
   text-align: center;
@@ -47,28 +44,54 @@
 
 .Card-Header {
   color: white;
-  font-size: 30px;
+  font-size: 1.3vw;
   margin: 1vw;
   font-weight: bold;
   
 }
 
 .Card-SubHeader {
-  font-size: 25px;
+  font-size: 1.1vw;
   color: white;
 }
 .Card-Dates {
-  font-size: 15pxvw;
+  font-size: .65vw;
   color: white;
   text-decoration: none;
 }
-.Card-Desc{
-    font-size: 20px;
+
+.Miami{
+  background-image: url(/src/assets/background_texture.png); ;
+}
+
+.Northwest{
+  background-color: #1d3532;
 }
 
 
-@media (max-width: 550px) {
-    .Card-Logo {
-      visibility: hidden;
+.Card-Logo{
+  width: 80%;
+  padding: 2vw;
+}
+
+
+
+  @media (max-width: 750px) {
+
+    .Education {
+      width: 95%;
+  
     }
-  }
+
+    .Card-Header {
+      font-size: 2.4vw;
+    }
+    
+    .Card-SubHeader {
+      font-size: 1.8vw;
+    }
+    .Card-Dates {
+      font-size: 1.7vw;
+    }
+  
+  } 

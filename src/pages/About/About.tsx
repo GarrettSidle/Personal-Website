@@ -75,8 +75,6 @@ export class About extends Component<{}> {
           <Container>
             <Row>
               <Col className="Email-Header">Garrett.Sidle.Rec@Gmail.com</Col>
-
-              <Col className="Phone-Header">(419)-956-7970</Col>
             </Row>
             <hr />
             <Row className="About-Me">

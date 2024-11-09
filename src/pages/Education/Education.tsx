@@ -10,15 +10,15 @@ export class Education extends Component<{}> {
     header: string,
     subHeader: string,
     dates: string,
-    BGcolor: string,
     link: string,
-    imgPath: string
+    imgPath: string,
+    className:string
   ) {
     return (
-      <div className={`Card ${imgPath}`}>
+      <div className={`Card ${className}`}>
         <a href={link} target="_blank" style={{ textDecoration: "none" }}>
-          <div className="Card-Logo">
-            <img src={`${imgPath}.png`} />
+          <div >
+            <img className="Card-Logo" src={`${imgPath}`} />
           </div>
           <div className="Card-Header">{header}</div>
           <hr className="Edu-HR"/>
@@ -35,31 +35,31 @@ export class Education extends Component<{}> {
       <div className="Edu-Shell Page">
         <div className="Education">
           {this.card(
-              "Bachelor's: Electrical and Computer Engineering Technology ",
+              "Bachelor's: Electrical and Computer Engineering",
               "Miami University of Ohio",
               "Aug 2023 – May 2025",
-              "#c41230",
-              "https://miamioh.edu/regionals/academics/departments/ent/admission/transfer-and-articulations/ecet/northwest-state-sem/index.html",
+              "https://programs.miamioh.edu/programs/electrical-computer-engineering-technology-bs/",
+              "Miami.png",
               "Miami"
             )}
         <div className="Cards">
           <div className="col">
             {this.card(
-              "Associate's: Electro-Mechanical Engineering Technology",
+              "Associate's: Electro-Mechanical Engineering",
               "Northwest State Community College",
               "Aug 2021 – Nov 2023",
-              "#008030",
-              "https://northweststate.edu/wp-content/uploads/files/20.02ElectroMechancial.pdf",
+              "https://northweststate.edu/electro-mechanical-engineering-technology",
+              "Northwest.svg",
               "Northwest"
             )}
           </div>
           <div className="col">
             {this.card(
-            "Associate's: Computer Science Engineering Technology",
+            "Associate's: Computer Science Engineering",
               "Northwest State Community College",
               "Aug 2021 – May 2023",
-              "#008030",
-              "https://northweststate.edu/wp-content/uploads/files/20.6-Computer-Science-Eng-Tech.pdf",
+              "https://northweststate.edu/computer-science-engineering-technology",
+              "Northwest.svg",
               "Northwest"
             )}
           </div>
