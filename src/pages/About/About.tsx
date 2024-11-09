@@ -70,7 +70,7 @@ export class About extends Component<{}> {
 
   public render() {
     return (
-      <div className="About Page">
+      <div className="About Page" id='About'>
         <Container fluid className="About-Section">
           <Container>
             <Row className="About-Me">

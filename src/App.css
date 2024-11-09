@@ -6,3 +6,8 @@
 .App{
   background-color: #ecedf1;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Adjust to match the height of your sticky header */
+}

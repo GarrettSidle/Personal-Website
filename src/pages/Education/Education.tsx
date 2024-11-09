@@ -33,7 +33,7 @@ export class Education extends Component<{}> {
 
   public render() {
     return (
-      <div className="Edu-Shell Page">
+      <div className="Edu-Shell Page" id='Education'>
         <Header>My Education</Header>
         <div className="Education">
           {this.card(

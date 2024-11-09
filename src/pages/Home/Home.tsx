@@ -10,7 +10,7 @@ export class Home extends Component<{}> {
 
   public render() {
     return (
-      <div className="Home Page">
+      <div className="Home Page" id='Home'>
         <div className="Introduction">
           <div className="Name">GARRETT SIDLE</div>
           <div className="JobTitle">SOFTWARE ENGINEER</div>
