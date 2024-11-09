@@ -29,10 +29,9 @@
 
 
 .Projects {
-
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5vw; /* Space between cards */
+  gap: 1.5vw; 
   justify-content: center;
   padding: 1%;
 }

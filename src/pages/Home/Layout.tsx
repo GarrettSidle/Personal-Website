@@ -17,7 +17,6 @@ export class Layout extends Component<{}> {
         <Home/>
         <Education/>
         <Projects/>
-
         <Contact/>
       </div>
     );
