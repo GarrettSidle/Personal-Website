@@ -1,7 +1,7 @@
  .Navigation {
   background-color: #f05c0c;
   font-family: "Raleway", sans-serif;
-  
+  position: fixed;
 }
 
 .Nav-Brand {

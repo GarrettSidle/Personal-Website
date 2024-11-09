@@ -32,7 +32,7 @@
 
   display: flex;
   flex-wrap: wrap;
-  gap: 1vw; /* Space between cards */
+  gap: 1.5vw; /* Space between cards */
   justify-content: center;
   padding: 1%;
 }
@@ -72,6 +72,7 @@
 .Project-Title{
   font-size: 2em;
   color: #f05c0c;
+  font-weight: bold;
 }
 
 .Project-Date{
@@ -79,7 +80,7 @@
 }
 
 .Project-Card:hover{
-  transform: scale(1.05);
+  transform: scale(1.03);
   overflow: hidden;
   border: 4px solid #f05c0c;
   transition: 500ms;
@@ -94,7 +95,7 @@
 @media (max-width: 750px) {
   .Project-Card {
       flex: 1 1 100%; /* Make each card take full width on small screens */
-      max-width: 100%; /* Ensure max width matches the container width */
+      max-width: 90%; /* Ensure max width matches the container width */
       padding: 16px; /* Adjust padding to keep it smaller */
       font-size: 0.9em; /* Optional: Adjust font size for smaller screens */
   }

@@ -1,0 +1,9 @@
+.Header-Text{
+    padding-left: calc(25vw - 75px);
+    font-size: calc(2.2vw + 22px);
+    font-weight: bold
+}
+
+.Header{
+    color:#f05c0c;
+}

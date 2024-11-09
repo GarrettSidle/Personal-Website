@@ -6,6 +6,7 @@ import { MdLiveTv } from "react-icons/md";
 
 import "./Projects.css";
 import { Col, Row } from "react-bootstrap";
+import Header from "../../components/Header/Header";
 
 export class Projects extends Component<{}> {
 
@@ -66,6 +67,7 @@ export class Projects extends Component<{}> {
     return (
 
       <div className="Port-Shell Page">
+        <Header>Projects</Header>
         <div className="Portfolio">
           <div className="Projects">
             {ProjectsData.map((project) => (

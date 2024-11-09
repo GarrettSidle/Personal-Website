@@ -73,10 +73,6 @@ export class About extends Component<{}> {
       <div className="About Page">
         <Container fluid className="About-Section">
           <Container>
-            <Row>
-              <Col className="Email-Header">Garrett.Sidle.Rec@Gmail.com</Col>
-            </Row>
-            <hr />
             <Row className="About-Me">
               <Col md={7} className="About-Paragraph">
                 <h1

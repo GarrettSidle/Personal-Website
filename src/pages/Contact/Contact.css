@@ -33,11 +33,6 @@
   display: grid;
   grid-template-columns: 33% 34% 33%;
 }
-@media (max-width: 1400px) {
-  .Social-Links {
-    grid-template-columns: auto;
-  }
-}
 
 .Contact-Title {
   font-size: 40px;
@@ -60,7 +55,8 @@
 .Contact {
   font-family: "Raleway", sans-serif;
   height: 100%;
-  padding-bottom: 25vh;
+  padding-bottom: 25vw;
+  padding-top: 10%;
 }
 
 .Social-Header {
@@ -69,7 +65,7 @@
 
 .Social-Site {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1vw;
 }
 
 .Social-Image {
@@ -122,4 +118,18 @@
   text-align: center;
   font-size: x-large;
   color: #f05c0c;
+}
+
+@media (max-width: 1000px) {
+  .Social-Links {
+    grid-template-columns: auto;
+  }
+
+  .Social-Site {
+    font-size: 2vw;
+  }
+
+  .Contact-Form {
+    max-width: 95%;
+  }
 }

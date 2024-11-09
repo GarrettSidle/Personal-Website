@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import "./Education.css";
+import Header from "../../components/Header/Header";
 
 
 export class Education extends Component<{}> {
@@ -33,6 +34,7 @@ export class Education extends Component<{}> {
   public render() {
     return (
       <div className="Edu-Shell Page">
+        <Header>My Education</Header>
         <div className="Education">
           {this.card(
               "Bachelor's: Electrical and Computer Engineering",

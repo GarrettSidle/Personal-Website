@@ -1,10 +1,22 @@
 const ProjectsData = [
   {
+    id: "rc-car",
+    name: "Word Ladder Analysis",
+    stack: ["<Python />"],
+    source: "https://github.com/GarrettSidle/Word-Ladder",
+    date: "November 2024",
+    demo: "",
+    imgPath: "/Word-Ladder.png",
+    secondayImgPath: "",
+    description:
+      "This project involves the construction of a remote-controlled car using an Arduino microcontroller and DC motors. The car is controlled via a wireless communication module, allowing for remote operation. C++ programming language is used to write the code for the Arduino, which is responsible for controlling the motors and receiving commands from the remote controller. The car's speed and direction can be adjusted using the remote, and it also includes features such as obstacle detection and automatic braking. The project demonstrates the integration of hardware and software to create a functional and user-friendly device.",
+  },
+  {
     id: "hexagonal-chess-app",
     name: "Hexagonal Chess Application",
     stack: ["< C# />", "< Windows Forms />", "< UI/UX Design />"],
     source: "https://github.com/GarrettSidle/Hexagonal-Chess-Application",
-    date: "August 2023 - Present",
+    date: "August 2023 - October 2024",
     demo: "",
     imgPath: "/Hex-Home.png",
     secondayImgPath: "/Hex-Game.png",

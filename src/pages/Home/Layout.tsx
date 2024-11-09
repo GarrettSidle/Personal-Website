@@ -4,6 +4,7 @@ import Home from "./Home";
 import Projects from "../Projects/Projects";
 import About from "../About/About";
 import ConnectForm from "../Contact/form";
+import Contact from "../Contact/Contact";
 
 
 
@@ -16,7 +17,8 @@ export class Layout extends Component<{}> {
         <Home/>
         <Education/>
         <Projects/>
-        <About/>
+
+        <Contact/>
       </div>
     );
   }

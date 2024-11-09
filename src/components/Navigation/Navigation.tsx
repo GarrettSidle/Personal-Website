@@ -17,7 +17,7 @@ export class Navigation extends Component<{}, NavigationState> {
   public render() {
     return (
       <div>
-        <Navbar expand="lg" className="Navigation" color="#f05c0c">
+        <Navbar expand="lg" className="Navigation fixed-top" >
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse>
             <Container fluid>

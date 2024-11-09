@@ -31,14 +31,13 @@
 }
 
 .Education {
-  height: 100%;
   width: 80%;
   max-width: 1100px; 
   margin: 0 auto;  
+  padding-bottom: 5%;
 }
 
 .Edu-Shell{
-  height: 100vh;
   background: linear-gradient(to bottom, #ecedf1, gray); 
 }
 
