@@ -11,35 +11,33 @@
 
 .Name {
   color: GRAY;
-  font-size: 85px;
+  font-size: calc(2.6vw + 30px);
   font-weight: bold;
 }
 
 .JobTitle {
   color: #f05c0c;
-  font-size: 40px;
-  padding-top: 0.5em;
+  font-size: calc(1.5vw + 20px);
   font-weight: bold;
 }
 
 .About {
-  padding-top: 0.5em;
+  padding-top: 1em;
   color: gray;
   font-size: 20px;
+  font-size: calc(.4vw + 11px);
   justify-content: center;
   display: flex;
 }
 .About p {
-    max-width: 750px;
-}
-
-.Introduction div {
-  text-align: center;
+  max-width: calc(30vw + 100px);
 }
 
 .Introduction{
+  text-align: center;
   padding-top: 40vh;
 }
+
 
 .Home-Button{
   background-color: #f05c0c !important;

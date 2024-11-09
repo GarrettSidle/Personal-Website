@@ -14,6 +14,9 @@ export class Layout extends Component<{}> {
     return (
       <div>
         <Home/>
+        <Education/>
+        <Projects/>
+        <About/>
       </div>
     );
   }
