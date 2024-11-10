@@ -1,6 +1,4 @@
-import React from "react";
 import { Component } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { CgCPlusPlus } from "react-icons/cg";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { DiReact, DiPython, DiGit, DiCss3, DiJava } from "react-icons/di";
@@ -43,79 +41,67 @@ const toolStack = [
 export class About extends Component<{}> {
   private TechStack() {
     return (
-      <Row className="Tech-Stack">
+      <div className="Tech-Stack">
         {techStack.map((Tech) => (
-          <Col xs={4} md={2} className="Tech-Icons">
-              <Tech.Component />
-              <div className="Tech-Title">{Tech.Tooltip}</div>
-          </Col>
+          <div className="Tech-Icons">
+            <Tech.Component />
+            <div className="Tech-Title">{Tech.Tooltip}</div>
+          </div>
         ))}
-      </Row>
+      </div>
     );
   }
 
   private ToolStack() {
     return (
-      <Row className="Tech-Stack">
+      
+      <div className="Tech-Stack">
         {toolStack.map((Tool) => (
-          <Col xs={4} md={2} className="Tech-Icons">
-            <Tool.Component />
+          <div className="Tech-Icons">
+            <Tool.Component  />
             <div className="Tech-Title">{Tool.Tooltip}</div>
-            
-          </Col>
+          </div>
         ))}
-      </Row>
+      </div>
     );
   }
 
   public render() {
     return (
-      <div className="About Page" id='About'>
-        <Container fluid className="About-Section">
-          <Container>
-            <Row className="About-Me">
-              <Col md={7} className="About-Paragraph">
-                <h1
-                  className="Project-Heading"
-                  style={{ paddingBottom: "20px" }}
-                >
-                  More About <strong className="Orange">Me</strong>
-                </h1>
-                I am Garrett Sidle, currently pursuing a bachelor's degree in
-                Electrical and Computer Engineering Technology at Miami
-                University of Ohio. I have already received my associate's
-                degree in Computer Science, and I am also currently enrolled in
-                an Electro-Mechanical Engineering program. My experience
-                includes my software engineering internship at Automatic Feed
-                Company, where I developed and maintained a plant analysis
-                website and an internal company website. I also gained hands-on
-                experience in full-stack web development, C# programming, and
-                troubleshooting industrial systems. In my spare time, I like to
-                stay active by going to the gym, playing sports, and I also
-                spend time on my own learning new technologies and frameworks
-                that interest me.
-              </Col>
-              <Col md={5} className="About-Image">
-                <img
-                  src={headshot}
-                  alt="about"
-                  className="About-Headshot"
-                />
-              </Col>
-            </Row>
-            <h1 className="Project-Heading">
-              Professional <strong className="Orange">Skillset </strong>
-            </h1>
+        <div className="About-Section Page" id="About" >
 
-            {this.TechStack()}
 
-            <h1 className="Project-Heading">
-              <strong className="Orange">Tools</strong> I use
-            </h1>
-            {this.ToolStack()}
-          </Container>
-        </Container>
-      </div>
+          <div className="About-Me">
+            <div className="About-Paragraph">
+              <h1 className="About-Heading" >
+                More About <strong className="Orange">Me</strong>
+              </h1>
+              I'm a dedicated software engineer with hands-on experience from internships at Automatic
+              Feed Company, Leonardo DRS, and GEICO. My background is rooted in both low-level and backend
+              systems, where I’ve applied skills in C#, Python, C++, and MATLAB to build efficient, scalable
+              solutions. I thrive on tackling complex challenges and developing impactful applications that
+              bridge technology with practical solutions. I’m always looking to expand my knowledge and contribute
+              to innovative projects.
+            </div>
+            <img
+              src={headshot}
+              alt="about"
+              className="About-Headshot"
+            />
+          </div>
+
+
+          <h1 className="Stack-Heading">
+            Professional <strong className="Orange">Skillset </strong>
+          </h1>
+          {this.TechStack()}
+
+          <h1 className="Stack-Heading">
+            <strong className="Orange">Tools</strong> I use
+          </h1>
+          {this.ToolStack()}
+
+        </div>
     );
   }
 }

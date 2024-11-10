@@ -52,6 +52,8 @@ export class Contact extends Component<{}, ContactState> {
   public render() {
     return (
       <div className="Contact Page" id='Contact'>
+        <div className="Contact-Title">CONNECT</div>
+        <hr  className="Contact-HR"/>
         <div className="Social-Links">
           {this.printSocial(
             "github.svg",
@@ -76,8 +78,6 @@ export class Contact extends Component<{}, ContactState> {
           )}
         </div>
         <div className="Contact-Sheet">
-          <div className="Contact-Title">CONNECT</div>
-          <hr  className="Contact-HR"/>
           {this.printForm()}
         </div>
       </div>

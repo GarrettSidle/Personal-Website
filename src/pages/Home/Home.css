@@ -41,7 +41,9 @@
 
 
 .Home-Button{
-  background-color: #f05c0c !important;
-  border-color: #f05c0c !important;
-
+  background-color: #f05c0c;
+  border-color: #f05c0c;
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
 }

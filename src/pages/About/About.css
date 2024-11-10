@@ -1,14 +1,32 @@
+.About-Me {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5vw;
+  justify-content: center;
+  padding: 1%;
+}
+
+.About-Paragraph {
+  max-width: 35%;
+  font-size: calc(.6vw + 9px);
+}
+
+.About-Heading {
+  font-size: calc(2.5vw + 15px);
+}
+
+
 .About-Section {
-  position: relative;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  background-image: var(--section-background-color);
-  color: white;
+  color: white
+}
+
+.Tech-Title {
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 .Tech-Icons {
   font-size: 4.5em;
-  margin: 15px !important;
   padding: 10px;
   opacity: 0.93;
   border: 1.7px solid #f05c0c;
@@ -19,19 +37,17 @@
   box-shadow: 4px 5px 4px 3px #3d1600;
   overflow: hidden;
   transition: all 0.4s ease 0s;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
+  padding-top: 25px;
+  width: 10vw;
 }
 
-.Tech-Title{
-  font-size: 15px;
-  margin-top: 10px;
+.Tech-Icons svg {
+  width: 100px;
+  height: 100px;
 }
 
-@media (max-width: 767px) {
-  .Tech-Icons {
-    margin: 10px;
-  }
-}
+
 
 .Tech-Icons:hover {
   transform: scale(1.05);
@@ -40,11 +56,13 @@
 }
 
 
-.Project-Heading {
+.Stack-Heading {
   color: white;
   font-size: 2.3em;
   font-weight: 500;
   padding-top: 10px;
+  width: 60%;
+  margin: auto;
 }
 
 .Orange {
@@ -52,48 +70,44 @@
 }
 
 .About-Headshot {
-  border-radius: 50% !important;
+  border-radius: 50%;
+  max-width: 18vw;
+  max-height: 18vw;
 }
 
 .Tech-Stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5vw;
   justify-content: center;
-  padding-bottom: 50px;
+  padding: 1%;
+  width: 70%;
+  margin: auto;
 }
 
-.About-Me {
-  justify-content: center;
-  padding: 10px;
-}
 
-.About-Paragraph {
-  justify-content: center;
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
+@media (max-width: 750px) {
+  .Stack-Heading {
+    width: 95%;
+    text-align: center;
+  }
 
-.About-Image {
-  padding-top: 40px;
-  padding-bottom: 50px;
-}
-@media (max-width: 900px) {
-    .About-Image{
-        visibility: hidden;
-        padding-top: 0;
-        padding-bottom: 0px;
-    }
+  .Tech-Stack {
+    width: 90%;
   }
 
 
-.Email-Header {
-  text-align: left;
-  color: gray;
-  font-size: 13px;
 }
 
-.Phone-Header {
-  text-align: right;
-  color: gray;
-  font-size: 13px;
+@media (max-width: 1300px) {
+  .About-Headshot {
+    visibility: collapse;
+    width: 0;
+  }
+  .About-Heading {
+    text-align: center;
+  }
+  .About-Paragraph {
+    max-width: 80%;
+  }
 }
-
-

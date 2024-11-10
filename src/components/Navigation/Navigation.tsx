@@ -14,7 +14,7 @@ export class Navigation extends Component<{}> {
         <Navbar expand="lg" className="Navigation fixed-top" >
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse>
-              <Navbar.Brand className="Nav-Brand">Garrett Sidle</Navbar.Brand>
+              <Navbar.Brand className="Nav-Brand" href="#Home">Garrett Sidle</Navbar.Brand>
               <Nav className="Nav-Links">
                 <Nav.Item>
                   <Nav.Link className="Nav-Link" href="#Home">HOME</Nav.Link>

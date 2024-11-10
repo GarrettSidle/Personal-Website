@@ -25,14 +25,14 @@ export class Home extends Component<{}> {
             </p>
           </div>
           <div>
-            <Button
+            <button
               onClick={() => {
-                window.location.href = "/Education"
+                window.location.href = "#Education";
               }}
               className="Home-Button"
             >
               See More
-            </Button>
+            </button>
           </div>
         </div>
       </div>

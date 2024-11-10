@@ -34,8 +34,12 @@
   gap: 1.5vw; 
   justify-content: center;
   padding: 1%;
+  padding-bottom: 20%;
 }
 
+.About-Section{
+  padding-bottom: 10%;
+}
 
 .Project-Link:hover {
   transform: scale(1.02);
