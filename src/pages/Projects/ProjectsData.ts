@@ -1,6 +1,6 @@
 const ProjectsData = [
   {
-    id: "rc-car",
+    id: "word-ladder-analysis",
     name: "Word Ladder Analysis",
     stack: ["<Python />"],
     source: "https://github.com/GarrettSidle/Word-Ladder",

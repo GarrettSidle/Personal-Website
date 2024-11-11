@@ -47,7 +47,7 @@ export class Projects extends Component<{}> {
 
   private projectCard(project: any) {
     return (
-      <div className="Project-Card" key={project.id}>
+      <a className="Project-Card" href={`/Blog?id=${project.id}`} key={project.id}>
         <div className="Project-Title"> {project.name}</div>
         <div className="Project-Date"> {project.date}</div>
         <img
@@ -59,7 +59,7 @@ export class Projects extends Component<{}> {
           {project.source !== "" ? this.github(project.source) : ""}
           {project.demo !== "" ? this.demo(project.demo) : ""}
         </div>
-      </div>
+      </a>
     )
   }
 
@@ -83,32 +83,3 @@ export class Projects extends Component<{}> {
 }
 export default Projects;
 
-
-/*
-
-      <div className="Portfolio Page">
-        <div className="Pojects">
-          {ProjectsData.map((project) => (
-            <div key={project.id} className="Project">
-              <div className="Project-Title"> {project.name}</div>
-              <div className="Project-Date"> {project.date}</div>
-              {this.projectImages(project)}
-              <div className="Project-Description">
-                <p >{project.description}</p>
-                <div className="Project-Meta-Stack ">
-                  {project.stack.map((stackName, index) => (
-                    <p key={index}>{stackName}</p>
-                  ))}
-                </div>
-                <div>
-                  <div className="Project-Links">
-                    {project.source !== "" ? this.github(project.source) : ""}
-                    {project.demo !== "" ? this.demo(project.demo) : ""}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-*/

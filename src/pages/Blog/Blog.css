@@ -1,0 +1,156 @@
+.Blog{
+    margin-top: 70px;
+    background-color: black;
+    color : #ddd;;
+    padding-top: 1vh;
+    height:fit-content;
+    min-height: calc(100vh - 55px);
+}
+
+.Blog-Post{
+    width: 45%;
+    margin: auto;
+}
+
+
+.Blog-Post h1{
+    text-align: center;
+    font-size: calc(1.6vw + 15px);; 
+    margin: 2%;
+    padding: 1%;
+    color: #ddd;
+    border-radius: 15px;
+}
+
+.Blog-Post h1:hover {
+    transform: scale(1.05);
+    overflow: hidden;
+    border: 4px solid #f05c0c;
+    transition: 500ms;
+  }
+
+.Blog-Post h2{
+    font-size: calc(1.3vw + 15px); 
+    padding: 2%;
+    color: #f05c0c;
+    font-weight: bold;
+}
+
+.Blog-Post h3{
+    padding: 1.5%;
+    font-size: calc(1.1vw + 12px);
+    text-wrap: nowrap;
+}
+
+.Blog-Post h4{
+    padding: 1%;
+    font-size: calc(.9vw + 11px);
+    font-size: 23px;
+    text-align: center;
+    text-wrap: nowrap;
+    color:#f05c0c
+}
+
+.Blog-Post p{
+    padding: .5%;
+    font-size: calc(.4vw + 9px);
+    text-indent: 2em;
+    margin-bottom: 0;
+}
+
+.Blog-Post img{
+    width: 70%;
+    text-align: center;
+}
+
+.Blog-Post .Listed{
+    text-indent: 6rem;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+.Blog-Post table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom:5% ;
+
+}
+.Blog-Post th, td {
+    padding: 2.5%;
+    border: 1px solid #ddd;
+}
+.Blog-Post td {
+    padding: 2.5%;
+    border: 1px solid #ddd;
+}
+
+.Image-Container{
+    text-align: center;
+    margin-top: 1%;
+    padding-bottom: 2%;
+}
+
+.Images-Container{
+    text-align: center;
+    margin-top: 1%;
+    display: flex;
+    gap: 3%;
+}
+.Images-Container img{
+    width: 31%;
+}
+
+.Images-Title{
+    width: 30%;
+    text-align: center;
+    padding-top: 2%;
+    color:#f05c0c;
+    font-weight: bold;
+}
+
+.Blog a {
+    text-decoration: none;
+}
+
+.Blog strong{
+    color:#f05c0c
+}
+
+
+
+@media (max-width: 1500px) {
+    .Blog-Post{
+        width: 60%;
+    }
+}
+@media (max-width: 1200px) {
+    .Blog-Post{
+        width: 80%;
+    }
+}
+@media (max-width: 1050px) {
+    .Blog{
+        margin-top: 55px;
+    }
+    .Blog-Post{
+        width: 90%;
+    }
+    .Blog-Post h3{
+        text-wrap: wrap;
+    }
+    .Blog-Post h4{
+        text-wrap: wrap;
+    }
+    
+}
+@media (max-width: 991px) {
+    .Blog-Post{
+        width: 95%;
+    }
+}
+
