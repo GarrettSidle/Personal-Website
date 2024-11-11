@@ -1,41 +1,48 @@
 import { Component } from "react";
 import { CgCPlusPlus } from "react-icons/cg";
-import { AiOutlineConsoleSql } from "react-icons/ai";
-import { DiReact, DiPython, DiGit, DiCss3, DiJava } from "react-icons/di";
+import { AiOutlineConsoleSql,AiOutlineCode } from "react-icons/ai";
+import { DiReact, DiPython, DiGit, DiJava } from "react-icons/di";
 import {
   SiLinux,
-  SiVisualstudiocode,
-  SiVisualstudio,
-  SiPostman,
-  SiHtml5,
   SiJavascript,
   SiTypescript,
   SiCsharp,
+  SiTensorflow,
+  SiTestcafe
 } from "react-icons/si";
+import { FaAws,FaNodeJs } from "react-icons/fa";
+import { GrVmware,GrGraphQl } from "react-icons/gr";
+import { IoLogoTableau } from "react-icons/io5";
+import { MdOutlineCopyright } from "react-icons/md";
+
 
 import "./About.css";
 
 const headshot = require("../../assets/headshot.jpg")
 
 const techStack = [
+  { Component: SiCsharp, Tooltip: "C#" },
   { Component: SiTypescript, Tooltip: "TypeScript" },
-  { Component: SiJavascript, Tooltip: "JavaScript" },
   { Component: DiReact, Tooltip: "React" },
   { Component: DiPython, Tooltip: "Python" },
-  { Component: SiCsharp, Tooltip: "C#" },
-  { Component: SiHtml5, Tooltip: "HTML" },
-  { Component: DiCss3, Tooltip: "CSS" },
-  { Component: AiOutlineConsoleSql, Tooltip: "MSSQL (Microsoft SQL)" },
+  { Component: AiOutlineConsoleSql, Tooltip: "SQL" },
+  { Component: AiOutlineCode, Tooltip: "MATLAB" },
   { Component: CgCPlusPlus, Tooltip: "C++" },
   { Component: DiJava, Tooltip: "Java" },
+  { Component: FaNodeJs, Tooltip: "Node.js" },
+  { Component: GrGraphQl, Tooltip: "GraphQL" },
+  { Component:  MdOutlineCopyright, Tooltip: "C" },
+  { Component: SiTensorflow, Tooltip: "Tensorflow" },
 ];
 
 const toolStack = [
   { Component: DiGit, Tooltip: "Git" },
-  { Component: SiVisualstudiocode, Tooltip: "Visual Studio Code" },
-  { Component: SiPostman, Tooltip: "Postman" },
   { Component: SiLinux, Tooltip: "Linux" },
-  { Component: SiVisualstudio, Tooltip: "Visual Studio" },
+  { Component: GrVmware, Tooltip: "VMWare" },
+  { Component: FaAws, Tooltip: "AWS" },
+  { Component: IoLogoTableau, Tooltip: "Tableau" },
+  { Component: SiTestcafe, Tooltip: "TestCafe" },
+
 ];
 
 export class About extends Component<{}> {

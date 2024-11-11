@@ -47,7 +47,7 @@ export class Blog extends Component<{}> {
     private wordLadder() {
         return (
             <div className="Blog-Post Page">
-                <a href="https://github.com/GarrettSidle/Word-Ladder">
+                <a href="https://github.com/GarrettSidle/Word-Ladder" target="blank">
                     <h1>Analyzing Connections in a <strong className="Orange">Word Ladder</strong> Network Graph</h1>
                 </a>
                 <div className="Image-Container">
@@ -200,7 +200,7 @@ export class Blog extends Component<{}> {
     private hexChess() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/Hexagonal-Chess-Application">
+                <a href="https://github.com/GarrettSidle/Hexagonal-Chess-Application" target="blank">
                     <h1>Hexagonal <strong className="Orange">Chess</strong> Program in C#</h1>
                 </a>
                 <div className="Image-Container">
@@ -247,7 +247,7 @@ export class Blog extends Component<{}> {
     private personalWebsite() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/Personal-Website">
+                <a href="https://github.com/GarrettSidle/Personal-Website" target="blank">
                     <h1><strong className="Orange">Personal</strong> Website</h1>
                 </a>
                 <div className="Image-Container">
@@ -269,7 +269,7 @@ export class Blog extends Component<{}> {
     private rcCar() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/RC-Car">
+                <a href="https://github.com/GarrettSidle/RC-Car" target="blank">
                 <h1><strong>C++</strong> Remote Control Car</h1>
                 </a>
                 <div className="Image-Container">
