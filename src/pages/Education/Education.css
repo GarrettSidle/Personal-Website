@@ -1,3 +1,14 @@
+.Edu-Shell{
+  background: linear-gradient(to bottom, #ecedf1, gray); 
+}
+
+.Education {
+  width: 80%;
+  max-width: 1100px; 
+  margin: 0 auto;  
+  padding-bottom: 5%;
+}
+
 .Cards {
   display: flex;
   flex-direction: row; 
@@ -14,9 +25,6 @@
   border-radius: 15px
 }
 
-.Edu-HR{
-  color: white;
-}
 
 .Card:hover {
   transform: scale(1.05);
@@ -25,20 +33,9 @@
   transition: 500ms;
 }
 
-.Card-Desc {
-  text-align: left;
-  color: white;
-}
-
-.Education {
+.Card-Logo{
   width: 80%;
-  max-width: 1100px; 
-  margin: 0 auto;  
-  padding-bottom: 5%;
-}
-
-.Edu-Shell{
-  background: linear-gradient(to bottom, #ecedf1, gray); 
+  padding: 2vw;
 }
 
 .Card-Header {
@@ -46,13 +43,17 @@
   font-size: 1.3vw;
   margin: 1vw;
   font-weight: bold;
-  
 }
 
 .Card-SubHeader {
   font-size: 1.1vw;
   color: white;
 }
+
+.Edu-HR{
+  color: white;
+}
+
 .Card-Dates {
   font-size: .65vw;
   color: white;
@@ -66,14 +67,6 @@
 .Northwest{
   background-color: #1d3532;
 }
-
-
-.Card-Logo{
-  width: 80%;
-  padding: 2vw;
-}
-
-
 
   @media (max-width: 750px) {
 

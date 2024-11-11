@@ -84,11 +84,7 @@
   width: 100%;
   padding-left: 2%;
   color: white;
-}
-
-.Contact-Message-Row{
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 1%;
 }
 
 .Contact-Email {
@@ -100,6 +96,7 @@
   width: 100%;
   padding-left: 2%;
   color: white;
+  margin-bottom: 1%;
 }
 
 .Contact-Button {

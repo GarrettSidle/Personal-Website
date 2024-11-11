@@ -19,7 +19,7 @@
   padding-top: 5px;
 }
 
-.Nav-Link {
+.Nav-Links a {
   flex: 1;
   padding: 2%;
   text-decoration: none;
@@ -107,7 +107,7 @@
     flex-direction: column;
   }
 
-  .Enabled .Nav-Link {
+  .Enabled .Nav-Links a {
     padding-top: 10%;
   }
 

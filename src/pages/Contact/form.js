@@ -24,7 +24,7 @@ function ContactForm() {
           />
           <ValidationError prefix="Email" field="email" errors={state.errors} />
         </div>
-        <div className="Contact-Message-Row">
+        <div >
           <textarea
             className="Contact-Message"
             id="message"
