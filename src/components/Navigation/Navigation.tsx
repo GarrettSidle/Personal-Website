@@ -21,7 +21,7 @@ export class Navigation extends Component<{},{ navUnfolded: boolean }> {
   public render() {
     return (
       <div className={this.state.navUnfolded?"Enabled":""}>
-        <nav className={`Navigation fixed-top`}>
+        <nav className={`Navigation`}>
           <div className="Nav-Objects">
             <a href="/#Home" className="Nav-Brand">Garrett Sidle</a>
             <button className="Hamburger" onClick={()=>{this.toggleNav()}}>☰</button>

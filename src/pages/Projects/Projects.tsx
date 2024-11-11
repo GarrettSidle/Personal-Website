@@ -12,7 +12,7 @@ const ProjectsData = require('./ProjectsData.json');
 export class Projects extends Component<{}> {
   private github(source: string) {
     return (
-        <a href={source} target="_blank" rel="noreferrer">
+        <a href={source} target="blank" rel="noreferrer">
           <div className="Project-Link">
             <div>
               <FaGithub className="Link-Img" color="white" />
@@ -27,7 +27,7 @@ export class Projects extends Component<{}> {
 
   private demo(link: string) {
     return (
-        <a className="Project-Link-Shell" href={link} target="_blank" rel="noreferrer">
+        <a className="Project-Link-Shell" href={link} target="blank" rel="noreferrer">
           <div className="Project-Link">
               <MdLiveTv className="Link-Img" color="white" />
             <div>
