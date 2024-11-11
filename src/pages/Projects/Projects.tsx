@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { ProjectsData } from "./ProjectsData";
 import { FaGithub } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 
@@ -8,9 +7,10 @@ import "./Projects.css";
 import { Col, Row } from "react-bootstrap";
 import Header from "../../components/Header/Header";
 
+const ProjectsData = require('./ProjectsData.json');
+
+
 export class Projects extends Component<{}> {
-
-
   private github(source: string) {
     return (
       <Col>
@@ -70,7 +70,7 @@ export class Projects extends Component<{}> {
         <Header>Projects</Header>
         <div className="Portfolio">
           <div className="Projects">
-            {ProjectsData.map((project) => (
+            {ProjectsData.map((project: any) => (
               this.projectCard(project)
             ))
             }
