@@ -1,41 +1,59 @@
-import "./App.css";
-import { PureComponent } from "react";
-import React from "react";
-
-import { createBrowserHistory } from "history";
-
-import { Navigation } from "./components/Navigation/Navigation";
-import "./App.css";
-import { Route, Routes, Outlet } from "react-router-dom";
-import Projects from "./pages/Projects/Projects";
-import Layout from "./pages/Home/Layout";
+import { Component } from "react";
+import Navigation from "./components/Navigation/Navigation";
 import Blog from "./pages/Blog/Blog";
+import Layout from "./pages/Home/Layout";
+import "./App.css";
 
-export const history = createBrowserHistory();
 
-export class App extends PureComponent<{}> {
-  public render() {
+interface RouterState {
+  currentPath: string;
+}
+
+class App extends Component<{}, RouterState> {
+  constructor(props : any) {
+    super(props);
+    this.state = {
+      currentPath: window.location.pathname, // Get the current path
+    };
+  }
+
+  navigateTo = (path : any) => {
+    window.history.pushState({}, "", path); 
+    this.setState({ currentPath: path }); 
+  };
+
+  componentDidMount() {
+    window.onpopstate = () => {
+      this.setState({ currentPath: window.location.pathname });
+    };
+  }
+
+  componentWillUnmount() {
+    window.onpopstate = null;
+  }
+
+  render() {
+    let ComponentToRender;
+
+    switch (this.state.currentPath) {
+      case "/":
+        ComponentToRender = Layout;
+        break;
+      case "/Blog":
+        ComponentToRender = Blog;
+        break;
+      default:
+        ComponentToRender = () => <div>404 Not Found</div>;
+    }
+
     return (
       <div className="App">
-        <Routes>
-          <Route path="/" element={<NavLayout />}>
-            <Route index element={<Layout />} />
-            <Route path="home" element={<Layout />} />
-            <Route path="blog" element={<Blog />} />
-          </Route>
-        </Routes>
+        <Navigation/>
+        <ComponentToRender />
       </div>
     );
   }
 }
 
-function NavLayout() {
-  return (
-    <div>
-      <Navigation />
-      <Outlet />
-    </div>
-  );
-}
-
 export default App;
+

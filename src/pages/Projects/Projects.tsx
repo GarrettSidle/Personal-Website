@@ -27,7 +27,7 @@ export class Projects extends Component<{}> {
 
   private demo(link: string) {
     return (
-        <a className="Project-Link-Shell" href={link} target="blank" rel="noreferrer">
+        <a className="Project-Link-Shell" href={link} target="blank" rel="noreferrer" >
           <div className="Project-Link">
               <MdLiveTv className="Link-Img" color="white" />
             <div>

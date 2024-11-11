@@ -59,7 +59,7 @@ export class Navigation extends Component<{}, { navUnfolded: boolean }> {
             <button className="Hamburger" onClick={() => { this.toggleNav() }}>☰</button>
             <div className="Nav-Links">
               {NavLinks.map((NavLink) => (
-                <a target={NavLink.target} href={NavLink.link}>{NavLink.title}</a>
+                <a key={NavLink.title} target={NavLink.target} href={NavLink.link}>{NavLink.title.toLocaleUpperCase()}</a>
               ))}
             </div>
           </div>

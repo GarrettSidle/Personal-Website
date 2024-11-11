@@ -43,7 +43,7 @@ export class About extends Component<{}> {
     return (
       <div className="Tech-Stack">
         {techStack.map((Tech) => (
-          <div className="Tech-Icons">
+          <div className="Tech-Icons" key={Tech.Tooltip}>
             <Tech.Component />
             <div className="Tech-Title">{Tech.Tooltip}</div>
           </div>
@@ -57,7 +57,7 @@ export class About extends Component<{}> {
 
       <div className="Tech-Stack">
         {toolStack.map((Tool) => (
-          <div className="Tech-Icons">
+          <div className="Tech-Icons" key={Tool.Tooltip}>
             <Tool.Component />
             <div className="Tech-Title">{Tool.Tooltip}</div>
           </div>
