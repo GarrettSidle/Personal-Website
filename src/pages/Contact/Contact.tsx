@@ -3,9 +3,6 @@ import { Component } from "react";
 import "./Contact.css";
 import { useForm, ValidationError } from "@formspree/react";
 
-const LinkedIn = require("../../assets/LinkedIn.png")
-const GitHub = require("../../assets/GitHub.png")
-const Email = require("../../assets/Email.png")
 
 interface ContactState {
   Name: string;
@@ -109,21 +106,21 @@ export class Contact extends Component<{}, ContactState> {
         <hr className="Contact-HR" />
         <div className="Social-Links">
           {this.printSocial(
-            GitHub,
+            "/assets/GitHub.png",
             "LOOK AT MY",
             "GITHUB",
             "https://github.com/GarrettSidle",
             "Git-Hub"
           )}
           {this.printSocial(
-            LinkedIn,
+            "/assets/LinkedIn.png",
             "ADD ME ON",
             "LINKEDIN",
             "https://www.linkedin.com/in/garrettsidle/",
             "Linked-In"
           )}
           {this.printSocial(
-            Email,
+            "/assets/Email.png",
             "REACH ME AT ",
             "GARRETT.SIDLE.REC@GMAIL.COM",
             "mailto:garrett.sidle.rec@gmail.com",

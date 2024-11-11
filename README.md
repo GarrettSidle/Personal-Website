@@ -1,6 +1,6 @@
 # Personal Website
 
-![Home](src/assets/Projects/PersonalWebsite/Personal-Website.png)
+![Home](public/assets/Projects/PersonalWebsite/Personal-Website.png)
 
 ## How to run
 In order to run the project you simply need to install the required dependencies.
@@ -14,4 +14,4 @@ This is my personal website, which you're currently viewing. It was built using 
 
 ## Other Images
 Blog Page
-![Home](src/assets/Projects/PersonalWebsite/Blog.png)
+![Home](public/assets/Projects/PersonalWebsite/Blog.png)

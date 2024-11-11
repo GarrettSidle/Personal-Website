@@ -3,10 +3,6 @@ import { Component } from "react";
 import "./Education.css";
 import Header from "../../components/Header/Header";
 
-const Northwest = require("../../assets/Northwest.png")
-const Miami = require("../../assets/Miami.png")
-
-
 export class Education extends Component<{}> {
   private card(
     header: string,
@@ -42,7 +38,7 @@ export class Education extends Component<{}> {
               "Miami University of Ohio",
               "Aug 2023 – May 2025",
               "https://programs.miamioh.edu/programs/electrical-computer-engineering-technology-bs/",
-              Miami,
+              "/assets/Miami.png",
               "Miami"
             )}
         <div className="Cards">
@@ -52,7 +48,7 @@ export class Education extends Component<{}> {
               "Northwest State Community College",
               "Aug 2021 – Nov 2023",
               "https://northweststate.edu/electro-mechanical-engineering-technology",
-              Northwest,
+              "/assets/Northwest.png",
               "Northwest"
             )}
           </div>
@@ -62,7 +58,7 @@ export class Education extends Component<{}> {
               "Northwest State Community College",
               "Aug 2021 – May 2023",
               "https://northweststate.edu/computer-science-engineering-technology",
-              Northwest,
+              "/assets/Northwest.png",
               "Northwest"
             )}
           </div>

@@ -1,6 +1,6 @@
 .Home {
   background-color: white;
-  background-image: url(/src/assets/Home-Background.jpg);
+  background-image: url(/public/assets/Home-Background.jpg);
   font-family: "Raleway", sans-serif;
   background-size: cover;
   background-repeat: no-repeat;

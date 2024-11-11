@@ -6,20 +6,6 @@ import "./Blog.css";
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get('id');
 
-declare const require: {
-    context: (directory: string, useSubdirectories: boolean, regExp: RegExp) => {
-        keys: () => string[];
-        (path: string): string;
-    };
-};
-
-const images = require.context(`../../assets/Projects`, true, /\.(png|jpe?g|svg)$/);
-
-const imageMap = images.keys().reduce((acc: Record<string, string>, path: string) => {
-    const formattedKey = path.replace('./', '');
-    acc[formattedKey] = images(path) as string;
-    return acc;
-}, {} as Record<string, string>);
 
 export class Blog extends Component<{}> {
     public render() {
@@ -51,13 +37,13 @@ export class Blog extends Component<{}> {
                     <h1>Analyzing Connections in a <strong className="Orange">Word Ladder</strong> Network Graph</h1>
                 </a>
                 <div className="Image-Container">
-                    <img src={imageMap['WordLadder/5-Scrabble.png']} />
+                    <img src={'/assets/Projects/WordLadder/5-Scrabble.png'} />
                 </div>
                 <h2>Project Overview</h2>
                 <p>For anyone who's spent time on sites like <a href="https://www.sporcle.com/games/subcategory/wordladder">Sporcle</a>, you may have encountered word ladder quizzes. In these puzzles, you start with one word and transform it into another word by changing only one letter at a time, with each intermediate step also being a valid word.</p>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/SporcleWordLadder.png']}
+                        src={'/assets/Projects/WordLadder/SporcleWordLadder.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -89,7 +75,7 @@ export class Blog extends Component<{}> {
                 <p>The script exported the network data to Gephi for visualization. Below is an example of a 5-letter word network graph.</p>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/5-12Dict.png']}
+                        src={'/assets/Projects/WordLadder/5-12Dict.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -99,7 +85,7 @@ export class Blog extends Component<{}> {
                 <p><strong>3-letter diameter path:</strong> PLY, PAY, BAY, BAD, BID, AID, ADD, ADO, AGO, EGO, EMO, EMU</p>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/Diameter.png']}
+                        src={'/assets/Projects/WordLadder/Diameter.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -146,7 +132,7 @@ export class Blog extends Component<{}> {
                 <p>Using the Louvain method, I detected communities in the word network, revealing clusters of words with similar structures or sounds. Typically, words with shared consonant patterns or suffixes, like "-ing," formed distinct groups. For three-letter words, clustering often reflects the central vowel, as in groups formed by the middle letter.</p>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/3-12Dict2.png']}
+                        src={'/assets/Projects/WordLadder/3-12Dict2.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -156,28 +142,28 @@ export class Blog extends Component<{}> {
                 <h4>3 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/3-12Dict.png']}
+                        src={'/assets/Projects/WordLadder/3-12Dict.png'}
                         alt="Word-Ladder"
                     />
                 </div>
                 <h4>4 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/4-12Dict.png']}
+                        src={'/assets/Projects/WordLadder/4-12Dict.png'}
                         alt="Word-Ladder"
                     />
                 </div>
                 <h4>5 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/5-12Dict.png']}
+                        src={'/assets/Projects/WordLadder/5-12Dict.png'}
                         alt="Word-Ladder"
                     />
                 </div>
                 <h4>6 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/6-12Dict.png']}
+                        src={'/assets/Projects/WordLadder/6-12Dict.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -185,14 +171,14 @@ export class Blog extends Component<{}> {
                 <h4>5 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/5-Scrabble.png']}
+                        src={'/assets/Projects/WordLadder/5-Scrabble.png'}
                         alt="Word-Ladder"
                     />
                 </div>
                 <h4>6 Letter Words</h4>
                 <div className="Image-Container">
                     <img
-                        src={imageMap['WordLadder/6-Scrabble.png']}
+                        src={'/assets/Projects/WordLadder/6-Scrabble.png'}
                         alt="Word-Ladder"
                     />
                 </div>
@@ -208,7 +194,7 @@ export class Blog extends Component<{}> {
                     <h1>Hexagonal <strong className="Orange">Chess</strong> Program in C#</h1>
                 </a>
                 <div className="Image-Container">
-                    <img src={imageMap['HexagonalChess/Played Game.png']} />
+                    <img src={'/assets/Projects/HexagonalChess/Played Game.png'} />
                 </div>
                 <h2>Project Overview</h2>
                 <p>This WPF application offers a fresh take on classic chess, bringing hexagonal chess variants—such as Glinski, McCooey, and Hexofen—to a digital platform. Designed with both single and multiplayer modes, it allows users to experience the complexity and strategy of hexagonal chess in an engaging and user-friendly format.</p>
@@ -216,7 +202,7 @@ export class Blog extends Component<{}> {
                 <p>The application is built with C#, leveraging WPF for a clean and responsive interface. It features a custom <strong>Breadth-Depth Search</strong> system for move validation, dynamically calculating available moves in real-time and adapting to hexagonal board mechanics. The <strong>modular architecture</strong> facilitates easy addition of new game variants and components, while a lightweight chess evaluation system assesses board positions to guide strategic decision-making.</p>
                 <h2>Variants</h2>
                 <div className="Image-Container">
-                    <img src={imageMap['HexagonalChess/Settings.png']} />
+                    <img src={'/assets/Projects/HexagonalChess/Settings.png'} />
                 </div>
                 <p>Three unique hexagonal chess variants are implemented: <strong>Glinski</strong>, <strong>McCooey</strong>, and <strong>Hexofen</strong>. Each variant retains its distinct rules and board layouts. The chess engine accommodates each variant’s specific rules, seamlessly adapting move validation and board rendering to suit the selected game type.</p>
                 <div className="Images-Container">
@@ -225,20 +211,20 @@ export class Blog extends Component<{}> {
                     <div className="Images-Title">Hexofren</div>
                 </div>
                 <div className="Images-Container">
-                    <img src={imageMap['HexagonalChess/Glinski Board.png']} />
-                    <img src={imageMap['HexagonalChess/McCooey Board.png']} />
-                    <img src={imageMap['HexagonalChess/Hexofren Board.png']} />
+                    <img src={'/assets/Projects/HexagonalChess/Glinski Board.png'} />
+                    <img src={'/assets/Projects/HexagonalChess/McCooey Board.png'} />
+                    <img src={'/assets/Projects/HexagonalChess/Hexofren Board.png'} />
                 </div>
                 <h2>Online Play</h2>
                 <p>The application supports <strong>peer-to-peer</strong> multiplayer, allowing users to play against others with minimal setup. Using <strong>asynchronous communication</strong>, the game ensures smooth turns and state synchronization across devices. Advanced networking features, such as automatic reconnection enhance the multiplayer experience, making it intuitive and accessible.</p>
                 <h2>Other Images</h2>
                 <h4>Home Screen</h4>
                 <div className="Image-Container">
-                    <img src={imageMap['HexagonalChess/Home.png']} />
+                    <img src={'/assets/Projects/HexagonalChess/Home.png'} />
                 </div>
                 <h4>Result Screen</h4>
                 <div className="Image-Container">
-                    <img src={imageMap['HexagonalChess/Result Screen.png']} />
+                    <img src={'/assets/Projects/HexagonalChess/Result Screen.png'} />
                 </div>
 
 
@@ -255,7 +241,7 @@ export class Blog extends Component<{}> {
                     <h1><strong className="Orange">Personal</strong> Website</h1>
                 </a>
                 <div className="Image-Container">
-                    <img src={imageMap['PersonalWebsite/Personal-Website.png']} />
+                    <img src={'/assets/Projects/PersonalWebsite/Personal-Website.png'} />
                 </div>
                 <h2>Project Overview</h2>
 
@@ -263,7 +249,7 @@ export class Blog extends Component<{}> {
                 <h2>Other Images</h2>
                 <h4>Blog Page</h4>
                 <div className="Image-Container">
-                    <img src={imageMap['PersonalWebsite/Blog.png']} />
+                    <img src={'/assets/Projects/PersonalWebsite/Blog.png'} />
                 </div>
 
             </div>
@@ -277,13 +263,13 @@ export class Blog extends Component<{}> {
                     <h1><strong>C++</strong> Remote Control Car</h1>
                 </a>
                 <div className="Image-Container">
-                    <img src={imageMap['RC-Car/Car.png']} />
+                    <img src={'/assets/Projects/RC-Car/Car.png'} />
                 </div>
                 <h2>Project Overview</h2>
                 <p>This project involves the construction of a remote-controlled car using an <strong>Arduino microcontroller</strong> and DC motors. The car is controlled via a wireless communication module, allowing for remote operation. C++ programming language is used to write the code for the Arduino, which is responsible for controlling the motors and receiving commands from the remote controller. The car's speed and direction can be adjusted using the remote, and it also includes features such as <strong>obstacle detection</strong> and <strong>automatic braking</strong>. The project demonstrates the integration of hardware and software to create a functional and user-friendly device.</p>
                 <h2>Electrical Overview</h2>
                 <div className="Image-Container">
-                    <img src={imageMap['RC-Car/Electrical.png']} />
+                    <img src={'/assets/Projects/RC-Car/Electrical.png'} />
                 </div>
             </div>
         )

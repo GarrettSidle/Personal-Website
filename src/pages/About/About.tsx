@@ -11,8 +11,6 @@ import { MdOutlineCopyright } from "react-icons/md";
 
 import "./About.css";
 
-const headshot = require("../../assets/Headshot.jpg")
-
 const techStack = [
   { Component: SiCsharp, Tooltip: "C#" },
   { Component: SiTypescript, Tooltip: "TypeScript" },
@@ -84,7 +82,7 @@ export class About extends Component<{}> {
             to innovative projects.
           </div>
           <img
-            src={headshot}
+            src="/assets/Headshot.jpg"
             alt="about"
             className="About-Headshot"
           />
