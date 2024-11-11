@@ -106,34 +106,38 @@ export class Blog extends Component<{}> {
                 <h4>Word Length Vs Network Diameter Table</h4>
 
                 <table>
-                    <tr>
-                        <th>Word Length</th>
-                        <th>Network Diameter</th>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>11</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>16</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>29</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>13</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>43</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>10</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Word Length</th>
+                            <th>Network Diameter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>43</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <h3>Key Intermediate Words</h3>
@@ -270,7 +274,7 @@ export class Blog extends Component<{}> {
         return (
             <div className="Blog-Post">
                 <a href="https://github.com/GarrettSidle/RC-Car" target="blank">
-                <h1><strong>C++</strong> Remote Control Car</h1>
+                    <h1><strong>C++</strong> Remote Control Car</h1>
                 </a>
                 <div className="Image-Container">
                     <img src={imageMap['RC-Car/Car.png']} />
