@@ -1,7 +1,7 @@
 import { Component } from "react";
-import ConnectForm from "./form"
 
 import "./Contact.css";
+import { useForm, ValidationError } from "@formspree/react";
 
 const LinkedIn = require("../../assets/LinkedIn.png")
 const GitHub = require("../../assets/GitHub.png")
@@ -14,31 +14,82 @@ interface ContactState {
   Message: string;
 }
 
+
+function ContactForm() {
+  const [state, handleSubmit] = useForm("mlekdrjy");
+  if (state.succeeded) {
+    return (
+      <div>
+        <p className="Contact-Response">I WILL RESPOND AS SOON AS POSSIBLE</p>
+        <p className="Contact-Thank-You">THANK YOU!</p>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div className="test">
+          <input
+            className="Contact-Email"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Your Email"
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+        <div >
+          <textarea
+            className="Contact-Message"
+            id="message"
+            name="message"
+            placeholder="Your Message"
+          />
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="Contact-Button"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 export class Contact extends Component<{}, ContactState> {
   public state: Readonly<ContactState> = {
     Name: "",
     Email: "",
     Subject: "",
-    Message: "", 
+    Message: "",
   };
 
   private printSocial(
-    img : any,
+    img: any,
     header: string,
     site: string,
     url: string,
     className: string
   ) {
     return (
-        <a className={"Social-Card " + className} href={url} target="blank">
-          <div>
-            <img className="Social-Image" src={img} />
-            <div className="Social-Info">
-              <div className="Social-Header">{header}</div>
-              <div className="Social-Site">{site}</div>
-            </div>
+      <a className={"Social-Card " + className} href={url} target="blank">
+        <div>
+          <img className="Social-Image" src={img} />
+          <div className="Social-Info">
+            <div className="Social-Header">{header}</div>
+            <div className="Social-Site">{site}</div>
           </div>
-        </a>
+        </div>
+      </a>
     );
   }
 
@@ -46,7 +97,7 @@ export class Contact extends Component<{}, ContactState> {
   private printForm() {
     return (
       <div className="Contact-Form">
-        <ConnectForm/>
+        <ContactForm />
       </div>
     );
   }
@@ -55,7 +106,7 @@ export class Contact extends Component<{}, ContactState> {
     return (
       <div className="Contact Page" id='Contact'>
         <div className="Contact-Title">CONNECT</div>
-        <hr  className="Contact-HR"/>
+        <hr className="Contact-HR" />
         <div className="Social-Links">
           {this.printSocial(
             GitHub,
@@ -85,6 +136,8 @@ export class Contact extends Component<{}, ContactState> {
       </div>
     );
   }
+
+
 }
 
 export default Contact;
