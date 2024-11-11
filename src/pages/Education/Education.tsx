@@ -1,9 +1,10 @@
-import React from "react";
 import { Component } from "react";
-import { Col, Row } from "react-bootstrap";
 
 import "./Education.css";
 import Header from "../../components/Header/Header";
+
+const Northwest = require("../../assets/Northwest.png")
+const Miami = require("../../assets/Miami.png")
 
 
 export class Education extends Component<{}> {
@@ -12,14 +13,14 @@ export class Education extends Component<{}> {
     subHeader: string,
     dates: string,
     link: string,
-    imgPath: string,
+    img: any,
     className:string
   ) {
     return (
       <div className={`Card ${className}`}>
         <a href={link} target="_blank" style={{ textDecoration: "none" }}>
           <div >
-            <img className="Card-Logo" src={`${imgPath}`} />
+            <img className="Card-Logo" src={img} />
           </div>
           <div className="Card-Header">{header}</div>
           <hr className="Edu-HR"/>
@@ -41,7 +42,7 @@ export class Education extends Component<{}> {
               "Miami University of Ohio",
               "Aug 2023 – May 2025",
               "https://programs.miamioh.edu/programs/electrical-computer-engineering-technology-bs/",
-              "Miami.png",
+              Miami,
               "Miami"
             )}
         <div className="Cards">
@@ -51,7 +52,7 @@ export class Education extends Component<{}> {
               "Northwest State Community College",
               "Aug 2021 – Nov 2023",
               "https://northweststate.edu/electro-mechanical-engineering-technology",
-              "Northwest.svg",
+              Northwest,
               "Northwest"
             )}
           </div>
@@ -61,7 +62,7 @@ export class Education extends Component<{}> {
               "Northwest State Community College",
               "Aug 2021 – May 2023",
               "https://northweststate.edu/computer-science-engineering-technology",
-              "Northwest.svg",
+              Northwest,
               "Northwest"
             )}
           </div>

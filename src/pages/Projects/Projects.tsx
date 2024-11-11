@@ -51,7 +51,7 @@ export class Projects extends Component<{}> {
         <div className="Project-Title"> {project.name}</div>
         <div className="Project-Date"> {project.date}</div>
         <img
-          src={project.imgPath}
+          src={require(`../../assets/${project.imgPath}`)}
           alt={project.name}
           className={"Project-Image"}
         />

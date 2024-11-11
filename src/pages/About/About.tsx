@@ -18,7 +18,7 @@ import { MdOutlineCopyright } from "react-icons/md";
 
 import "./About.css";
 
-const headshot = require("../../assets/headshot.jpg")
+const headshot = require("../../assets/Headshot.jpg")
 
 const techStack = [
   { Component: SiCsharp, Tooltip: "C#" },
