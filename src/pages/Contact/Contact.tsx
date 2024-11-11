@@ -1,6 +1,4 @@
-import React from "react";
 import { Component } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
 import ConnectForm from "./form"
 
 import "./Contact.css";

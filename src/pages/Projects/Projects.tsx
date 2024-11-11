@@ -4,7 +4,6 @@ import { FaGithub } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 
 import "./Projects.css";
-import { Col, Row } from "react-bootstrap";
 import Header from "../../components/Header/Header";
 
 const ProjectsData = require('./ProjectsData.json');
@@ -13,35 +12,29 @@ const ProjectsData = require('./ProjectsData.json');
 export class Projects extends Component<{}> {
   private github(source: string) {
     return (
-      <Col>
         <a href={source} target="_blank" rel="noreferrer">
-          <Row className="Project-Link">
-            <Col>
+          <div className="Project-Link">
+            <div>
               <FaGithub className="Link-Img" color="white" />
-            </Col>
-            <Col>
+            </div>
+            <div>
               <div className="Link-Desc">Source</div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </a>
-      </Col>
     );
   }
 
   private demo(link: string) {
     return (
-      <Col>
-        <a href={link} target="_blank" rel="noreferrer">
-          <Row className="Project-Link">
-            <Col>
+        <a className="Project-Link-Shell" href={link} target="_blank" rel="noreferrer">
+          <div className="Project-Link">
               <MdLiveTv className="Link-Img" color="white" />
-            </Col>
-            <Col>
+            <div>
               <div className="Link-Desc">Demo</div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </a>
-      </Col>
     );
   }
 

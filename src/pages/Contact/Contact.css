@@ -4,8 +4,6 @@
   margin: auto;
 }
 
-
-
 .Social-Card {
   padding: 50px;
   text-decoration: none;
@@ -83,6 +81,9 @@
   padding-bottom: 10px;
   border-radius: 10px;
   height: 200px;
+  width: 100%;
+  padding-left: 2%;
+  color: white;
 }
 
 .Contact-Message-Row{
@@ -96,20 +97,25 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 10px;
+  width: 100%;
+  padding-left: 2%;
+  color: white;
 }
 
 .Contact-Button {
   background-color: #f05c0c;
-  border: #f05c0c 1px solid;
   border-radius: 10px;
   height: 50px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
+  width: 100%;
 }
 
 .Contact-Response{
   text-align: center;
   font-size: x-large;
+  color: white;
+  padding-top: 5%;
 }
 
 .Contact-Thank-You{
@@ -130,4 +136,5 @@
   .Contact-Form {
     max-width: 95%;
   }
+  
 }

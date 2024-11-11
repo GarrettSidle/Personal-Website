@@ -1,5 +1,4 @@
 import { useForm, ValidationError } from "@formspree/react";
-import { Button, Col, Form, Row } from "react-bootstrap";
 import "./Contact.css";
 
 function ContactForm() {
@@ -15,7 +14,7 @@ function ContactForm() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Row>
+        <div className="test">
           <input
             className="Contact-Email"
             id="email"
@@ -24,8 +23,8 @@ function ContactForm() {
             placeholder="Your Email"
           />
           <ValidationError prefix="Email" field="email" errors={state.errors} />
-        </Row>
-        <Row className="Contact-Message-Row">
+        </div>
+        <div className="Contact-Message-Row">
           <textarea
             className="Contact-Message"
             id="message"
@@ -37,8 +36,8 @@ function ContactForm() {
             field="message"
             errors={state.errors}
           />
-        </Row>
-        <Row>
+        </div>
+        <div>
           <button
             type="submit"
             disabled={state.submitting}
@@ -46,7 +45,7 @@ function ContactForm() {
           >
             Send
           </button>
-        </Row>
+        </div>
       </form>
     </div>
   );
