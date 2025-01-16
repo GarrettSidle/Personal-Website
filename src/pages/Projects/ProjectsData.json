@@ -5,15 +5,15 @@
     "source": "https://github.com/GarrettSidle/Mouseless",
     "date": "January 2025 - Present",
     "demo": "https://Mouseless.us",
-    "imgPath": "Projects/WordLadder/.png"
+    "imgPath": "Projects/"
   },
   {
     "id": "8-bit-cpu-core",
     "name": "8-Bit CPU Core",
-    "source": "",
+    "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
     "date": "November 2024 - January 2025",
     "demo": "",
-    "imgPath": "Projects/WordLadder/.png"
+    "imgPath": "Projects/8-Bit/Thumbnail.png"
   },
   {
     "id": "word-ladder-analysis",

@@ -5,6 +5,8 @@ import { WordLadder } from "./ProjectBlogs/WordLadder";
 import { HexChess } from "./ProjectBlogs/HexChess";
 import { PersonalWebsite } from "./ProjectBlogs/PersonalWebsite";
 import { RCCar } from "./ProjectBlogs/RC-Car";
+import { EightBit } from "./ProjectBlogs/8-Bit";
+import { Mouseless } from "./ProjectBlogs/Mouseless";
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -32,9 +34,11 @@ export class Blog extends Component<{}> {
             case "rc-car":
                 return <RCCar />;
             case "8-bit-cpu-core":
-                return ""
+                return <EightBit/>
             case "mouseless":
-                return ""
+                return <Mouseless/>
+            default:
+                return <h1>404 - Project Not Found</h1>;
         }
     }
 
