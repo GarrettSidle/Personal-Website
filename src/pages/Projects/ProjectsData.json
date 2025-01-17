@@ -1,16 +1,16 @@
 [
   {
-    "id": "mouseless",
-    "name": "Mouseless.us",
-    "source": "https://github.com/GarrettSidle/Mouseless",
-    "date": "January 2025 - Present",
-    "demo": "https://Mouseless.us",
-    "imgPath": "Projects/"
+    "id": "custom-assembly-compiler",
+    "name": "ROM Assembly Compiler",
+    "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
+    "date": "January 2025",
+    "demo": "",
+    "imgPath": "Projects/AssemblyCompiler/Overview.png"
   },
   {
     "id": "8-bit-cpu-core",
     "name": "8-Bit CPU Core",
-    "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
+    "source": "",
     "date": "November 2024 - January 2025",
     "demo": "",
     "imgPath": "Projects/8-Bit/Thumbnail.png"

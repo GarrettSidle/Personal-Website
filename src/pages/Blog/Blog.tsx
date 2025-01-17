@@ -7,6 +7,7 @@ import { PersonalWebsite } from "./ProjectBlogs/PersonalWebsite";
 import { RCCar } from "./ProjectBlogs/RC-Car";
 import { EightBit } from "./ProjectBlogs/8-Bit";
 import { Mouseless } from "./ProjectBlogs/Mouseless";
+import { AssemblyCompiler } from "./ProjectBlogs/AssemblyCompiler";
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -37,8 +38,10 @@ export class Blog extends Component<{}> {
                 return <EightBit/>
             case "mouseless":
                 return <Mouseless/>
+            case "custom-assembly-compiler":
+                return <AssemblyCompiler/>
             default:
-                return <h1>404 - Project Not Found</h1>;
+                return <h1 className="h404">404 - Project Not Found</h1>;
         }
     }
 
