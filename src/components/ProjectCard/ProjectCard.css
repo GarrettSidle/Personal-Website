@@ -14,7 +14,19 @@
     text-decoration: none;
 }
 
+.Project-Tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75vw;
+    justify-content: center;
+}
 
+.Project-Tag{
+    background-color: rgb(43, 43, 43);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .About-Section {
     padding-bottom: 10%;
@@ -32,6 +44,7 @@
     padding: 1em;
     border: #888888 1px solid;
     border-radius: 15px;
+    margin-top: .5em;
 }
 
 .Link-Img {

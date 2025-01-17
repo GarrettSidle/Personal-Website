@@ -5,6 +5,7 @@ import { MdLiveTv } from "react-icons/md";
 
 import "./Projects.css";
 import Header from "../../components/Header/Header";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 const ProjectsData = require('./ProjectsData.json');
 
@@ -38,23 +39,6 @@ export class Projects extends Component<{}> {
     );
   }
 
-  private projectCard(project: any) {
-    return (
-      <a className="Project-Card" href={`/Blog?id=${project.id}`} key={project.id}>
-        <div className="Project-Title"> {project.name}</div>
-        <div className="Project-Date"> {project.date}</div>
-        <img
-          src={(`/assets/${project.imgPath}`)}
-          alt={project.name}
-          className={"Project-Image"}
-        />
-        <div className="Project-Links">
-          {project.source !== "" ? this.github(project.source) : ""}
-          {project.demo !== "" ? this.demo(project.demo) : ""}
-        </div>
-      </a>
-    )
-  }
 
   public render() {
     return (
@@ -64,7 +48,7 @@ export class Projects extends Component<{}> {
         <div className="Portfolio">
           <div className="Projects">
             {ProjectsData.map((project: any) => (
-              this.projectCard(project)
+              ProjectCard.projectCard(project)
             ))
             }
 

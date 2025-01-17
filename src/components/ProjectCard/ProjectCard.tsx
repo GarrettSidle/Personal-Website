@@ -3,9 +3,10 @@ import { Component, ReactNode } from 'react';
 import "./ProjectCard.css";
 import { FaGithub } from 'react-icons/fa';
 import { MdLiveTv } from 'react-icons/md';
+import { Project } from '../../models/Project';
 
 export class ProjectCard extends Component {
-    public static projectCard(project: any) {
+    public static projectCard(project: Project) {
         return (
             <a className="Project-Card" href={`/Blog?id=${project.id}`} key={project.id}>
                 <div className="Project-Title"> {project.name}</div>
@@ -15,11 +16,27 @@ export class ProjectCard extends Component {
                     alt={project.name}
                     className={"Project-Image"}
                 />
+                <div className='Project-Tags'>
+                    {project.tags.map((tag: any) => (
+                        <div className='Project-Tag'>{"</ " + tag + " >"}</div>
+                    ))}
+                </div>
                 <div className="Project-Links">
                     {project.source !== "" ? this.github(project.source) : ""}
                     {project.demo !== "" ? this.demo(project.demo) : ""}
                 </div>
             </a>
+        )
+    }
+
+    private static tags(tags: string[]) {
+        console.log(tags)
+        return (
+            <div className='Project-Tags'>
+                {tags.map((tag: any) => (
+                    <div className='Project-Tag'>{tag}</div>
+                ))}
+            </div>
         )
     }
 
