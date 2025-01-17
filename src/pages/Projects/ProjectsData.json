@@ -5,7 +5,8 @@
     "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
     "date": "January 2025",
     "demo": "",
-    "imgPath": "Projects/AssemblyCompiler/Overview.png"
+    "imgPath": "Projects/AssemblyCompiler/Overview.png",
+    "tags" : ["C++", "Assembly", "Embedded Programming", "Hardware"]
   },
   {
     "id": "8-bit-cpu-core",
@@ -13,7 +14,8 @@
     "source": "",
     "date": "November 2024 - January 2025",
     "demo": "",
-    "imgPath": "Projects/8-Bit/Thumbnail.png"
+    "imgPath": "Projects/8-Bit/Thumbnail.png",
+    "tags" : ["Embedded Programming", "Hardware"]
   },
   {
     "id": "word-ladder-analysis",
@@ -21,7 +23,8 @@
     "source": "https://github.com/GarrettSidle/Word-Ladder",
     "date": "November 2024",
     "demo": "",
-    "imgPath": "Projects/WordLadder/Word-Ladder.png"
+    "imgPath": "Projects/WordLadder/Word-Ladder.png",
+    "tags" : ["Python", "Data Analysis"]
   },
   {
     "id": "hexagonal-chess-app",
@@ -29,7 +32,8 @@
     "source": "https://github.com/GarrettSidle/Hexagonal-Chess-Application",
     "date": "August 2023 - October 2024",
     "demo": "",
-    "imgPath": "Projects/HexagonalChess/Played Game.png"
+    "imgPath": "Projects/HexagonalChess/Played Game.png",
+    "tags" : ["C#", "WPF Forms"]
   },
   {
     "id": "personal-website",
@@ -38,7 +42,7 @@
     "date": "June 2022 - Present",
     "demo": "/Home",
     "imgPath": "Projects/PersonalWebsite/Personal-Website.png",
-    "secondayImgPath": ""
+    "tags" : ["Javascript", "Web Development", "React"]
   },
   {
     "id": "rc-car",
@@ -46,6 +50,7 @@
     "source": "https://github.com/GarrettSidle/RC-Car",
     "date": "October 2022",
     "demo": "",
-    "imgPath": "Projects/RC-Car/Car.png"
+    "imgPath": "Projects/RC-Car/Car.png",
+    "tags" : ["C++", "Embedded Programming"]
   }
 ]
