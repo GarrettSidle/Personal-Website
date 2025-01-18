@@ -21,6 +21,40 @@
   box-sizing: border-box;
 }
 
+.Project-Sorting{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5vw;
+  margin-top: 1%;
+  justify-content: center;
+}
+
+
+.Project-Sorting button{
+  color: white;
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.Sorting-Button{
+  background-color: rgb(141, 56, 13);
+  border-color: rgb(141, 56, 13);
+
+
+}
+
+.Selected-Button{
+  background-color: #f05c0c;
+  border-color: #f05c0c;
+}
+
+
+@media (max-width: 1500px) {
+  .Project-Sorting{
+    justify-content: center;
+  }
+}
 
 @media (max-width: 750px) {
 

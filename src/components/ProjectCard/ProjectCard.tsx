@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+import { Component } from 'react';
 
 import "./ProjectCard.css";
 import { FaGithub } from 'react-icons/fa';

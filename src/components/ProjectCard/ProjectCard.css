@@ -86,6 +86,7 @@
 .Project-Image {
     border-radius: 15px;
     margin: 1em;
+    margin-bottom: .5em;
     height: 80%;
 }
 
@@ -101,6 +102,10 @@
     .Project-Card:hover {
         transform: scale(1.00);
         transition: 0ms;
+    }
+
+    .Project-Card {
+        flex: 1 1 100%;
     }
 }
 
