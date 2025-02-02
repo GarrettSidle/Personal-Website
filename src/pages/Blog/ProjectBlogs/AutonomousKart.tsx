@@ -11,7 +11,9 @@ export class AutonomousKart extends Component<{}> {
                 <a href="https://github.com/GarrettSidle/Machine-Integrated-Karting-Experience" target="blank">
                     <h1><strong className="Orange">Autonomous</strong> Go-Kart</h1>
                 </a>
-
+                <div className="In-Progress-Tag">
+                    This Project is still in progress.
+                </div>
 
 
                 <div className="Image-Container">
