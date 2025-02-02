@@ -7,14 +7,19 @@ export class AutonomousKart extends Component<{}> {
     public render() {
         return (
             <div className="Blog-Post">
-                <h1>Autonomous Go-Kart</h1>
+
+                <a href="https://github.com/GarrettSidle/Machine-Integrated-Karting-Experience" target="blank">
+                    <h1><strong className="Orange">Autonomous</strong> Go-Kart</h1>
+                </a>
+
+
 
                 <div className="Image-Container">
                     <img src={'/assets/Projects/Autonomous-Kart/Overview.png'} />
                 </div>
 
                 <p>
-                    As part of my <strong>Senior Design Capstone at Miami University</strong>, I’m leading the software development for an 
+                    As part of my <strong>Senior Design Capstone at Miami University</strong>, I’m leading the software development for an
                     <strong> autonomous go-kart </strong> a self-driving vehicle designed to compete in the
                     <strong> Autonomous Karting Series (AKS) at Purdue University</strong>. This project integrates cutting-edge embedded systems,
                     machine learning, and real-time control to create a high-performance autonomous racer.
