@@ -64,6 +64,9 @@ function findProjects() {
 
             }
         }
+        if(SimilarProjects.length == 2){
+            break;
+        }
 
     };
 

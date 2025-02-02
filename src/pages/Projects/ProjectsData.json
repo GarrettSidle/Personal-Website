@@ -23,11 +23,10 @@
     "demo": "",
     "imgPath": "Projects/Mouseless/Overview.png",
     "tags": [
-      "Javasript",
+      "Javascript",
       "Web Development",
       "React",
-      "Django",
-      "PostgreSQL"
+      "Django"
     ],
     "inProgress": true
   },
