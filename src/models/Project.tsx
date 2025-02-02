@@ -6,6 +6,7 @@ export class Project {
     demo: string;
     imgPath: string;
     tags: string[];
+    inProgress: Boolean;
   
     constructor(
       id: string,
@@ -14,7 +15,8 @@ export class Project {
       date: string,
       demo: string,
       imgPath: string,
-      tags: string[]
+      tags: string[],
+      inProgress: boolean
     ) {
       this.id = id;
       this.name = name;
@@ -23,17 +25,7 @@ export class Project {
       this.demo = demo;
       this.imgPath = imgPath;
       this.tags = tags;
+      this.inProgress = inProgress;
     }
   
-    static fromJSON(json: any): Project {
-      return new Project(
-        json.id,
-        json.name,
-        json.source,
-        json.date,
-        json.demo,
-        json.imgPath,
-        json.tags || [] // Default to an empty array if tags are not provided
-      );
-    }
   }

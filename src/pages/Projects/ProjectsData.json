@@ -1,12 +1,50 @@
 [
   {
+    "id": "autonomous-kart",
+    "name": "Autonomous Go Kart",
+    "source": "https://github.com/GarrettSidle/Machine-Integrated-Karting-Experience",
+    "demo": "",
+    "date": "August 2024 - Present",
+    "imgPath": "Projects/Autonomous-Kart/Overview.png",
+    "tags": [
+      "Hardware",
+      "C#",
+      "WPF Forms",
+      "Python",
+      "Machine Learning"
+    ],
+    "inProgress": true
+  },
+  {
+    "id": "mouseless",
+    "name": "Mouseless.us",
+    "source": "https://github.com/GarrettSidle/Mouseless",
+    "date": "January 2025 - Present",
+    "demo": "",
+    "imgPath": "Projects/Mouseless/Overview.png",
+    "tags": [
+      "Javasript",
+      "Web Development",
+      "React",
+      "Django",
+      "PostgreSQL"
+    ],
+    "inProgress": true
+  },
+  {
     "id": "custom-assembly-compiler",
     "name": "ROM Assembly Compiler",
     "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
     "date": "January 2025",
     "demo": "",
     "imgPath": "Projects/AssemblyCompiler/Overview.png",
-    "tags" : ["C++", "Assembly", "Embedded Programming", "Hardware"]
+    "tags": [
+      "C++",
+      "Assembly",
+      "Embedded Programming",
+      "Hardware"
+    ],
+    "inProgress": false
   },
   {
     "id": "8-bit-cpu-core",
@@ -15,7 +53,11 @@
     "date": "November 2024 - January 2025",
     "demo": "",
     "imgPath": "Projects/8-Bit/Thumbnail.png",
-    "tags" : ["Embedded Programming", "Hardware"]
+    "tags": [
+      "Embedded Programming",
+      "Hardware"
+    ],
+    "inProgress": false
   },
   {
     "id": "word-ladder-analysis",
@@ -24,7 +66,11 @@
     "date": "November 2024",
     "demo": "",
     "imgPath": "Projects/WordLadder/Word-Ladder.png",
-    "tags" : ["Python", "Data Analysis"]
+    "tags": [
+      "Python",
+      "Data Analysis"
+    ],
+    "inProgress": false
   },
   {
     "id": "hexagonal-chess-app",
@@ -33,7 +79,11 @@
     "date": "August 2023 - October 2024",
     "demo": "",
     "imgPath": "Projects/HexagonalChess/Played Game.png",
-    "tags" : ["C#", "WPF Forms"]
+    "tags": [
+      "C#",
+      "WPF Forms"
+    ],
+    "inProgress": false
   },
   {
     "id": "personal-website",
@@ -42,7 +92,12 @@
     "date": "June 2022 - Present",
     "demo": "/Home",
     "imgPath": "Projects/PersonalWebsite/Personal-Website.png",
-    "tags" : ["Javascript", "Web Development", "React"]
+    "tags": [
+      "Javascript",
+      "Web Development",
+      "React"
+    ],
+    "inProgress": false
   },
   {
     "id": "rc-car",
@@ -51,6 +106,10 @@
     "date": "October 2022",
     "demo": "",
     "imgPath": "Projects/RC-Car/Car.png",
-    "tags" : ["C++", "Embedded Programming"]
+    "tags": [
+      "C++",
+      "Embedded Programming"
+    ],
+    "inProgress": false
   }
 ]

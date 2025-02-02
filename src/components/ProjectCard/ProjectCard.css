@@ -2,7 +2,7 @@
     border: 1px solid gray;
     text-align: center;
     opacity: .9;
-    background-color: #A0A0A0 ;
+    background-color: #A0A0A0;
     flex-direction: column;
     border-radius: 15px;
     padding: 1%;
@@ -14,14 +14,28 @@
     text-decoration: none;
 }
 
-.Project-Tags{
+.Project-Tags {
     display: flex;
     flex-wrap: wrap;
     gap: .75vw;
     justify-content: center;
 }
 
-.Project-Tag{
+.In-Progress-Overlay {
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10;
+
+}
+
+
+.Project-Tag {
     background-color: rgb(43, 43, 43);
     color: white;
     padding: 5px;

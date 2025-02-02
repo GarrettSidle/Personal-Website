@@ -11,11 +11,16 @@ export class ProjectCard extends Component {
             <a className="Project-Card" href={`/Blog?id=${project.id}`} key={project.id}>
                 <div className="Project-Title"> {project.name}</div>
                 <div className="Project-Date"> {project.date}</div>
+
+                {project.inProgress ? this.inProgress(): ""}
+
                 <img
                     src={(`/assets/${project.imgPath}`)}
                     alt={project.name}
                     className={"Project-Image"}
                 />
+                
+
                 <div className='Project-Tags'>
                     {project.tags.map((tag: any) => (
                         <div className='Project-Tag'>{"</ " + tag + " >"}</div>
@@ -29,13 +34,11 @@ export class ProjectCard extends Component {
         )
     }
 
-    private static tags(tags: string[]) {
-        console.log(tags)
+
+    private static inProgress(){
         return (
-            <div className='Project-Tags'>
-                {tags.map((tag: any) => (
-                    <div className='Project-Tag'>{tag}</div>
-                ))}
+            <div className='In-Progress-Overlay'>
+                In Progress
             </div>
         )
     }
