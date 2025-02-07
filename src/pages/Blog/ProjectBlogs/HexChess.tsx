@@ -2,15 +2,19 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source: string;
+    demo: string;
+};
 
-export class HexChess extends Component<{}> {
+export class HexChess extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/Hexagonal-Chess-Application" target="blank">
-                    <h1>Hexagonal <strong className="Orange">Chess</strong> Program in C#</h1>
-                </a>
+                <h1>Hexagonal <strong className="Orange">Chess</strong> Program in C#</h1>
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="Image-Container">
                     <img src={'/assets/Projects/HexagonalChess/Played Game.png'} />
                 </div>

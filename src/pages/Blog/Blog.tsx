@@ -16,74 +16,77 @@ import { AutonomousKart } from "./ProjectBlogs/AutonomousKart";
 
 
 
-const urlParams = new URLSearchParams(window.location.search);
-const projectId = urlParams.get('id');
+export class Blog extends Component<{}> {
+    urlParams = new URLSearchParams(window.location.search);
+    projectId: string = this.urlParams.get('id') ?? '';
 
-const ProjectsData: Array<Project> = require('../Projects/ProjectsData.json');
+    ProjectsData: Array<Project> = require('../Projects/ProjectsData.json');
 
-
-let SimilarProjects: Array<Project> = []
-
-
-findProjects()
-
-console.log(SimilarProjects)
+    SimilarProjects: Array<Project> = []
 
 
-function findProjects() {
-
-    let currentTags: Array<string> = []
-
-    ProjectsData.forEach(project => {
-
-        //if we are looking at the current project
-        if (project.id == projectId) {
-            //get the associated tags
-            currentTags = project.tags
-            //remove it from the project pool
-            ProjectsData.splice(ProjectsData.indexOf(project), 1)
-            
-        }
-    });
+    projectDemos: Map<string, string> = new Map();
+    projectSources: Map<string, string> = new Map();
 
 
-    for (let i = 0; i < ProjectsData.length; i++) {
-        let project = ProjectsData[i];
+    private findProjects(projectId: any) {
 
-        for (let j = 0; j < project.tags.length; j++) {
-            let tag = project.tags[j];
+        let currentTags: Array<string> = []
 
-            //If this projects shares a tag with our current projects
-            if (currentTags.includes(tag)) {
-                //Add it to the ouptut
-                SimilarProjects.push(project)
+        this.ProjectsData.forEach(project => {
+            this.projectDemos.set(project.id, project.demo)
 
-                ProjectsData.splice(i, 1)
+            this.projectSources.set(project.id, project.source)
 
-                break
+
+
+
+            //if we are looking at the current project
+            if (project.id == projectId) {
+                //get the associated tags
+                currentTags = project.tags
+                //remove it from the project pool
+                this.ProjectsData.splice(this.ProjectsData.indexOf(project), 1)
 
             }
-        }
-        if(SimilarProjects.length == 2){
-            break;
+        });
+
+
+        for (let i = 0; i < this.ProjectsData.length; i++) {
+            let project = this.ProjectsData[i];
+
+            for (let j = 0; j < project.tags.length; j++) {
+                let tag = project.tags[j];
+
+                //If this projects shares a tag with our current projects
+                if (currentTags.includes(tag)) {
+                    //Add it to the ouptut
+                    this.SimilarProjects.push(project)
+
+                    this.ProjectsData.splice(i, 1)
+
+                    break
+
+                }
+            }
+            if (this.SimilarProjects.length == 2) {
+                break;
+            }
+
+        };
+
+        //if we dont have 2 valid returns
+        let i = 0
+        while (this.SimilarProjects.length < 2) {
+            //add the most recent projects
+            this.SimilarProjects.push(this.ProjectsData[i])
+            i++
         }
 
-    };
-
-    //if we dont have 2 valid returns
-    let i = 0
-    while (SimilarProjects.length < 2) {
-        //add the most recent projects
-        SimilarProjects.push(ProjectsData[i])
-        i++
+        return
     }
 
-    return
-}
 
-
-
-export class Blog extends Component<{}> {
     public render() {
         return (
             <div className="Blog Page" id='Blog'>
@@ -93,27 +96,42 @@ export class Blog extends Component<{}> {
         );
     }
 
+    public getProjectLinks(source : string, demo : string) {
+        return (
+            <div className="Project-Links Blog-Links">
+                {source !== "" ? ProjectCard.github(source) : ""}
+                {demo   !== "" ? ProjectCard.demo  (demo  ) : ""}
+            </div>
+        )
+    }
+
 
     private getProject() {
-        switch (projectId) {
+        this.findProjects(this.projectId)
+        let source = String(this.projectSources.get(this.projectId))
+        let demo   = String(this.projectDemos  .get(this.projectId))
+
+        console.log(source, demo)
+
+        switch (this.projectId) {
             case "word-ladder-analysis":
-                return <WordLadder />;
+                return <WordLadder source={source} demo={demo}/>;
             case "hexagonal-chess-app":
-                return <HexChess />;
+                return <HexChess source={source} demo={demo}/>;
             case "personal-website":
-                return <PersonalWebsite />;
+                return <PersonalWebsite source={source} demo={demo}/>;
             case "rc-car":
-                return <RCCar />;
+                return <RCCar source={source} demo={demo}/>;
             case "8-bit-cpu-core":
-                return <EightBit />
+                return <EightBit source={source} demo={demo}/>
             case "mouseless":
-                return <Mouseless />
+                return <Mouseless source={source} demo={demo}/>
             case "custom-assembly-compiler":
-                return <AssemblyCompiler />
+                return <AssemblyCompiler source={source} demo={demo}/>
             case "mouseless":
-                return < Mouseless/>
+                return < Mouseless source={source} demo={demo}/>
             case "autonomous-kart":
-                return < AutonomousKart/>
+                return < AutonomousKart source={source} demo={demo}/>
             default:
                 return <h1 className="h404">404 - Project Not Found</h1>;
         }
@@ -123,7 +141,7 @@ export class Blog extends Component<{}> {
 
         return (
             <div className="similar-projects">
-                {SimilarProjects.map((project: any) => (
+                {this.SimilarProjects.map((project: any) => (
                     ProjectCard.projectCard(project)
                 ))}
 

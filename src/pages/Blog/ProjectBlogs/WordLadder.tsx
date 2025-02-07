@@ -1,15 +1,24 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
 
-export class WordLadder extends Component<{}> {
+type BlogProps = {
+    source : string;
+    demo   : string;
+  };
+
+export class WordLadder extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post Page">
-                <a href="https://github.com/GarrettSidle/Word-Ladder" target="blank">
-                    <h1>Analyzing Connections in a <strong className="Orange">Word Ladder</strong> Network Graph</h1>
-                </a>
+                    
+                <h1>Analyzing Connections in a <strong className="Orange">Word Ladder</strong> Network Graph</h1>
+                
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
+                
+
                 <div className="Image-Container">
                     <img src={'/assets/Projects/WordLadder/5-Scrabble.png'} />
                 </div>

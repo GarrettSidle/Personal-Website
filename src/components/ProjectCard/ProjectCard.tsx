@@ -26,11 +26,17 @@ export class ProjectCard extends Component {
                         <div className='Project-Tag'>{"</ " + tag + " >"}</div>
                     ))}
                 </div>
-                <div className="Project-Links">
-                    {project.source !== "" ? this.github(project.source) : ""}
-                    {project.demo !== "" ? this.demo(project.demo) : ""}
-                </div>
+                {this.getProjectLinks(project.source, project.demo)}
             </a>
+        )
+    }
+
+    public static getProjectLinks(source : string, demo : string) {
+        return (
+            <div className="Project-Links">
+                {source !== "" ? ProjectCard.github(source) : ""}
+                {demo   !== "" ? ProjectCard.demo  (demo  ) : ""}
+            </div>
         )
     }
 
@@ -44,7 +50,7 @@ export class ProjectCard extends Component {
     }
 
 
-    private static github(source: string) {
+    public static github(source: string) {
         return (
             <a href={source} target="blank" rel="noreferrer">
                 <div className="Project-Link">
@@ -59,7 +65,7 @@ export class ProjectCard extends Component {
         );
     }
 
-    private static demo(link: string) {
+    public static demo(link: string) {
         return (
             <a className="Project-Link-Shell" href={link} target="blank" rel="noreferrer" >
                 <div className="Project-Link">

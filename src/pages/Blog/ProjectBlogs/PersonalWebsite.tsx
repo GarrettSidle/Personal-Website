@@ -1,15 +1,19 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source: string;
+    demo: string;
+};
 
-export class PersonalWebsite extends Component<{}> {
+export class PersonalWebsite extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/Personal-Website" target="blank">
-                    <h1><strong className="Orange">Personal</strong> Website</h1>
-                </a>
+                <h1><strong className="Orange">Personal</strong> Website</h1>
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="Image-Container">
                     <img src={'/assets/Projects/PersonalWebsite/Personal-Website.png'} />
                 </div>

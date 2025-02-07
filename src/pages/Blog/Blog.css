@@ -23,12 +23,6 @@
     border-radius: 15px;
 }
 
-.Blog-Post h1:hover {
-    transform: scale(1.05);
-    overflow: hidden;
-    border: 4px solid #f05c0c;
-    transition: 500ms;
-}
 
 .Blog-Post h2 {
     font-size: calc(1.3vw + 15px);
@@ -151,6 +145,17 @@ td {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.Blog-Links .Project-Links{
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    padding-left: 0%;
+}
+
+.Blog-Links .Project-Links .Project-Link{
+    margin-left: 5px;
 }
 
 

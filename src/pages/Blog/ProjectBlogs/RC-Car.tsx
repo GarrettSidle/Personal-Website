@@ -1,15 +1,20 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
 
-export class RCCar extends Component<{}> {
+type BlogProps = {
+    source : string;
+    demo   : string;
+  };
+
+export class RCCar extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/RC-Car" target="blank">
                     <h1><strong>C++</strong> Remote Control Car</h1>
-                </a>
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="Image-Container">
                     <img src={'/assets/Projects/RC-Car/Car.png'} />
                 </div>

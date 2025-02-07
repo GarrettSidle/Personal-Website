@@ -1,16 +1,20 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source: string;
+    demo: string;
+};
 
-export class AutonomousKart extends Component<{}> {
+export class AutonomousKart extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
 
-                <a href="https://github.com/GarrettSidle/Machine-Integrated-Karting-Experience" target="blank">
-                    <h1><strong className="Orange">Autonomous</strong> Go-Kart</h1>
-                </a>
+                <h1><strong className="Orange">Autonomous</strong> Go-Kart</h1>
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="In-Progress-Tag">
                     This Project is still in progress.
                 </div>

@@ -1,15 +1,21 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source: string;
+    demo: string;
+};
 
-export class AssemblyCompiler extends Component<{}> {
+export class AssemblyCompiler extends Component<BlogProps> {
+
     public render() {
         return (
             <div className="Blog-Post">
-                <a href="https://github.com/GarrettSidle/8-Bit-Assembly-Compiler" target="blank">
-                    <h1>ROM <strong className="Orange">Assembly</strong> Compiler </h1>
-                </a>
+                <h1>ROM <strong className="Orange">Assembly</strong> Compiler </h1>
+
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="Image-Container">
                     <img src={'/assets/Projects/AssemblyCompiler/Overview.png'} />
                 </div>

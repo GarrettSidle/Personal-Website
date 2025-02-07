@@ -1,19 +1,22 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source : string;
+    demo   : string;
+  };
 
-export class Mouseless extends Component<{}> {
+export class Mouseless extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
 
 
 
-                <a href="https://github.com/GarrettSidle/Mouseless" target="blank">
-                    <h1>Mouseless.us</h1>
-                </a>                
-                
+                    <h1>Mouseless.us</h1>               
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="In-Progress-Tag">
                     This Project is still in progress.
                 </div>

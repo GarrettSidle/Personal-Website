@@ -1,13 +1,21 @@
 import { Component } from "react";
 
 import "../Blog.css";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+type BlogProps = {
+    source: string;
+    demo: string;
+};
 
-export class EightBit extends Component<{}> {
+export class EightBit extends Component<BlogProps> {
     public render() {
         return (
             <div className="Blog-Post">
                 <h1>8-Bit Single <strong className="Orange">Core</strong> Single <strong className="Orange">Cycle</strong> CPU</h1>
+
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
+
                 <div className="Image-Container">
                     <img src={'/assets/Projects/8-Bit/Overview.png'} />
                 </div>
