@@ -11,6 +11,7 @@ import { AssemblyCompiler } from "./ProjectBlogs/AssemblyCompiler";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Project } from "../../models/Project";
 import { AutonomousKart } from "./ProjectBlogs/AutonomousKart";
+import { AltManager } from "./ProjectBlogs/AltManager";
 
 
 
@@ -132,6 +133,8 @@ export class Blog extends Component<{}> {
                 return < Mouseless source={source} demo={demo}/>
             case "autonomous-kart":
                 return < AutonomousKart source={source} demo={demo}/>
+            case "Alt-Manager":
+                return < AltManager source={source} demo={demo}/>
             default:
                 return <h1 className="h404">404 - Project Not Found</h1>;
         }

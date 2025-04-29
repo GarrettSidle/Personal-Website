@@ -2,18 +2,32 @@
   {
     "id": "autonomous-kart",
     "name": "Autonomous Go Kart",
-    "source": "https://github.com/GarrettSidle/Machine-Integrated-Karting-Experience",
+    "source": "https://github.com/GarrettSidle/Autonomous-Kart",
     "demo": "",
-    "date": "August 2024 - Present",
+    "date": "August 2024 - April 2025",
     "imgPath": "Projects/Autonomous-Kart/Overview.png",
     "tags": [
+      "Electrical Engineering",
       "Hardware",
-      "C#",
-      "WPF Forms",
+      "Embedded Programming",
       "Python",
-      "Machine Learning"
+      "Machine Learning", 
+      "Computer Vision"
     ],
-    "inProgress": true
+    "inProgress": false
+  },
+  {
+    "id": "Alt-Manager",
+    "name": "Alternative Account Manager",
+    "source": "https://github.com/GarrettSidle/OW-Alt-Manager",
+    "demo": "",
+    "date": "March 2025",
+    "imgPath": "Projects/Alt-Manager/Overview.png",
+    "tags": [
+      "Python",
+      "Tkinter"
+    ],
+    "inProgress": false
   },
   {
     "id": "mouseless",
@@ -40,6 +54,7 @@
     "demo": "",
     "imgPath": "Projects/AssemblyCompiler/Overview.png",
     "tags": [
+      "Electrical Engineering",
       "C++",
       "Assembly",
       "Embedded Programming",
@@ -55,6 +70,7 @@
     "demo": "",
     "imgPath": "Projects/8-Bit/Thumbnail.png",
     "tags": [
+      "Electrical Engineering",
       "Embedded Programming",
       "Hardware"
     ],
