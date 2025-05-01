@@ -43,8 +43,8 @@
 }
 
 .Tech-Icons svg {
-  width: 100px;
-  height: 100px;
+  width: 4vw + 10px;
+  height: 4vw + 10px;
 }
 
 .Tech-Icons:hover {
