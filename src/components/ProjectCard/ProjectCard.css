@@ -101,7 +101,8 @@
     border-radius: 15px;
     margin: 1em;
     margin-bottom: .5em;
-    height: 80%;
+    max-width: 100%;
+    height: auto;
 }
 
 .Project-Link {
