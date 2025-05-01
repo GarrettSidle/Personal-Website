@@ -41,8 +41,15 @@
 .Card-Header {
   color: white;
   font-size: 1.3vw;
-  margin: 1vw;
+  margin: .5vw;
+  margin-bottom: 0 ;
   font-weight: bold;
+}
+
+.Card-Underheader{
+  font-size: 1.1vw;
+  color: white;
+  margin-bottom: .5vw ;
 }
 
 .Card-SubHeader {
@@ -67,6 +74,11 @@
 .Northwest{
   background-color: #1d3532;
 }
+
+.GATech{
+  background-color: #153256;
+}
+
 
   @media (max-width: 750px) {
 
