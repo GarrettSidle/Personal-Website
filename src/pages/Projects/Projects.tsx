@@ -18,6 +18,7 @@ ProjectsData.forEach(project => {
   })
 
 });
+const OrigProjects = ProjectsData
 
 
 
@@ -65,11 +66,10 @@ export class Projects extends Component<{}, { selectedFilter: string }> {
   private getCards() {
     let filter = this.state.selectedFilter
 
-    let projects = ProjectsData
+    let projects = OrigProjects
     if (filter === "Oldest") {
       projects.reverse()
     }
-    
 
     return projects.map((project: Project) => (
       (project.tags.includes(filter) || filter === "Newest" || filter === "Oldest") ?
