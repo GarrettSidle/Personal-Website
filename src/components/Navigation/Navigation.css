@@ -94,7 +94,7 @@
   }
 
   .Enabled .Navigation {
-    height: 32%;
+    height: 290px;
   }
 
   .Enabled .Nav-Links {
@@ -108,7 +108,7 @@
   }
 
   .Enabled .Nav-Links a {
-    padding-top: 10%;
+    padding-top: 10px;
   }
 
 
