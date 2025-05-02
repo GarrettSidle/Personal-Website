@@ -64,17 +64,20 @@ export class Projects extends Component<{}, { selectedFilter: string }> {
   }
 
   private getCards() {
-    let filter = this.state.selectedFilter
-
-    let projects = OrigProjects
+    const { selectedFilter: filter } = this.state;
+  
+    let projects = [...OrigProjects];
+  
     if (filter === "Oldest") {
-      projects.reverse()
+      projects.reverse();
     }
-
-    return projects.map((project: Project) => (
-      (project.tags.includes(filter) || filter === "Newest" || filter === "Oldest") ?
-      ProjectCard.projectCard(project):""
-    ))
+    
+    console.log(projects)
+  
+    return projects.map((project: Project) => {
+      const shouldShow = project.tags.includes(filter) || filter === "Newest" || filter === "Oldest";
+      return shouldShow ? ProjectCard.projectCard(project) : null;
+    });
   }
 
 }
