@@ -132,23 +132,8 @@
         font-size: 0.9em;
     }
 
-    .Project-Link {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-        padding: 0%;
-        margin: 0%;
-    }
-
+    .Project-Link,
     .Project-Links {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-        padding: 0%;
-        margin: 0%;
-        display: auto;
-        grid-template-columns: 0;
-
-
+        display: none ;
     }
 }
