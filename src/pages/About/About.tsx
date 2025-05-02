@@ -40,10 +40,10 @@ export class About extends Component<{}> {
   private TechStack() {
     return (
       <div className="Tech-Stack">
-        {techStack.map((Tech) => (
-          <div className="Tech-Icons" key={Tech.Tooltip}>
-            <Tech.Component />
-            <div className="Tech-Title">{Tech.Tooltip}</div>
+        {techStack.map(({ Component, Tooltip }, index) => (
+          <div key={index} className="Tech-Icons">
+            <Component className="Tech-Img" />
+            <div className="Tech-Title">{Tooltip}</div>
           </div>
         ))}
       </div>
@@ -52,12 +52,11 @@ export class About extends Component<{}> {
 
   private ToolStack() {
     return (
-
       <div className="Tech-Stack">
-        {toolStack.map((Tool) => (
-          <div className="Tech-Icons" key={Tool.Tooltip}>
-            <Tool.Component />
-            <div className="Tech-Title">{Tool.Tooltip}</div>
+        {toolStack.map(({ Component, Tooltip }, index) => (
+          <div key={index} className="Tech-Icons">
+            <Component className="Tech-Img" />
+            <div className="Tech-Title">{Tooltip}</div>
           </div>
         ))}
       </div>

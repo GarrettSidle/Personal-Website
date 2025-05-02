@@ -1,3 +1,59 @@
+
+.Tech-Stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(150px, 10vw) , 1fr));
+  gap: 1.5vw;
+  padding: 1%;
+  justify-content: center;
+  width: 75%;
+  margin: auto;
+}
+
+.Tech-Icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.4s ease 0s;
+  font-size: 4.5em;
+  padding: 10px;
+  opacity: 0.93;
+  border: 1.7px solid #f05c0c;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 4px 5px 4px 3px #3d1600;
+  padding-bottom: 40px;
+  padding-top: 25px;
+  width: max(10vw, 150px );
+  margin: auto;
+  margin-top: 15px;
+}
+
+.Tech-Icons:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+  border: 2.2px solid #f05c0c;
+}
+
+.Tech-Img {
+  width: 5vw + 50px;
+  height: 5vw+ 50px;
+}
+
+.Tech-Title {
+  font-size: 14px;
+  text-align: center;
+  padding-top: 15px;
+  color: #ffffff;
+}
+
+
+
+
+
+
 .About-Me {
   display: flex;
   flex-wrap: wrap;
@@ -20,38 +76,8 @@
   color: white
 }
 
-.Tech-Title {
-  font-size: 15px;
-  margin-top: 10px;
-}
 
-.Tech-Icons {
-  font-size: 4.5em;
-  padding: 10px;
-  opacity: 0.93;
-  border: 1.7px solid #f05c0c;
-  vertical-align: middle;
-  text-align: center;
-  border-radius: 5px;
-  display: table;
-  box-shadow: 4px 5px 4px 3px #3d1600;
-  overflow: hidden;
-  transition: all 0.4s ease 0s;
-  padding-bottom: 40px;
-  padding-top: 25px;
-  width: 10vw;
-}
 
-.Tech-Icons svg {
-  width: 4vw + 10px;
-  height: 4vw + 10px;
-}
-
-.Tech-Icons:hover {
-  transform: scale(1.05);
-  overflow: hidden;
-  border: 2.2px solid #f05c0c;
-}
 
 
 .Stack-Heading {
@@ -70,16 +96,6 @@
   max-height: 18vw;
 }
 
-.Tech-Stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5vw;
-  justify-content: center;
-  padding: 1%;
-  width: 75%;
-  margin: auto;
-}
-
 
 @media (max-width: 750px) {
   .Stack-Heading {
@@ -92,7 +108,7 @@
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1400px) {
   .About-Headshot {
     visibility: collapse;
     width: 0;
@@ -102,5 +118,9 @@
   }
   .About-Paragraph {
     max-width: 80%;
+  }
+  .Tech-Stack {
+    gap: .5vw;
+    grid-template-columns: repeat(auto-fit, minmax(max(150px) , 1fr));
   }
 }
