@@ -15,6 +15,30 @@
   text-decoration: none;
 }
 
+.role-rank-overlay {
+  position: absolute;
+  left: 14px; /* Slightly left */
+  bottom: -2px; /* Slightly lower */
+  width: fit-content;
+  font-size: 0.85em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  padding: 2px 4px;
+  pointer-events: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.altcard-role-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .altcard-username,
 .altcard-owner,
 .altcard-tags {

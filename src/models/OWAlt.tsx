@@ -6,10 +6,13 @@ export class OWAlt {
   avatarImagePath: string;
   tankRankImagePath: string;
   tankRank: number;
+  tankRankTier: number;
   damageRankImagePath: string;
   damageRank: number;
+  damageRankTier: number;
   supportRankImagePath: string;
   supportRank: number;
+  supportRankTier: number;
 
   constructor(
     userName: string,
@@ -22,11 +25,14 @@ export class OWAlt {
     this.owner = owner;
     this.tags = tags;
     this.avatarImagePath = "/assets/AltManager/DefaultAvatar.png";
-    this.tankRankImagePath = "/assets/AltManager/Loading.png";
+    this.tankRankImagePath = "/assets/AltManager/Loading.gif";
     this.tankRank = 0;
-    this.damageRankImagePath = "/assets/AltManager/Loading.png";
+    this.tankRankTier = 0;
+    this.damageRankImagePath = "/assets/AltManager/Loading.gif";
     this.damageRank = 0;
-    this.supportRankImagePath = "/assets/AltManager/Loading.png";
+    this.damageRankTier = 0;
+    this.supportRankImagePath = "/assets/AltManager/Loading.gif";
     this.supportRank = 0;
+    this.supportRankTier = 0;
   }
 }

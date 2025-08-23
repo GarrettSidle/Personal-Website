@@ -11,21 +11,48 @@ export function AltCard({ alt }: { alt: OWAlt }) {
     >
       <img src={alt.avatarImagePath} alt="Avatar" className="altcard-avatar" />
       <div className="altcard-username">{alt.userName}</div>
-      <img
-        src={alt.tankRankImagePath}
-        alt="Tank Rank"
-        className="altcard-img"
-      />
-      <img
-        src={alt.damageRankImagePath}
-        alt="Damage Rank"
-        className="altcard-img"
-      />
-      <img
-        src={alt.supportRankImagePath}
-        alt="Support Rank"
-        className="altcard-img"
-      />
+      <div className="altcard-role-img-wrapper">
+        <img
+          src={alt.tankRankImagePath}
+          alt="Tank Rank"
+          className="altcard-img"
+        />
+        <span
+          className={`role-rank-overlay ${
+            alt.tankRankTier === 0 ? "hidden" : ""
+          }`}
+        >
+          {alt.tankRankTier}
+        </span>
+      </div>
+      <div className="altcard-role-img-wrapper">
+        <img
+          src={alt.damageRankImagePath}
+          alt="Damage Rank"
+          className="altcard-img"
+        />
+        <span
+          className={`role-rank-overlay ${
+            alt.damageRankTier === 0 ? "hidden" : ""
+          }`}
+        >
+          {alt.damageRankTier}
+        </span>
+      </div>
+      <div className="altcard-role-img-wrapper">
+        <img
+          src={alt.supportRankImagePath}
+          alt="Support Rank"
+          className="altcard-img"
+        />
+        <span
+          className={`role-rank-overlay ${
+            alt.supportRankTier === 0 ? "hidden" : ""
+          }`}
+        >
+          {alt.supportRankTier}
+        </span>
+      </div>
       <div className="altcard-owner">{alt.owner}</div>
       <div className="altcard-tags">
         {alt.tags.map((tag, idx) => (
