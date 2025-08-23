@@ -23,13 +23,21 @@ async function fetchWithBackoff(url: string, delay = 1000): Promise<any> {
   while (true) {
     try {
       const res = await fetch(url);
+
+      if (res.status === 404) {
+        // Explicitly return a special marker for 404
+        return { error: 404 };
+      }
+
       if (res.status === 429) {
         // Exponential backoff
         await new Promise((resolve) => setTimeout(resolve, delay));
         delay = Math.min(delay * 2, 60000); // Cap delay at 60s
         continue;
       }
+
       if (!res.ok) return null;
+
       return await res.json();
     } catch {
       return null;
@@ -53,6 +61,24 @@ export class AltManager extends Component<{}, AltManagerState> {
       const summary = await fetchWithBackoff(
         `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
       );
+
+      if (summary?.error === 404) {
+        OWAlts[i].tankRankImagePath = "/assets/AltManager/Error.jpg";
+        OWAlts[i].damageRankImagePath = "/assets/AltManager/Error.jpg";
+        OWAlts[i].supportRankImagePath = "/assets/AltManager/Error.jpg";
+        OWAlts[i].avatarImagePath = "/assets/AltManager/Error.jpg";
+        OWAlts[i].tankRankTier = -1;
+        OWAlts[i].damageRankTier = -1;
+        OWAlts[i].supportRankTier = -1;
+
+        this.setState((prev) => {
+          const newSummaries = [...prev.summaries];
+          newSummaries[i] = { error: 404 };
+          return { summaries: newSummaries };
+        });
+
+        return; // stop further handling for this alt
+      }
 
       if (!summary) return;
 
@@ -110,7 +136,7 @@ export class AltManager extends Component<{}, AltManagerState> {
         }
       }
 
-      // Update state with the new summary for just this index
+      // Update state progressively as each summary loads
       this.setState((prev) => {
         const newSummaries = [...prev.summaries];
         newSummaries[i] = summary;

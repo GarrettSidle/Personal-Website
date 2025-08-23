@@ -19,7 +19,7 @@ export function AltCard({ alt }: { alt: OWAlt }) {
         />
         <span
           className={`role-rank-overlay ${
-            alt.tankRankTier === 0 ? "hidden" : ""
+            alt.tankRankTier <= 0 ? "hidden" : ""
           }`}
         >
           {alt.tankRankTier}
@@ -33,7 +33,7 @@ export function AltCard({ alt }: { alt: OWAlt }) {
         />
         <span
           className={`role-rank-overlay ${
-            alt.damageRankTier === 0 ? "hidden" : ""
+            alt.damageRankTier <= 0 ? "hidden" : ""
           }`}
         >
           {alt.damageRankTier}
@@ -47,7 +47,7 @@ export function AltCard({ alt }: { alt: OWAlt }) {
         />
         <span
           className={`role-rank-overlay ${
-            alt.supportRankTier === 0 ? "hidden" : ""
+            alt.supportRankTier <= 0 ? "hidden" : ""
           }`}
         >
           {alt.supportRankTier}
