@@ -49,16 +49,14 @@ export class AltManager extends Component<{}, AltManagerState> {
   }
 
   async componentDidMount() {
-    const requests = OWAlts.map((alt) =>
-      fetchWithBackoff(
+    OWAlts.forEach(async (alt, i) => {
+      const summary = await fetchWithBackoff(
         `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
-      )
-    );
-    const summaries = await Promise.all(requests);
+      );
 
-    // Update OWAlts with summary data
-    summaries.forEach((summary, i) => {
       if (!summary) return;
+
+      // Avatar
       OWAlts[i].avatarImagePath = summary.avatar || OWAlts[i].avatarImagePath;
 
       // If competitive.pc is null, set all ranks to Unranked
@@ -69,51 +67,56 @@ export class AltManager extends Component<{}, AltManagerState> {
         OWAlts[i].damageRank = 0;
         OWAlts[i].supportRankImagePath = "/assets/AltManager/Unranked.jpg";
         OWAlts[i].supportRank = 0;
-        return;
+      } else {
+        // Tank
+        if (summary.competitive.pc.tank) {
+          OWAlts[i].tankRankImagePath = summary.competitive.pc.tank.rank_icon;
+          OWAlts[i].tankRankTier = summary.competitive.pc.tank.tier;
+          OWAlts[i].tankRank = this.convertRankToNumber(
+            summary.competitive.pc.tank.division,
+            summary.competitive.pc.tank.tier
+          );
+        } else {
+          OWAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.jpg";
+          OWAlts[i].tankRank = 0;
+        }
+
+        // Damage
+        if (summary.competitive.pc.damage) {
+          OWAlts[i].damageRankImagePath =
+            summary.competitive.pc.damage.rank_icon;
+          OWAlts[i].damageRankTier = summary.competitive.pc.damage.tier;
+          OWAlts[i].damageRank = this.convertRankToNumber(
+            summary.competitive.pc.damage.division,
+            summary.competitive.pc.damage.tier
+          );
+        } else {
+          OWAlts[i].damageRankImagePath = "/assets/AltManager/Unranked.jpg";
+          OWAlts[i].damageRank = 0;
+        }
+
+        // Support
+        if (summary.competitive.pc.support) {
+          OWAlts[i].supportRankImagePath =
+            summary.competitive.pc.support.rank_icon;
+          OWAlts[i].supportRankTier = summary.competitive.pc.support.tier;
+          OWAlts[i].supportRank = this.convertRankToNumber(
+            summary.competitive.pc.support.division,
+            summary.competitive.pc.support.tier
+          );
+        } else {
+          OWAlts[i].supportRankImagePath = "/assets/AltManager/Unranked.jpg";
+          OWAlts[i].supportRank = 0;
+        }
       }
 
-      // Tank
-      if (summary.competitive.pc.tank) {
-        OWAlts[i].tankRankImagePath = summary.competitive.pc.tank.rank_icon;
-        OWAlts[i].tankRankTier = summary.competitive.pc.tank.tier;
-        OWAlts[i].tankRank = this.convertRankToNumber(
-          summary.competitive.pc.tank.division,
-          summary.competitive.pc.tank.tier
-        );
-      } else {
-        OWAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.jpg";
-        OWAlts[i].tankRank = 0;
-      }
-
-      // Damage
-      if (summary.competitive.pc.damage) {
-        OWAlts[i].damageRankImagePath = summary.competitive.pc.damage.rank_icon;
-        OWAlts[i].damageRankTier = summary.competitive.pc.damage.tier;
-        OWAlts[i].damageRank = this.convertRankToNumber(
-          summary.competitive.pc.damage.division,
-          summary.competitive.pc.damage.tier
-        );
-      } else {
-        OWAlts[i].damageRankImagePath = "/assets/AltManager/Unranked.jpg";
-        OWAlts[i].damageRank = 0;
-      }
-
-      // Support
-      if (summary.competitive.pc.support) {
-        OWAlts[i].supportRankImagePath =
-          summary.competitive.pc.support.rank_icon;
-        OWAlts[i].supportRankTier = summary.competitive.pc.support.tier;
-        OWAlts[i].supportRank = this.convertRankToNumber(
-          summary.competitive.pc.support.division,
-          summary.competitive.pc.support.tier
-        );
-      } else {
-        OWAlts[i].supportRankImagePath = "/assets/AltManager/Unranked.jpg";
-        OWAlts[i].supportRank = 0;
-      }
+      // Update state with the new summary for just this index
+      this.setState((prev) => {
+        const newSummaries = [...prev.summaries];
+        newSummaries[i] = summary;
+        return { summaries: newSummaries };
+      });
     });
-
-    this.setState({ summaries });
   }
 
   convertRankToNumber = (division: string, tier: number): number => {
