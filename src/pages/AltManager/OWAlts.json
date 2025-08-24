@@ -3,37 +3,37 @@
     "userName": "GarrettsAlt",
     "userTag": "GarrettsPP-1913",
     "owner": "Garrett",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared"]
   },
   {
     "userName": "MunchiesAlt",
     "userTag": "MunchiesPP-1765",
     "owner": "Garrett",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared"]
   },
   {
     "userName": "JasonsAlt",
     "userTag": "JasonsPP-1581",
     "owner": "Munchie",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared"]
   },
   {
     "userName": "JoeysAlt",
     "userTag": "JoeysPP-1567",
     "owner": "Joey",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared"]
   },
   {
     "userName": "HaydensAlt",
     "userTag": "HaydensPP-1687",
     "owner": "Garrett",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared", "Low Ranked"]
   },
   {
     "userName": "SylasAlt",
     "userTag": "SylasPP-1809",
     "owner": "Sylas",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Shared", "Low Ranked"]
   },
   {
     "userName": "GarrettNorth",
@@ -69,7 +69,7 @@
     "userName": "LucioOnly",
     "userTag": "LucioOnly-1108",
     "owner": "Joey",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Hero Locked"]
   },
   {
     "userName": "AnonPianist",
@@ -87,7 +87,7 @@
     "userName": "Traceronly",
     "userTag": "traceronly-1854",
     "owner": "Joey",
-    "tags": ["Alt"]
+    "tags": ["Alt", "Hero Locked"]
   },
   {
     "userName": "LadiesMan217",

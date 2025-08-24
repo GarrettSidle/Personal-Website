@@ -17,8 +17,8 @@
 
 .role-rank-overlay {
   position: absolute;
-  left: 14px; /* Slightly left */
-  bottom: -2px; /* Slightly lower */
+  left: 14px;
+  bottom: -2px;
   width: fit-content;
   font-size: 0.85em;
   color: #fff;
@@ -90,14 +90,14 @@
 .altcard-tags {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .altcard-tag {
   background: #b4bdd9;
   color: #1d253a;
-  padding: 2px 8px;
+  padding: 1px 8px;
   border-radius: 6px;
-  font-size: 0.95em;
-  margin-bottom: 2px;
+  font-size: 0.9em;
+  margin-bottom: 1px;
 }
