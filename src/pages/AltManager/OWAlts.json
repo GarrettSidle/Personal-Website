@@ -1,11 +1,5 @@
 [
   {
-    "userName": "GarrettNorth",
-    "userTag": "GarrettNorth-1971",
-    "owner": "Garrett",
-    "tags": ["main"]
-  },
-  {
     "userName": "GarrettsAlt",
     "userTag": "GarrettsPP-1913",
     "owner": "Garrett",
@@ -30,12 +24,6 @@
     "tags": ["Alt"]
   },
   {
-    "userName": "DarionBuns",
-    "userTag": "DarionBuns-1562",
-    "owner": "Darion",
-    "tags": ["main"]
-  },
-  {
     "userName": "HaydensAlt",
     "userTag": "HaydensPP-1687",
     "owner": "Garrett",
@@ -46,5 +34,65 @@
     "userTag": "SylasPP-1809",
     "owner": "Sylas",
     "tags": ["Alt"]
+  },
+  {
+    "userName": "GarrettNorth",
+    "userTag": "GarrettNorth-1971",
+    "owner": "Garrett",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "DarionBuns",
+    "userTag": "DarionBuns-1562",
+    "owner": "Darion",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "HaydenPres",
+    "userTag": "HaydenPres-1434",
+    "owner": "Hayden",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "Anubis",
+    "userTag": "anubis-15133",
+    "owner": "Joey",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "Fatwinners62",
+    "userTag": "fatwiener69-1980",
+    "owner": "Darion",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "LucioOnly",
+    "userTag": "LucioOnly-1108",
+    "owner": "Joey",
+    "tags": ["Alt"]
+  },
+  {
+    "userName": "AnonPianist",
+    "userTag": "AnonPianist-1109",
+    "owner": "Sylas",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "Munchie",
+    "userTag": "Munchie-11378",
+    "owner": "Munchie",
+    "tags": ["Main"]
+  },
+  {
+    "userName": "Traceronly",
+    "userTag": "traceronly-1854",
+    "owner": "Joey",
+    "tags": ["Alt"]
+  },
+  {
+    "userName": "LadiesMan217",
+    "userTag": "LadiesMan217-11267",
+    "owner": "Rae",
+    "tags": ["Main"]
   }
 ]
