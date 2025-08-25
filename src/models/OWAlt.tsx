@@ -14,6 +14,9 @@ export class OWAlt {
   supportRank: number;
   supportRankTier: number;
   lastUpdated?: string;
+  isCachedTank?: boolean;
+  isCachedDamage?: boolean;
+  isCachedSupport?: boolean;
 
   constructor(
     userName: string,
@@ -36,5 +39,8 @@ export class OWAlt {
     this.supportRank = 0;
     this.supportRankTier = 0;
     this.lastUpdated = undefined;
+    this.isCachedTank = false;
+    this.isCachedDamage = false;
+    this.isCachedSupport = false;
   }
 }

@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { OWAlt } from "../../models/OWAlt";
 
 async function fetchWithBackoff(url: string, delay = 1000): Promise<any> {
@@ -49,10 +50,32 @@ function convertRankToNumber(division: string, tier: number): number {
   return divisionMap[division] * 5 + (5 - tier);
 }
 
+// ----- Types for stored cookies -----
+interface CachedRank {
+  icon: string;
+  tier: number;
+  rank: number;
+}
+
+type Role = "tank" | "damage" | "support";
+
+function saveRankToCookie(userTag: string, role: Role, rank: CachedRank): void {
+  const key = `${userTag}_${role}`;
+  Cookies.set(key, JSON.stringify(rank));
+}
+
+function loadRankFromCookie(userTag: string, role: Role): CachedRank | null {
+  const key = `${userTag}_${role}`;
+  const data = Cookies.get(key);
+  return data ? (JSON.parse(data) as CachedRank) : null;
+}
+
 export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
   const summary = await fetchWithBackoff(
     `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
   );
+
+  console.log("Fetched summary for", alt.userTag, summary);
 
   if (summary?.error === 404) {
     alt.tankRankImagePath = "/assets/AltManager/Error.png";
@@ -71,48 +94,39 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
   alt.avatarImagePath = summary.avatar || alt.avatarImagePath;
   alt.lastUpdated = convertUnixToEST(summary.last_updated_at);
 
-  if (!summary.competitive?.pc) {
-    alt.tankRankImagePath = "/assets/AltManager/Unranked.png";
-    alt.tankRank = 0;
-    alt.damageRankImagePath = "/assets/AltManager/Unranked.png";
-    alt.damageRank = 0;
-    alt.supportRankImagePath = "/assets/AltManager/Unranked.png";
-    alt.supportRank = 0;
-  } else {
-    if (summary.competitive.pc.tank) {
-      alt.tankRankImagePath = summary.competitive.pc.tank.rank_icon;
-      alt.tankRankTier = summary.competitive.pc.tank.tier;
-      alt.tankRank = convertRankToNumber(
-        summary.competitive.pc.tank.division,
-        summary.competitive.pc.tank.tier
-      );
-    } else {
-      alt.tankRankImagePath = "/assets/AltManager/Unranked.png";
-      alt.tankRank = 0;
-    }
+  const roles: Role[] = ["tank", "damage", "support"];
+  for (const role of roles) {
+    const roleData = summary.competitive?.pc?.[role];
+    const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"
 
-    if (summary.competitive.pc.damage) {
-      alt.damageRankImagePath = summary.competitive.pc.damage.rank_icon;
-      alt.damageRankTier = summary.competitive.pc.damage.tier;
-      alt.damageRank = convertRankToNumber(
-        summary.competitive.pc.damage.division,
-        summary.competitive.pc.damage.tier
-      );
-    } else {
-      alt.damageRankImagePath = "/assets/AltManager/Unranked.png";
-      alt.damageRank = 0;
-    }
+    if (roleData) {
+      // Found a rank
+      const rankNumber = convertRankToNumber(roleData.division, roleData.tier);
+      (alt as any)[`${role}RankImagePath`] = roleData.rank_icon;
+      (alt as any)[`${role}RankTier`] = roleData.tier;
+      (alt as any)[`${role}Rank`] = rankNumber;
+      (alt as any)[`isCached${roleKey}`] = false;
 
-    if (summary.competitive.pc.support) {
-      alt.supportRankImagePath = summary.competitive.pc.support.rank_icon;
-      alt.supportRankTier = summary.competitive.pc.support.tier;
-      alt.supportRank = convertRankToNumber(
-        summary.competitive.pc.support.division,
-        summary.competitive.pc.support.tier
-      );
+      saveRankToCookie(alt.userTag, role, {
+        icon: roleData.rank_icon,
+        tier: roleData.tier,
+        rank: rankNumber,
+      });
     } else {
-      alt.supportRankImagePath = "/assets/AltManager/Unranked.png";
-      alt.supportRank = 0;
+      // Not ranked -> check cookie
+      const cached = loadRankFromCookie(alt.userTag, role);
+      if (cached) {
+        (alt as any)[`${role}RankImagePath`] = cached.icon;
+        (alt as any)[`${role}RankTier`] = cached.tier;
+        (alt as any)[`${role}Rank`] = cached.rank;
+        (alt as any)[`isCached${roleKey}`] = true;
+      } else {
+        (alt as any)[`${role}RankImagePath`] =
+          "/assets/AltManager/Unranked.png";
+        (alt as any)[`${role}RankTier`] = 0;
+        (alt as any)[`${role}Rank`] = 0;
+        (alt as any)[`isCached${roleKey}`] = false;
+      }
     }
   }
 

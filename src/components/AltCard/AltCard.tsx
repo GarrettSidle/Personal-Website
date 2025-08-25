@@ -38,7 +38,9 @@ export function AltCard({
         >
           {alt.tankRankTier}
         </span>
-        <span className="cached-overlay">Cached</span>
+        <span className={`cached-overlay ${!alt.isCachedTank ? "hidden" : ""}`}>
+          Cached
+        </span>
       </div>
       <div className="altcard-role-img-wrapper">
         <img
@@ -53,7 +55,11 @@ export function AltCard({
         >
           {alt.damageRankTier}
         </span>
-        <span className="cached-overlay">Cached</span>
+        <span
+          className={`cached-overlay ${!alt.isCachedDamage ? "hidden" : ""}`}
+        >
+          Cached
+        </span>
       </div>
       <div className="altcard-role-img-wrapper">
         <img
@@ -68,7 +74,11 @@ export function AltCard({
         >
           {alt.supportRankTier}
         </span>
-        <span className="cached-overlay">Cached</span>
+        <span
+          className={`cached-overlay ${!alt.isCachedSupport ? "hidden" : ""}`}
+        >
+          Cached
+        </span>
       </div>
       <div className="altcard-owner">{alt.owner}</div>
       <div className="altcard-tags">
