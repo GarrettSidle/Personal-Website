@@ -68,10 +68,17 @@ export function AltManager() {
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortAsc, setSortAsc] = useState<boolean>(true);
 
-  const isAltPinned = (alt: OWAlt) =>
-    pinnedAlts.some((pinnedAlt) => pinnedAlt.userTag === alt.userTag);
-
-  const [pinnedAlts, setPinnedAlts] = useState<OWAlt[]>([]);
+  // Load pinned state from cookie on initial render
+  const initialPinnedAlts = () => {
+    const storedPinnedAlts = Cookies.get("pinnedAlts");
+    try {
+      return storedPinnedAlts ? JSON.parse(storedPinnedAlts) : [];
+    } catch (e) {
+      console.error("Failed to parse pinned alts from cookie:", e);
+      return [];
+    }
+  };
+  const [pinnedAlts, setPinnedAlts] = useState<OWAlt[]>(initialPinnedAlts);
 
   const storedOwners = Cookies.get("selectedOwners");
   const storedTags = Cookies.get("selectedTags");
@@ -83,20 +90,21 @@ export function AltManager() {
     storedTags ? JSON.parse(storedTags) : tagOptions
   );
 
-  // New function to handle pinning/unpinning
   const handlePinClick = (altToPin: OWAlt) => {
-    // Check if the alt is already pinned
     const isPinned = pinnedAlts.some((alt) => alt.userTag === altToPin.userTag);
     if (isPinned) {
-      // Unpin: remove it from the pinned list
       setPinnedAlts(
         pinnedAlts.filter((alt) => alt.userTag !== altToPin.userTag)
       );
     } else {
-      // Pin: add it to the pinned list
       setPinnedAlts([...pinnedAlts, altToPin]);
     }
   };
+
+  // Persist pinned alts to cookie whenever the state changes
+  useEffect(() => {
+    Cookies.set("pinnedAlts", JSON.stringify(pinnedAlts));
+  }, [pinnedAlts]);
 
   useEffect(() => {
     OWAlts.forEach(async (alt, i) => {
@@ -210,7 +218,7 @@ export function AltManager() {
   const handleSort = (field: SortField) => {
     let newSortAsc = sortField === field ? !sortAsc : true;
 
-    let sorted = [...OWAlts]; // Start with the original data
+    let sorted = [...OWAlts];
     switch (field) {
       case "username":
         sorted.sort((a, b) => {
@@ -244,12 +252,12 @@ export function AltManager() {
     setSortField(field);
     setSortAsc(newSortAsc);
   };
+  const isAltPinned = (alt: OWAlt) =>
+    pinnedAlts.some((pinnedAlt) => pinnedAlt.userTag === alt.userTag);
   const filteredAlts = sortedAlts.filter((alt) => {
     const ownerMatch = selectedOwners.includes(alt.owner);
     const tagMatch = alt.tags.some((tag) => selectedTags.includes(tag));
-    const isPinned = pinnedAlts.some(
-      (pinnedAlt) => pinnedAlt.userTag === alt.userTag
-    );
+    const isPinned = isAltPinned(alt);
     return ownerMatch && tagMatch && !isPinned;
   });
 
@@ -276,7 +284,7 @@ export function AltManager() {
               key={alt.userTag}
               alt={alt}
               onPinClick={() => handlePinClick(alt)}
-              isPinned={true} // Always true for cards in the pinned section
+              isPinned={true}
             />
           ))}
         </div>
@@ -288,7 +296,7 @@ export function AltManager() {
               key={alt.userTag}
               alt={alt}
               onPinClick={() => handlePinClick(alt)}
-              isPinned={isAltPinned(alt)} // Check if this specific alt is in the pinned list
+              isPinned={isAltPinned(alt)}
             />
           ))}
         </div>
