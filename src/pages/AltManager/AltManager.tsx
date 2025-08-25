@@ -3,6 +3,7 @@ import "./AltManager.css";
 import AltCard from "../../components/AltCard/AltCard";
 import { OWAlt } from "../../models/OWAlt";
 import { AltCardHeader } from "../../components/AltCard/AltCardHeader";
+import Cookies from "js-cookie";
 
 const rawAlts = require("./OWAlts.json");
 const OWAlts: OWAlt[] = rawAlts.map(
@@ -39,6 +40,26 @@ async function fetchWithBackoff(url: string, delay = 1000): Promise<any> {
   }
 }
 
+function convertUnixToEST(timestamp: number): string {
+  const milliseconds = timestamp * 1000;
+
+  const date = new Date(milliseconds);
+
+  const formattedDate = date.toLocaleDateString("en-US", {
+    month: "2-digit",
+    day: "2-digit",
+    timeZone: "EST",
+  });
+  const formattedTime = date.toLocaleTimeString("en-US", {
+    timeZone: "EST",
+    hour: "numeric",
+    minute: "numeric",
+  });
+  const estDateTime = `${formattedDate} ${formattedTime}`;
+
+  return estDateTime;
+}
+
 export function AltManager() {
   const [summaries, setSummaries] = useState<any[]>(
     Array(OWAlts.length).fill(null)
@@ -46,8 +67,16 @@ export function AltManager() {
   const [sortedAlts, setSortedAlts] = useState<OWAlt[]>([...OWAlts]);
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortAsc, setSortAsc] = useState<boolean>(true);
-  const [selectedOwners, setSelectedOwners] = useState<string[]>(ownerOptions);
-  const [selectedTags, setSelectedTags] = useState<string[]>(tagOptions);
+
+  const storedOwners = Cookies.get("selectedOwners");
+  const storedTags = Cookies.get("selectedTags");
+
+  const [selectedOwners, setSelectedOwners] = useState<string[]>(
+    storedOwners ? JSON.parse(storedOwners) : ownerOptions
+  );
+  const [selectedTags, setSelectedTags] = useState<string[]>(
+    storedTags ? JSON.parse(storedTags) : tagOptions
+  );
 
   useEffect(() => {
     OWAlts.forEach(async (alt, i) => {
@@ -64,6 +93,7 @@ export function AltManager() {
         updatedAlts[i].tankRankTier = -1;
         updatedAlts[i].damageRankTier = -1;
         updatedAlts[i].supportRankTier = -1;
+        updatedAlts[i].lastUpdated = "N/A";
         setSummaries((prev) => {
           const newSummaries = [...prev];
           newSummaries[i] = { error: 404 };
@@ -76,6 +106,7 @@ export function AltManager() {
       const updatedAlts = [...OWAlts];
       updatedAlts[i].avatarImagePath =
         summary.avatar || updatedAlts[i].avatarImagePath;
+      updatedAlts[i].lastUpdated = convertUnixToEST(summary.last_updated_at);
       if (!summary.competitive?.pc) {
         updatedAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.png";
         updatedAlts[i].tankRank = 0;
@@ -148,6 +179,14 @@ export function AltManager() {
       });
     });
   }, []);
+
+  useEffect(() => {
+    Cookies.set("selectedOwners", JSON.stringify(selectedOwners));
+  }, [selectedOwners]);
+
+  useEffect(() => {
+    Cookies.set("selectedTags", JSON.stringify(selectedTags));
+  }, [selectedTags]);
 
   const handleSort = (field: SortField) => {
     let newSortAsc = sortField === field ? !sortAsc : true;

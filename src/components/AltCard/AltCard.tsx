@@ -10,7 +10,12 @@ export function AltCard({ alt }: { alt: OWAlt }) {
       key={alt.userTag}
     >
       <img src={alt.avatarImagePath} alt="Avatar" className="altcard-avatar" />
-      <div className="altcard-username">{alt.userName}</div>
+      <div className="altcard-username-container">
+        <div className="altcard-username">{alt.userName}</div>
+        <div className="altcard-last-updated">
+          Last Updated: {alt.lastUpdated}
+        </div>
+      </div>
       <div className="altcard-role-img-wrapper">
         <img
           src={alt.tankRankImagePath}

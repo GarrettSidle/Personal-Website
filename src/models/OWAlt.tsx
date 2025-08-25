@@ -13,6 +13,7 @@ export class OWAlt {
   supportRankImagePath: string;
   supportRank: number;
   supportRankTier: number;
+  lastUpdated?: string;
 
   constructor(
     userName: string,
@@ -34,5 +35,6 @@ export class OWAlt {
     this.supportRankImagePath = "/assets/AltManager/Loading.gif";
     this.supportRank = 0;
     this.supportRankTier = 0;
+    this.lastUpdated = undefined;
   }
 }

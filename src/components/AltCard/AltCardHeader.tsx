@@ -40,6 +40,9 @@ export function AltCardHeader({
   const [showOwnerFilter, setShowOwnerFilter] = useState(false);
   const [showTagFilter, setShowTagFilter] = useState(false);
 
+  console.log(tagOptions);
+  console.log(selectedTags);
+
   return (
     <div className="altcard-header">
       <div className="altcard-avatar-header" />
@@ -68,7 +71,7 @@ export function AltCardHeader({
       <div className="altcard-owner-header">
         <span onClick={() => setShowOwnerFilter(true)}>Owner</span>
         <span className="filter-indicator">
-          {selectedOwners != ownerOptions ? "•" : ""}
+          {selectedOwners.length != ownerOptions.length ? "•" : ""}
         </span>
       </div>
 
@@ -77,9 +80,9 @@ export function AltCardHeader({
         onClick={() => setShowTagFilter(true)}
       >
         <div className="altcard-tag-header">
-          Tags{" "}
+          Tags
           <span className="filter-indicator">
-            {selectedTags != tagOptions ? "•" : ""}
+            {selectedTags.length != tagOptions.length ? "•" : ""}
           </span>
         </div>
       </div>

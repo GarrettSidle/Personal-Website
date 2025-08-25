@@ -69,6 +69,12 @@
   color: #fff;
   margin-right: 16px;
 }
+.altcard-last-updated {
+  font-size: 0.6em;
+  color: #999999;
+  margin-right: 16px;
+  text-align: center;
+}
 
 .altcard-img {
   width: 32px;
@@ -100,4 +106,11 @@
   border-radius: 6px;
   font-size: 0.9em;
   margin-bottom: 1px;
+}
+
+.altcard-username-container {
+  flex: 1 1 0;
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
