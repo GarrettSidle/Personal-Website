@@ -68,6 +68,11 @@ export function AltManager() {
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortAsc, setSortAsc] = useState<boolean>(true);
 
+  const isAltPinned = (alt: OWAlt) =>
+    pinnedAlts.some((pinnedAlt) => pinnedAlt.userTag === alt.userTag);
+
+  const [pinnedAlts, setPinnedAlts] = useState<OWAlt[]>([]);
+
   const storedOwners = Cookies.get("selectedOwners");
   const storedTags = Cookies.get("selectedTags");
 
@@ -78,13 +83,27 @@ export function AltManager() {
     storedTags ? JSON.parse(storedTags) : tagOptions
   );
 
+  // New function to handle pinning/unpinning
+  const handlePinClick = (altToPin: OWAlt) => {
+    // Check if the alt is already pinned
+    const isPinned = pinnedAlts.some((alt) => alt.userTag === altToPin.userTag);
+    if (isPinned) {
+      // Unpin: remove it from the pinned list
+      setPinnedAlts(
+        pinnedAlts.filter((alt) => alt.userTag !== altToPin.userTag)
+      );
+    } else {
+      // Pin: add it to the pinned list
+      setPinnedAlts([...pinnedAlts, altToPin]);
+    }
+  };
+
   useEffect(() => {
     OWAlts.forEach(async (alt, i) => {
       const summary = await fetchWithBackoff(
         `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
       );
       if (summary?.error === 404) {
-        // Update OWAlts data directly for future renders
         const updatedAlts = [...OWAlts];
         updatedAlts[i].tankRankImagePath = "/assets/AltManager/Error.png";
         updatedAlts[i].damageRankImagePath = "/assets/AltManager/Error.png";
@@ -102,7 +121,7 @@ export function AltManager() {
         return;
       }
 
-      if (!summary) return; // Update OWAlts data directly for future renders
+      if (!summary) return;
       const updatedAlts = [...OWAlts];
       updatedAlts[i].avatarImagePath =
         summary.avatar || updatedAlts[i].avatarImagePath;
@@ -224,12 +243,14 @@ export function AltManager() {
     setSortedAlts(sorted);
     setSortField(field);
     setSortAsc(newSortAsc);
-  }; // Filter the alts based on the selected owners and tags
-
+  };
   const filteredAlts = sortedAlts.filter((alt) => {
     const ownerMatch = selectedOwners.includes(alt.owner);
     const tagMatch = alt.tags.some((tag) => selectedTags.includes(tag));
-    return ownerMatch && tagMatch;
+    const isPinned = pinnedAlts.some(
+      (pinnedAlt) => pinnedAlt.userTag === alt.userTag
+    );
+    return ownerMatch && tagMatch && !isPinned;
   });
 
   return (
@@ -248,9 +269,30 @@ export function AltManager() {
         setSelectedTags={setSelectedTags}
       />
 
-      {filteredAlts.map((alt, index) => (
-        <AltCard key={alt.userTag} alt={alt} />
-      ))}
+      <div className="pinned-section">
+        <div className="alt-cards-container">
+          {pinnedAlts.map((alt) => (
+            <AltCard
+              key={alt.userTag}
+              alt={alt}
+              onPinClick={() => handlePinClick(alt)}
+              isPinned={true} // Always true for cards in the pinned section
+            />
+          ))}
+        </div>
+      </div>
+      <div className="unpinned-section">
+        <div className="alt-cards-container">
+          {filteredAlts.map((alt, index) => (
+            <AltCard
+              key={alt.userTag}
+              alt={alt}
+              onPinClick={() => handlePinClick(alt)}
+              isPinned={isAltPinned(alt)} // Check if this specific alt is in the pinned list
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

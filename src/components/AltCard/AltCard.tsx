@@ -1,7 +1,16 @@
 import { OWAlt } from "../../models/OWAlt";
 import "./AltCard.css";
+import PushPinIcon from "@mui/icons-material/PushPin";
 
-export function AltCard({ alt }: { alt: OWAlt }) {
+export function AltCard({
+  alt,
+  onPinClick,
+  isPinned, // New prop
+}: {
+  alt: OWAlt;
+  onPinClick: () => void;
+  isPinned: boolean; // New prop type
+}) {
   return (
     <a
       target="_blank"
@@ -65,6 +74,15 @@ export function AltCard({ alt }: { alt: OWAlt }) {
             {tag}
           </div>
         ))}
+      </div>
+      <div
+        className="altcard-pin-icon"
+        onClick={(e) => {
+          e.preventDefault();
+          onPinClick();
+        }}
+      >
+        <PushPinIcon style={{ color: isPinned ? "#ffffff" : "#000000ff" }} />
       </div>
     </a>
   );
