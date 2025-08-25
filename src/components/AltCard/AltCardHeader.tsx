@@ -36,12 +36,8 @@ export function AltCardHeader({
   selectedTags,
   setSelectedTags,
 }: AltCardHeaderProps) {
-  // State for popup visibility remains here
   const [showOwnerFilter, setShowOwnerFilter] = useState(false);
   const [showTagFilter, setShowTagFilter] = useState(false);
-
-  console.log(tagOptions);
-  console.log(selectedTags);
 
   return (
     <div className="altcard-header">
