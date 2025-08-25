@@ -38,6 +38,28 @@ export function AltCardHeader({
 }: AltCardHeaderProps) {
   const [showOwnerFilter, setShowOwnerFilter] = useState(false);
   const [showTagFilter, setShowTagFilter] = useState(false);
+  const [filterPosition, setFilterPosition] = useState({ top: 0, left: 0 });
+
+  const handleFilterClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    filterType: "owner" | "tag"
+  ) => {
+    event.preventDefault();
+    const rect = event.currentTarget.getBoundingClientRect();
+    setFilterPosition({ top: rect.bottom, left: rect.left });
+    if (filterType === "owner") {
+      setShowOwnerFilter(true);
+      setShowTagFilter(false); // Close other filter
+    } else {
+      setShowTagFilter(true);
+      setShowOwnerFilter(false); // Close other filter
+    }
+  };
+
+  const handleFilterClose = () => {
+    setShowOwnerFilter(false);
+    setShowTagFilter(false);
+  };
 
   return (
     <div className="altcard-header">
@@ -64,8 +86,11 @@ export function AltCardHeader({
         {getIndicator(sortField === "support", sortAsc)}
       </div>
 
-      <div className="altcard-owner-header">
-        <span onClick={() => setShowOwnerFilter(true)}>Owner</span>
+      <div
+        className="altcard-owner-header"
+        onClick={(e) => handleFilterClick(e, "owner")}
+      >
+        <span>Owner</span>
         <span className="filter-indicator">
           {selectedOwners.length != ownerOptions.length ? "•" : ""}
         </span>
@@ -73,7 +98,7 @@ export function AltCardHeader({
 
       <div
         className="altcard-tag-header"
-        onClick={() => setShowTagFilter(true)}
+        onClick={(e) => handleFilterClick(e, "tag")}
       >
         <div className="altcard-tag-header">
           Tags
@@ -88,7 +113,8 @@ export function AltCardHeader({
           items={ownerOptions}
           selectedItems={selectedOwners}
           setSelectedItems={setSelectedOwners}
-          onClose={() => setShowOwnerFilter(false)}
+          onClose={handleFilterClose}
+          position={filterPosition}
         />
       )}
 
@@ -97,7 +123,8 @@ export function AltCardHeader({
           items={tagOptions}
           selectedItems={selectedTags}
           setSelectedItems={setSelectedTags}
-          onClose={() => setShowTagFilter(false)}
+          onClose={handleFilterClose}
+          position={filterPosition}
         />
       )}
     </div>

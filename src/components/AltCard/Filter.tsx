@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./Filter.css";
 
@@ -7,6 +7,7 @@ interface FilterProps {
   selectedItems: string[];
   setSelectedItems: React.Dispatch<React.SetStateAction<string[]>>;
   onClose: () => void;
+  position: { top: number; left: number };
 }
 
 export function Filter({
@@ -14,7 +15,10 @@ export function Filter({
   selectedItems,
   setSelectedItems,
   onClose,
+  position,
 }: FilterProps) {
+  const filterRef = useRef<HTMLDivElement>(null);
+
   const toggleItem = (item: string) => {
     if (selectedItems.includes(item)) {
       setSelectedItems(selectedItems.filter((i) => i !== item));
@@ -27,12 +31,15 @@ export function Filter({
   const selectNone = () => setSelectedItems([]);
 
   const content = (
-    <div className="Alt-Card-Filter">
-      <div className="Filter-Container">
-        <button className="Filter-Close" onClick={onClose}>
-          ✕
-        </button>
-
+    <div
+      className="Alt-Card-Filter-Wrapper"
+      style={{ top: position.top, left: position.left }}
+    >
+      <div
+        className="Filter-Container"
+        onMouseLeave={onClose}
+        onMouseEnter={() => {}}
+      >
         <h2 className="Filter-Title">Filter Items</h2>
 
         <div className="Filter-Buttons">
@@ -60,7 +67,6 @@ export function Filter({
     </div>
   );
 
-  // Render into body, above all other stacking contexts
   return ReactDOM.createPortal(content, document.body);
 }
 
