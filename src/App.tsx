@@ -3,7 +3,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Blog from "./pages/Blog/Blog";
 import Layout from "./pages/Home/Layout";
 import "./App.css";
-import AltManager from "./pages/AltManager/AtlManager";
+import { AltManager } from "./pages/AltManager/AltManager";
 
 interface RouterState {
   currentPath: string;
