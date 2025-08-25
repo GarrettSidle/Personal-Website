@@ -57,10 +57,10 @@ export function AltManager() {
       if (summary?.error === 404) {
         // Update OWAlts data directly for future renders
         const updatedAlts = [...OWAlts];
-        updatedAlts[i].tankRankImagePath = "/assets/AltManager/Error.jpg";
-        updatedAlts[i].damageRankImagePath = "/assets/AltManager/Error.jpg";
-        updatedAlts[i].supportRankImagePath = "/assets/AltManager/Error.jpg";
-        updatedAlts[i].avatarImagePath = "/assets/AltManager/Error.jpg";
+        updatedAlts[i].tankRankImagePath = "/assets/AltManager/Error.png";
+        updatedAlts[i].damageRankImagePath = "/assets/AltManager/Error.png";
+        updatedAlts[i].supportRankImagePath = "/assets/AltManager/Error.png";
+        updatedAlts[i].avatarImagePath = "/assets/AltManager/Error.png";
         updatedAlts[i].tankRankTier = -1;
         updatedAlts[i].damageRankTier = -1;
         updatedAlts[i].supportRankTier = -1;
@@ -77,11 +77,11 @@ export function AltManager() {
       updatedAlts[i].avatarImagePath =
         summary.avatar || updatedAlts[i].avatarImagePath;
       if (!summary.competitive?.pc) {
-        updatedAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.jpg";
+        updatedAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.png";
         updatedAlts[i].tankRank = 0;
-        updatedAlts[i].damageRankImagePath = "/assets/AltManager/Unranked.jpg";
+        updatedAlts[i].damageRankImagePath = "/assets/AltManager/Unranked.png";
         updatedAlts[i].damageRank = 0;
-        updatedAlts[i].supportRankImagePath = "/assets/AltManager/Unranked.jpg";
+        updatedAlts[i].supportRankImagePath = "/assets/AltManager/Unranked.png";
         updatedAlts[i].supportRank = 0;
       } else {
         const convertRankToNumber = (
@@ -109,7 +109,7 @@ export function AltManager() {
             summary.competitive.pc.tank.tier
           );
         } else {
-          updatedAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.jpg";
+          updatedAlts[i].tankRankImagePath = "/assets/AltManager/Unranked.png";
           updatedAlts[i].tankRank = 0;
         }
 
@@ -123,7 +123,7 @@ export function AltManager() {
           );
         } else {
           updatedAlts[i].damageRankImagePath =
-            "/assets/AltManager/Unranked.jpg";
+            "/assets/AltManager/Unranked.png";
           updatedAlts[i].damageRank = 0;
         }
 
@@ -137,7 +137,7 @@ export function AltManager() {
           );
         } else {
           updatedAlts[i].supportRankImagePath =
-            "/assets/AltManager/Unranked.jpg";
+            "/assets/AltManager/Unranked.png";
           updatedAlts[i].supportRank = 0;
         }
       }
