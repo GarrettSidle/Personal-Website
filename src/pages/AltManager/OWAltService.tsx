@@ -55,6 +55,7 @@ interface CachedRank {
   icon: string;
   tier: number;
   rank: number;
+  season?: number;
 }
 
 type Role = "tank" | "damage" | "support";
@@ -74,8 +75,6 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
   const summary = await fetchWithBackoff(
     `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
   );
-
-  console.log("Fetched summary for", alt.userTag, summary);
 
   if (summary?.error === 404) {
     alt.tankRankImagePath = "/assets/AltManager/Error.png";
@@ -98,7 +97,6 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
   for (const role of roles) {
     const roleData = summary.competitive?.pc?.[role];
     const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"
-
     if (roleData) {
       // Found a rank
       const rankNumber = convertRankToNumber(roleData.division, roleData.tier);
@@ -106,11 +104,13 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
       (alt as any)[`${role}RankTier`] = roleData.tier;
       (alt as any)[`${role}Rank`] = rankNumber;
       (alt as any)[`isCached${roleKey}`] = false;
+      (alt as any)[`${role}Season`] = summary.competitive?.pc?.season;
 
       saveRankToCookie(alt.userTag, role, {
         icon: roleData.rank_icon,
         tier: roleData.tier,
         rank: rankNumber,
+        season: summary.competitive?.pc?.season,
       });
     } else {
       // Not ranked -> check cookie
@@ -119,12 +119,14 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
         (alt as any)[`${role}RankImagePath`] = cached.icon;
         (alt as any)[`${role}RankTier`] = cached.tier;
         (alt as any)[`${role}Rank`] = cached.rank;
+        (alt as any)[`${role}Season`] = cached.season ? cached.season : 17;
         (alt as any)[`isCached${roleKey}`] = true;
       } else {
         (alt as any)[`${role}RankImagePath`] =
           "/assets/AltManager/Unranked.png";
         (alt as any)[`${role}RankTier`] = 0;
         (alt as any)[`${role}Rank`] = 0;
+        (alt as any)[`${role}Season`] = 1;
         (alt as any)[`isCached${roleKey}`] = false;
       }
     }

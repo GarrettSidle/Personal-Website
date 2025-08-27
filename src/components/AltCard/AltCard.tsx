@@ -5,11 +5,13 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 export function AltCard({
   alt,
   onPinClick,
-  isPinned, // New prop
+  isPinned,
+  currentSeason,
 }: {
   alt: OWAlt;
   onPinClick: () => void;
-  isPinned: boolean; // New prop type
+  isPinned: boolean;
+  currentSeason: number;
 }) {
   return (
     <a
@@ -38,8 +40,16 @@ export function AltCard({
         >
           {alt.tankRankTier}
         </span>
-        <span className={`cached-overlay ${!alt.isCachedTank ? "hidden" : ""}`}>
-          Cached
+        <span
+          className={`cached-overlay ${
+            alt.tankSeason == currentSeason.toString() || alt.tankRankTier <= 0
+              ? "hidden"
+              : ""
+          }`}
+        >
+          {alt.tankSeason != undefined
+            ? `S${alt.tankSeason}`
+            : `S${(currentSeason - 1).toString()}`}
         </span>
       </div>
       <div className="altcard-role-img-wrapper">
@@ -56,9 +66,16 @@ export function AltCard({
           {alt.damageRankTier}
         </span>
         <span
-          className={`cached-overlay ${!alt.isCachedDamage ? "hidden" : ""}`}
+          className={`cached-overlay ${
+            alt.damageSeason == currentSeason.toString() ||
+            alt.damageRankTier <= 0
+              ? "hidden"
+              : ""
+          }`}
         >
-          Cached
+          {alt.damageSeason != undefined
+            ? `S${alt.damageSeason}`
+            : `S${(currentSeason - 1).toString()}`}
         </span>
       </div>
       <div className="altcard-role-img-wrapper">
@@ -75,9 +92,16 @@ export function AltCard({
           {alt.supportRankTier}
         </span>
         <span
-          className={`cached-overlay ${!alt.isCachedSupport ? "hidden" : ""}`}
+          className={`cached-overlay ${
+            alt.supportSeason == currentSeason.toString() ||
+            alt.supportRankTier <= 0
+              ? "hidden"
+              : ""
+          }`}
         >
-          Cached
+          {alt.supportSeason != undefined
+            ? `S${alt.supportSeason}`
+            : `S${(currentSeason - 1).toString()}`}
         </span>
       </div>
       <div className="altcard-owner">{alt.owner}</div>

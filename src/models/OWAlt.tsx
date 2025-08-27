@@ -17,6 +17,9 @@ export class OWAlt {
   isCachedTank?: boolean;
   isCachedDamage?: boolean;
   isCachedSupport?: boolean;
+  tankSeason?: string;
+  damageSeason?: string;
+  supportSeason?: string;
 
   constructor(
     userName: string,
@@ -42,5 +45,8 @@ export class OWAlt {
     this.isCachedTank = false;
     this.isCachedDamage = false;
     this.isCachedSupport = false;
+    this.tankSeason = undefined;
+    this.damageSeason = undefined;
+    this.supportSeason = undefined;
   }
 }

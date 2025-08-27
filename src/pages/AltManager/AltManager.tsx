@@ -30,6 +30,20 @@ export function AltManager() {
   const [sortedAlts, setSortedAlts] = useState<OWAlt[]>([...OWAlts]);
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortAsc, setSortAsc] = useState<boolean>(true);
+  const baseSeason = 18;
+  const baseDate = new Date("2025-08-26"); // starting point
+  const season = getCurrentSeason(baseSeason, baseDate);
+
+  function getCurrentSeason(startSeason: number, startDate: Date): number {
+    const today = new Date();
+    const diffMs = today.getTime() - startDate.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+    // Every 60 days = +1 season
+    const increments = Math.floor(diffDays / 60);
+
+    return startSeason + increments;
+  }
 
   const initialPinnedAlts = () => {
     const storedPinnedAlts = Cookies.get("pinnedAlts");
@@ -156,6 +170,7 @@ export function AltManager() {
               alt={alt}
               onPinClick={() => handlePinClick(alt)}
               isPinned={true}
+              currentSeason={season}
             />
           ))}
         </div>
@@ -168,6 +183,7 @@ export function AltManager() {
               alt={alt}
               onPinClick={() => handlePinClick(alt)}
               isPinned={isAltPinned(alt)}
+              currentSeason={season}
             />
           ))}
         </div>
