@@ -131,6 +131,6 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
       }
     }
   }
-  console.log(`Fetched summary for", ${alt.userTag}, ${alt}`);
+  console.log(`Fetched summary for", ${alt.userTag}`, alt);
   return alt;
 }
