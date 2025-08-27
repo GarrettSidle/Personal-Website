@@ -48,7 +48,10 @@ export function AltManager() {
   const initialPinnedAlts = () => {
     const storedPinnedAlts = Cookies.get("pinnedAlts");
     try {
-      return storedPinnedAlts ? JSON.parse(storedPinnedAlts) : [];
+      const parsed = storedPinnedAlts ? JSON.parse(storedPinnedAlts) : [];
+      return parsed.map(
+        (alt: any) => new OWAlt(alt.userName, alt.userTag, alt.owner, alt.tags)
+      );
     } catch (e) {
       console.error("Failed to parse pinned alts from cookie:", e);
       return [];
@@ -73,24 +76,37 @@ export function AltManager() {
         pinnedAlts.filter((alt) => alt.userTag !== altToPin.userTag)
       );
     } else {
-      setPinnedAlts([...pinnedAlts, altToPin]);
+      // Save only identity info (no ranks)
+      const { userName, userTag, owner, tags } = altToPin;
+      setPinnedAlts([
+        ...pinnedAlts,
+        new OWAlt(userName, userTag, owner, [...tags]),
+      ]);
     }
   };
 
   useEffect(() => {
-    Cookies.set("pinnedAlts", JSON.stringify(pinnedAlts));
+    // Strip down to minimal before writing
+    const stripped = pinnedAlts.map(({ userName, userTag, owner, tags }) => ({
+      userName,
+      userTag,
+      owner,
+      tags,
+    }));
+    Cookies.set("pinnedAlts", JSON.stringify(stripped));
   }, [pinnedAlts]);
-
   useEffect(() => {
-    OWAlts.forEach(async (alt, i) => {
+    const allAlts = [...OWAlts, ...pinnedAlts];
+    allAlts.forEach(async (alt) => {
       const updatedAlt = await fetchPlayerSummary(alt);
       setSummaries((prev) => {
+        const index = allAlts.findIndex((a) => a.userTag === alt.userTag);
         const newSummaries = [...prev];
-        newSummaries[i] = updatedAlt;
+        newSummaries[index] = updatedAlt;
         return newSummaries;
       });
     });
-  }, []);
+  }, [pinnedAlts]);
 
   useEffect(() => {
     Cookies.set("selectedOwners", JSON.stringify(selectedOwners));
@@ -164,15 +180,20 @@ export function AltManager() {
 
       <div className="pinned-section">
         <div className="alt-cards-container">
-          {pinnedAlts.map((alt) => (
-            <AltCard
-              key={alt.userTag}
-              alt={alt}
-              onPinClick={() => handlePinClick(alt)}
-              isPinned={true}
-              currentSeason={season}
-            />
-          ))}
+          {pinnedAlts.map((alt) => {
+            const summaryAlt = summaries.find(
+              (s) => s && s.userTag === alt.userTag
+            );
+            return (
+              <AltCard
+                key={alt.userTag}
+                alt={summaryAlt || alt}
+                onPinClick={() => handlePinClick(alt)}
+                isPinned={true}
+                currentSeason={season}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="unpinned-section">
