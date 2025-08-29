@@ -34,6 +34,47 @@ export function AltManager() {
   const baseDate = new Date("2025-08-26"); // starting point
   const season = getCurrentSeason(baseSeason, baseDate);
 
+  function initializeRanks() {
+    if (Cookies.get("FirstLoad")) return;
+
+    // Set FirstLoad so this only runs once
+    Cookies.set("FirstLoad", "true");
+
+    const ranks: Record<string, string> = {
+      "JoeysPP-1567_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
+      "JoeysPP-1567_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
+      "HaydensPP-1687_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
+      "HaydensPP-1687_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
+      "SylasPP-1809_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":3,"rank":22,"season":17}`,
+      "SylasPP-1809_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":3,"rank":17,"season":16}`,
+      "GarrettNorth-1971_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":4,"rank":21,"season":17}`,
+      "GarrettNorth-1971_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":4,"rank":21,"season":17}`,
+      "munchie-11378_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_MasterTier-7d3b85ba0d.png","tier":5,"rank":25,"season":17}`,
+      "munchie-11378_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_MasterTier-7d3b85ba0d.png","tier":4,"rank":26,"season":17}`,
+      "Anubis-15133_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":5,"rank":15,"season":17}`,
+      "Anubis-15133_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":3,"rank":17,"season":17}`,
+      "AnonPianist-1109_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_GoldTier-16d20c7128.png","tier":1,"rank":14,"season":7}`,
+      "AnonPianist-1109_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":2,"rank":18,"season":17}`,
+      "GarrettsPP-1913_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":1,"rank":19,"season":15}`,
+      "MunchiesPP-1765_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":3,"rank":22,"season":13}`,
+      "MunchiesPP-1765_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":1,"rank":19,"season":16}`,
+      "DarionBuns-1562_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":1,"rank":24,"season":16}`,
+      "DarionBuns-1562_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":5,"rank":20,"season":14}`,
+      "fatwiener69-1980_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_GoldTier-16d20c7128.png","tier":1,"rank":14,"season":5}`,
+      "fatwiener69-1980_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_GoldTier-16d20c7128.png","tier":5,"rank":10,"season":5}`,
+      "fatwiener69-1980_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":7}`,
+      "Ladiesman217-11267_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":5,"rank":15,"season":14}`,
+      "Ladiesman217-11267_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":7}`,
+      "LucioOnly-1108_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_PlatinumTier-ccf57375a7.png","tier":1,"rank":19,"season":14}`,
+    };
+
+    Object.entries(ranks).forEach(([key, value]) => {
+      Cookies.set(key, value, { expires: 400 });
+    });
+  }
+
+  initializeRanks();
+
   function getCurrentSeason(startSeason: number, startDate: Date): number {
     const today = new Date();
     const diffMs = today.getTime() - startDate.getTime();
