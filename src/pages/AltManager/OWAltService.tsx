@@ -62,7 +62,7 @@ type Role = "tank" | "damage" | "support";
 
 function saveRankToCookie(userTag: string, role: Role, rank: CachedRank): void {
   const key = `${userTag}_${role}`;
-  Cookies.set(key, JSON.stringify(rank));
+  Cookies.set(key, JSON.stringify(rank), { expires: 400 });
 }
 
 function loadRankFromCookie(userTag: string, role: Role): CachedRank | null {
