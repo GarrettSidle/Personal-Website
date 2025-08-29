@@ -13,6 +13,13 @@ export function AltCard({
   isPinned: boolean;
   currentSeason: number;
 }) {
+  function getSeasonColor(season: number, currentSeason: number) {
+    const diff = currentSeason - season;
+    if (diff === 1) return "green"; // last season
+    if (diff <= 3) return "yellow"; // 2-3 seasons ago
+    return "red"; // more than 3 seasons ago
+  }
+
   return (
     <a
       target="_blank"
@@ -41,17 +48,24 @@ export function AltCard({
           {alt.tankRankTier}
         </span>
         <span
-          className={`cached-overlay ${
+          className={`season-overlay ${
             alt.tankSeason == currentSeason.toString() || alt.tankRankTier <= 0
               ? "hidden"
               : ""
           }`}
+          style={{
+            color:
+              alt.tankSeason !== undefined
+                ? getSeasonColor(parseInt(alt.tankSeason), currentSeason)
+                : getSeasonColor(currentSeason - 1, currentSeason),
+          }}
         >
           {alt.tankSeason != undefined
             ? `S${alt.tankSeason}`
-            : `S${(currentSeason - 1).toString()}`}
+            : `S${currentSeason - 1}`}
         </span>
       </div>
+
       <div className="altcard-role-img-wrapper">
         <img
           src={alt.damageRankImagePath}
@@ -66,18 +80,25 @@ export function AltCard({
           {alt.damageRankTier}
         </span>
         <span
-          className={`cached-overlay ${
+          className={`season-overlay ${
             alt.damageSeason == currentSeason.toString() ||
             alt.damageRankTier <= 0
               ? "hidden"
               : ""
           }`}
+          style={{
+            color:
+              alt.damageSeason !== undefined
+                ? getSeasonColor(parseInt(alt.damageSeason), currentSeason)
+                : getSeasonColor(currentSeason - 1, currentSeason),
+          }}
         >
           {alt.damageSeason != undefined
             ? `S${alt.damageSeason}`
-            : `S${(currentSeason - 1).toString()}`}
+            : `S${currentSeason - 1}`}
         </span>
       </div>
+
       <div className="altcard-role-img-wrapper">
         <img
           src={alt.supportRankImagePath}
@@ -92,16 +113,22 @@ export function AltCard({
           {alt.supportRankTier}
         </span>
         <span
-          className={`cached-overlay ${
+          className={`season-overlay ${
             alt.supportSeason == currentSeason.toString() ||
             alt.supportRankTier <= 0
               ? "hidden"
               : ""
           }`}
+          style={{
+            color:
+              alt.supportSeason !== undefined
+                ? getSeasonColor(parseInt(alt.supportSeason), currentSeason)
+                : getSeasonColor(currentSeason - 1, currentSeason),
+          }}
         >
           {alt.supportSeason != undefined
             ? `S${alt.supportSeason}`
-            : `S${(currentSeason - 1).toString()}`}
+            : `S${currentSeason - 1}`}
         </span>
       </div>
       <div className="altcard-owner">{alt.owner}</div>
