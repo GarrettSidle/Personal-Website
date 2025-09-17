@@ -20,6 +20,18 @@ export function AltCard({
     return "red"; // more than 3 seasons ago
   }
 
+  // Helper to determine if the red asterisk overlay should show for a given role
+  const getUnrankedCachedOverlay = (role: "Tank" | "Damage" | "Support") => {
+    if (alt[`unrankedCached${role}`]) {
+      return (
+        <div className="altcard-rank-overlay altcard-unranked-cached-overlay">
+          *
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <a
       target="_blank"
@@ -40,6 +52,7 @@ export function AltCard({
           alt="Tank Rank"
           className="altcard-img"
         />
+        {getUnrankedCachedOverlay("Tank")}
         <span
           className={`role-rank-overlay ${
             alt.tankRankTier <= 0 ? "hidden" : ""
@@ -72,6 +85,7 @@ export function AltCard({
           alt="Damage Rank"
           className="altcard-img"
         />
+        {getUnrankedCachedOverlay("Damage")}
         <span
           className={`role-rank-overlay ${
             alt.damageRankTier <= 0 ? "hidden" : ""
@@ -105,6 +119,7 @@ export function AltCard({
           alt="Support Rank"
           className="altcard-img"
         />
+        {getUnrankedCachedOverlay("Support")}
         <span
           className={`role-rank-overlay ${
             alt.supportRankTier <= 0 ? "hidden" : ""

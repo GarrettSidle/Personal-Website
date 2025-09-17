@@ -130,6 +130,17 @@
   align-items: center;
   justify-content: center;
 }
+.altcard-unranked-cached-overlay {
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  color: #fc9797;
+  font-size: 1.7em;
+  font-weight: bold;
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 0 0 4px #000, 0 0 2px #fff;
+}
 
 @media (max-width: 1350px) {
   .Alt-Card {
