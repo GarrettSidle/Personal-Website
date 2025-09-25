@@ -76,7 +76,7 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
     `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
   );
 
-  if (summary?.error === 404) {
+  if (summary?.error === 404 || summary?.error === 500) {
     alt.tankRankImagePath = "/assets/AltManager/Error.png";
     alt.damageRankImagePath = "/assets/AltManager/Error.png";
     alt.supportRankImagePath = "/assets/AltManager/Error.png";
