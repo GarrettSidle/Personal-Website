@@ -95,40 +95,63 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
 
   const roles: Role[] = ["tank", "damage", "support"];
   for (const role of roles) {
-    const roleData = summary.competitive?.pc?.[role];
+    let roleData = summary.competitive?.pc?.[role];
     const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"
+
+    // If roleData is null (unranked), try to get cached data
+    if (!roleData) {
+      const cached = loadRankFromCookie(alt.userTag, role);
+      if (cached) {
+        console.log(`[${alt.userTag}] Found cached rank for ${role}: `, cached);
+        roleData = {
+          rank_icon: cached.icon,
+          tier: cached.tier,
+          division: "",
+          season: cached.season,
+        };
+
+        (alt as any)[`unrankedCached${roleKey}`] = true;
+        console.log(
+          `[${alt.userTag}] Used cached rank for ${role} (API unranked)`
+        );
+      } else {
+        (alt as any)[`unrankedCached${roleKey}`] = false;
+      }
+    } else {
+      (alt as any)[`unrankedCached${roleKey}`] = false;
+    }
+
     if (roleData) {
-      // Found a rank
-      const rankNumber = convertRankToNumber(roleData.division, roleData.tier);
+      // Found a rank (either from API or cache)
+      const rankNumber =
+        typeof roleData.division === "string" &&
+        typeof roleData.tier === "number"
+          ? convertRankToNumber(roleData.division, roleData.tier)
+          : 0;
       (alt as any)[`${role}RankImagePath`] = roleData.rank_icon;
       (alt as any)[`${role}RankTier`] = roleData.tier;
       (alt as any)[`${role}Rank`] = rankNumber;
-      (alt as any)[`isCached${roleKey}`] = false;
-      (alt as any)[`${role}Season`] = summary.competitive?.pc?.season;
+      (alt as any)[`isCached${roleKey}`] = !summary.competitive?.pc?.[role];
+      (alt as any)[`${role}Season`] = roleData.season
+        ? roleData.season
+        : summary.competitive?.pc?.season;
 
-      saveRankToCookie(alt.userTag, role, {
-        icon: roleData.rank_icon,
-        tier: roleData.tier,
-        rank: rankNumber,
-        season: summary.competitive?.pc?.season,
-      });
-    } else {
-      // Not ranked -> check cookie
-      const cached = loadRankFromCookie(alt.userTag, role);
-      if (cached) {
-        (alt as any)[`${role}RankImagePath`] = cached.icon;
-        (alt as any)[`${role}RankTier`] = cached.tier;
-        (alt as any)[`${role}Rank`] = cached.rank;
-        (alt as any)[`${role}Season`] = cached.season ? cached.season : 17;
-        (alt as any)[`isCached${roleKey}`] = true;
-      } else {
-        (alt as any)[`${role}RankImagePath`] =
-          "/assets/AltManager/Unranked.png";
-        (alt as any)[`${role}RankTier`] = 0;
-        (alt as any)[`${role}Rank`] = 0;
-        (alt as any)[`${role}Season`] = 1;
-        (alt as any)[`isCached${roleKey}`] = false;
+      // Only save to cookie if data is from API (not cache)
+      if (summary.competitive?.pc?.[role]) {
+        saveRankToCookie(alt.userTag, role, {
+          icon: roleData.rank_icon,
+          tier: roleData.tier,
+          rank: rankNumber,
+          season: summary.competitive?.pc?.season,
+        });
       }
+    } else {
+      (alt as any)[`unrankedCached${roleKey}`] = false;
+      (alt as any)[`${role}RankImagePath`] = "/assets/AltManager/Unranked.png";
+      (alt as any)[`${role}RankTier`] = 0;
+      (alt as any)[`${role}Rank`] = 0;
+      (alt as any)[`${role}Season`] = 1;
+      (alt as any)[`isCached${roleKey}`] = false;
     }
   }
   console.log(`Fetched summary for", ${alt.userTag}`, alt);

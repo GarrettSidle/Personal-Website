@@ -20,6 +20,9 @@ export class OWAlt {
   tankSeason?: string;
   damageSeason?: string;
   supportSeason?: string;
+  unrankedCachedTank?: boolean;
+  unrankedCachedDamage?: boolean;
+  unrankedCachedSupport?: boolean;
 
   constructor(
     userName: string,
@@ -48,5 +51,8 @@ export class OWAlt {
     this.tankSeason = undefined;
     this.damageSeason = undefined;
     this.supportSeason = undefined;
+    this.unrankedCachedTank = false;
+    this.unrankedCachedDamage = false;
+    this.unrankedCachedSupport = false;
   }
 }
