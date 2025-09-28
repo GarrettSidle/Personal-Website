@@ -84,6 +84,9 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
     alt.tankRankTier = -1;
     alt.damageRankTier = -1;
     alt.supportRankTier = -1;
+    alt.tankRank = -1;
+    alt.damageRank = -1;
+    alt.supportRank = -1;
     alt.lastUpdated = "N/A";
     return alt;
   }
@@ -102,31 +105,31 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
     if (!roleData) {
       const cached = loadRankFromCookie(alt.userTag, role);
       if (cached) {
-        console.log(`[${alt.userTag}] Found cached rank for ${role}: `, cached);
         roleData = {
           rank_icon: cached.icon,
           tier: cached.tier,
           division: "",
           season: cached.season,
+          rank: cached.rank,
         };
 
         (alt as any)[`unrankedCached${roleKey}`] = true;
-        console.log(
-          `[${alt.userTag}] Used cached rank for ${role} (API unranked)`
-        );
       } else {
         (alt as any)[`unrankedCached${roleKey}`] = false;
       }
     } else {
       (alt as any)[`unrankedCached${roleKey}`] = false;
     }
+    console.log(`roleData for ${alt.userTag} ${role}:`, roleData);
 
     if (roleData) {
       // Found a rank (either from API or cache)
       const rankNumber =
         typeof roleData.division === "string" &&
         typeof roleData.tier === "number"
-          ? convertRankToNumber(roleData.division, roleData.tier)
+          ? roleData.rank
+            ? roleData.rank
+            : convertRankToNumber(roleData.division, roleData.tier)
           : 0;
       (alt as any)[`${role}RankImagePath`] = roleData.rank_icon;
       (alt as any)[`${role}RankTier`] = roleData.tier;
@@ -154,6 +157,5 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
       (alt as any)[`isCached${roleKey}`] = false;
     }
   }
-  console.log(`Fetched summary for", ${alt.userTag}`, alt);
   return alt;
 }
