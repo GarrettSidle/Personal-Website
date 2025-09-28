@@ -35,10 +35,10 @@ export function AltManager() {
   const season = getCurrentSeason(baseSeason, baseDate);
 
   function initializeRanks() {
-    if (Cookies.get("FirstLoad")) return;
+    if (Cookies.get("FirstLoad1")) return;
 
     // Set FirstLoad so this only runs once
-    Cookies.set("FirstLoad", "true");
+    Cookies.set("FirstLoad1", "true");
 
     const ranks: Record<string, string> = {
       "JoeysPP-1567_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
@@ -71,6 +71,8 @@ export function AltManager() {
       "MunchiesPP-1765_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":3,"rank":22,"season":17}`,
       "JasonsPP-1581_damage": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":17}`,
       "JasonsPP-1581_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":5,"rank":20,"season":17}`,
+      "actrojan-1701_support": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_MasterTier-7d3b85ba0d.png","tier":5,"rank":26,"season":"5"}`,
+      "actrojan-1701_tank": `{"icon":"https://static.playoverwatch.com/img/pages/career/icons/rank/Rank_DiamondTier-d775ca9c43.png","tier":2,"rank":23,"season":"8"}`,
     };
 
     Object.entries(ranks).forEach(([key, value]) => {
