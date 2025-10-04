@@ -131,6 +131,24 @@
   justify-content: center;
 }
 
+.altcard-copy-email {
+  position: absolute;
+  right: 15px;
+  top: 43px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: #2a6cff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  font-weight: 700;
+  pointer-events: auto;
+}
+.altcard-copy-email:hover {
+  background: #225bdb;
+}
+
 @media (max-width: 1350px) {
   .Alt-Card {
     width: 80vw;
@@ -146,6 +164,7 @@
 @media (max-width: 950px) {
   .altcard-last-updated,
   .altcard-pin-icon,
+  .altcard-copy-email,
   .altcard-avatar {
     display: none;
   }

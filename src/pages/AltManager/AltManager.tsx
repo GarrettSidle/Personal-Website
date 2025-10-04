@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./AltManager.css";
 import AltCard from "../../components/AltCard/AltCard";
 import { OWAlt } from "../../models/OWAlt";
@@ -8,7 +8,14 @@ import { fetchPlayerSummary } from "./OWAltService";
 
 const rawAlts = require("./OWAlts.json");
 const OWAlts: OWAlt[] = rawAlts.map(
-  (alt: any) => new OWAlt(alt.userName, alt.userTag, alt.owner, alt.tags)
+  (alt: any) =>
+    new OWAlt(
+      alt.userName,
+      alt.userTag,
+      alt.owner,
+      alt.tags,
+      alt.encryptedEmail ?? ""
+    )
 );
 
 let ownerOptions: string[] = [];
@@ -33,6 +40,51 @@ export function AltManager() {
   const baseSeason = 18;
   const baseDate = new Date("2025-08-26"); // starting point
   const season = getCurrentSeason(baseSeason, baseDate);
+
+  // load secret from cookie on first render
+  const [secretInput, setSecretInput] = useState<string>(
+    () => Cookies.get("secret") ?? ""
+  );
+  const [isSecretFocused, setIsSecretFocused] = useState<boolean>(false);
+
+  // toast for clipboard copies — message + error state
+  const [showCopiedToast, setShowCopiedToast] = useState(false);
+  const [copiedMessage, setCopiedMessage] = useState<string>(
+    "Copied to Clipboard"
+  );
+  const [copiedIsError, setCopiedIsError] = useState<boolean>(false);
+  const timeoutRef = useRef<number | null>(null);
+
+  const showClipboardToast = (
+    message = "Copied to Clipboard",
+    isError = false,
+    ms = 3000
+  ) => {
+    // clear any existing timeout
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setCopiedMessage(message);
+    setCopiedIsError(isError);
+    setShowCopiedToast(true);
+    timeoutRef.current = window.setTimeout(() => {
+      setShowCopiedToast(false);
+      timeoutRef.current = null;
+    }, ms) as unknown as number;
+  };
+
+  useEffect(() => {
+    const handler = (e: any) => {
+      const detail = e?.detail ?? {};
+      const message = detail.message ?? "Copied to Clipboard";
+      const isError = !!detail.error;
+      showClipboardToast(message, isError);
+    };
+    window.addEventListener("clipboard-copied", handler as EventListener);
+    return () =>
+      window.removeEventListener("clipboard-copied", handler as EventListener);
+  }, []);
 
   function initializeRanks() {
     if (Cookies.get("FirstLoad1")) return;
@@ -98,7 +150,14 @@ export function AltManager() {
     try {
       const parsed = storedPinnedAlts ? JSON.parse(storedPinnedAlts) : [];
       return parsed.map(
-        (alt: any) => new OWAlt(alt.userName, alt.userTag, alt.owner, alt.tags)
+        (alt: any) =>
+          new OWAlt(
+            alt.userName,
+            alt.userTag,
+            alt.owner,
+            alt.tags,
+            alt.encryptedEmail ?? ""
+          )
       );
     } catch (e) {
       console.error("Failed to parse pinned alts from cookie:", e);
@@ -128,7 +187,13 @@ export function AltManager() {
       const { userName, userTag, owner, tags } = altToPin;
       setPinnedAlts([
         ...pinnedAlts,
-        new OWAlt(userName, userTag, owner, [...tags]),
+        new OWAlt(
+          userName,
+          userTag,
+          owner,
+          [...tags],
+          altToPin.encryptedEmail ?? ""
+        ),
       ]);
     }
   };
@@ -213,6 +278,60 @@ export function AltManager() {
   return (
     <div className="AltManager-Section Page" id="AltManager">
       <div className="extra-shape"></div>
+
+      <div className="altmanager-secret-container">
+        <label className="altmanager-secret-label">Secret</label>
+        <input
+          className="altmanager-secret-input"
+          type="text"
+          value={isSecretFocused ? secretInput : "*".repeat(secretInput.length)}
+          onChange={(e) => {
+            const v = e.target.value;
+            setSecretInput(v);
+            Cookies.set("secret", v, { expires: 400 });
+          }}
+          onFocus={() => setIsSecretFocused(true)}
+          onBlur={() => setIsSecretFocused(false)}
+          placeholder="Input your secret here"
+          aria-label="Secret input"
+        />
+        <button
+          type="button"
+          className="altmanager-secret-copy"
+          onClick={async () => {
+            try {
+              await navigator.clipboard.writeText(secretInput);
+              console.log(
+                `Secret copied to clipboard (${secretInput.length} chars)`
+              );
+              // notify toast
+              window.dispatchEvent(
+                new CustomEvent("clipboard-copied", {
+                  detail: { source: "secret" },
+                })
+              );
+            } catch (err) {
+              console.error("Failed to copy secret:", err);
+            }
+          }}
+          aria-label="Copy secret to clipboard"
+        >
+          Copy
+        </button>
+      </div>
+
+      {/* toast shown at bottom center */}
+      {showCopiedToast ? (
+        <div
+          className={`clipboard-toast ${
+            copiedIsError ? "clipboard-toast-error" : ""
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {copiedMessage}
+        </div>
+      ) : null}
 
       <AltCardHeader
         sortField={sortField}

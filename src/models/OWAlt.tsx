@@ -23,12 +23,14 @@ export class OWAlt {
   unrankedCachedTank?: boolean;
   unrankedCachedDamage?: boolean;
   unrankedCachedSupport?: boolean;
+  encryptedEmail?: string;
 
   constructor(
     userName: string,
     userTag: string,
     owner: string,
-    tags: string[]
+    tags: string[],
+    encryptedEmail: string
   ) {
     this.userName = userName;
     this.userTag = userTag;
@@ -54,5 +56,6 @@ export class OWAlt {
     this.unrankedCachedTank = false;
     this.unrankedCachedDamage = false;
     this.unrankedCachedSupport = false;
+    this.encryptedEmail = encryptedEmail;
   }
 }

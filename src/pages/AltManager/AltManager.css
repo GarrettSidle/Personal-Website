@@ -46,3 +46,98 @@
   clip-path: polygon(0 20%, 80% 0, 100% 100%, 20% 80%);
   z-index: 0;
 }
+
+.altmanager-secret-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px 0 24px;
+  width: 66vw;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.altmanager-secret-label {
+  color: #ffffff;
+  font-size: 0.95em;
+  margin-right: 6px;
+}
+
+.altmanager-secret-input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  color: #000000;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+.altmanager-secret-copy {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #2a6cff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.altmanager-secret-copy:hover {
+  background: #225bdb;
+}
+
+@media (max-width: 1350px) {
+  .altmanager-secret-container {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  .altmanager-secret-container {
+    width: 95vw;
+  }
+}
+
+@media (max-width: 950px) {
+  .altmanager-secret-container {
+    display: none;
+  }
+}
+
+.clipboard-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  z-index: 9999;
+  font-weight: 6000;
+  font-size: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  animation: clipboard-toast-in 220ms ease;
+  pointer-events: none;
+}
+
+.clipboard-toast-error {
+  background: rgba(180, 30, 30, 0.95);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(180, 30, 30, 0.45);
+}
+
+@keyframes clipboard-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

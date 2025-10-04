@@ -3,37 +3,43 @@
     "userName": "GarrettsAlt",
     "userTag": "GarrettsPP-1913",
     "owner": "Garrett",
-    "tags": ["Alt", "Shared"]
+    "tags": ["Alt", "Shared"],
+    "encryptedEmail": "U2FsdGVkX1+M/WNaqrERdONjCB8Vubw0OWtevBoZ7oevuBWT1TQ6M5ih0ptJ7jve"
   },
   {
     "userName": "MunchiesAlt",
     "userTag": "MunchiesPP-1765",
     "owner": "Garrett",
-    "tags": ["Alt", "Shared"]
+    "tags": ["Alt", "Shared"],
+    "encryptedEmail": "U2FsdGVkX1/TVfEooVJM7Av9VAaMT8mBzYTHI2F5u6Kv9s9gM9ucd1O4Tmiv6P7C"
   },
   {
     "userName": "JasonsAlt",
     "userTag": "JasonsPP-1581",
     "owner": "Munchie",
-    "tags": ["Alt", "Shared"]
+    "tags": ["Alt", "Shared"],
+    "encryptedEmail": "U2FsdGVkX19JgBBD/sOTGFcB3DnzprgcY87XVm5fD9g/K6tOBnrXDakknm4n1uOs7vBmtKDQ0nRG90QiPkl3uA=="
   },
   {
     "userName": "JoeysAlt",
     "userTag": "JoeysPP-1567",
     "owner": "Joey",
-    "tags": ["Alt", "Shared"]
+    "tags": ["Alt", "Shared"],
+    "encryptedEmail": "U2FsdGVkX1/XpXPZlT12614gwN5dtTZOD81B2SH2p/xDYm90CsQV45QR4fMGUjbY"
   },
   {
     "userName": "HaydensAlt",
     "userTag": "HaydensPP-1687",
     "owner": "Garrett",
-    "tags": ["Alt", "Shared", "Low Ranked"]
+    "tags": ["Alt", "Shared", "Low Ranked"],
+    "encryptedEmail": "U2FsdGVkX18I4R8rVDWBgqomnoOxzS+5s8zWcELb4+1R05LVePWsbR8tbd78Cdf3"
   },
   {
     "userName": "SylasAlt",
     "userTag": "SylasPP-1809",
     "owner": "Sylas",
-    "tags": ["Alt", "Shared", "Low Ranked"]
+    "tags": ["Alt", "Shared", "Low Ranked"],
+    "encryptedEmail": "U2FsdGVkX18sX3zhQOsrSlrFdmx9AK6NvVBDrkNrNZ0oEds4C/WJ7wO0BNrPqVLt"
   },
   {
     "userName": "GarrettNorth",
