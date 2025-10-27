@@ -12,6 +12,7 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Project } from "../../models/Project";
 import { AutonomousKart } from "./ProjectBlogs/AutonomousKart";
 import { AltManager } from "./ProjectBlogs/AltManager";
+import { OWALT } from "./ProjectBlogs/OWAlt";
 
 export class Blog extends Component<{}> {
   urlParams = new URLSearchParams(window.location.search);
@@ -119,6 +120,8 @@ export class Blog extends Component<{}> {
         return <AutonomousKart source={source} demo={demo} />;
       case "Alt-Manager":
         return <AltManager source={source} demo={demo} />;
+      case "overwatch-account-tracker":
+        return <OWALT source={source} demo={demo} />;
       default:
         return <h1 className="h404">404 - Project Not Found</h1>;
     }

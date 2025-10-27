@@ -1,5 +1,15 @@
 [
   {
+    "id": "overwatch-account-tracker",
+    "name": "Overwatch Account Tracker",
+    "source": "https://github.com/GarrettSidle/Personal-Website/tree/main/src/pages/AltManager",
+    "demo": "/AltManager",
+    "date": "October 2025",
+    "imgPath": "Projects/OWALT/Tracker.png",
+    "tags": ["Web Development", "API Integration", "Encryption"],
+    "inProgress": false
+  },
+  {
     "id": "autonomous-kart",
     "name": "Autonomous Go Kart",
     "source": "https://github.com/GarrettSidle/Autonomous-Kart",
@@ -10,7 +20,7 @@
       "Electrical Engineering",
       "Embedded Programming",
       "Python",
-      "Machine Learning", 
+      "Machine Learning",
       "Computer Vision"
     ],
     "inProgress": false
@@ -22,10 +32,7 @@
     "demo": "",
     "date": "March 2025",
     "imgPath": "Projects/Alt-Manager/Overview.png",
-    "tags": [
-      "Python",
-      "Tkinter"
-    ],
+    "tags": ["Python", "Tkinter"],
     "inProgress": false
   },
   {
@@ -67,10 +74,7 @@
     "date": "November 2024 - January 2025",
     "demo": "",
     "imgPath": "Projects/8-Bit/Thumbnail.png",
-    "tags": [
-      "Electrical Engineering",
-      "Embedded Programming"
-    ],
+    "tags": ["Electrical Engineering", "Embedded Programming"],
     "inProgress": false
   },
   {
@@ -80,10 +84,7 @@
     "date": "November 2024",
     "demo": "",
     "imgPath": "Projects/WordLadder/Word-Ladder.png",
-    "tags": [
-      "Python",
-      "Data Analysis"
-    ],
+    "tags": ["Python", "Data Analysis"],
     "inProgress": false
   },
   {
@@ -93,10 +94,7 @@
     "date": "August 2023 - October 2024",
     "demo": "",
     "imgPath": "Projects/HexagonalChess/Played Game.png",
-    "tags": [
-      "C#",
-      "WPF Forms"
-    ],
+    "tags": ["C#", "WPF Forms"],
     "inProgress": false
   },
   {
@@ -106,11 +104,7 @@
     "date": "June 2022 - Present",
     "demo": "/#Home",
     "imgPath": "Projects/PersonalWebsite/Personal-Website.png",
-    "tags": [
-      "Javascript",
-      "Web Development",
-      "React"
-    ],
+    "tags": ["Javascript", "Web Development", "React"],
     "inProgress": false
   },
   {
@@ -120,10 +114,7 @@
     "date": "October 2022",
     "demo": "",
     "imgPath": "Projects/RC-Car/Car.png",
-    "tags": [
-      "C++",
-      "Embedded Programming"
-    ],
+    "tags": ["C++", "Embedded Programming"],
     "inProgress": false
   }
 ]
