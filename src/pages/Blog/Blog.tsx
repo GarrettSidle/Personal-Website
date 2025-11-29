@@ -34,7 +34,7 @@ export class Blog extends Component<{}> {
       this.projectSources.set(project.id, project.source);
 
       //if we are looking at the current project
-      if (project.id == projectId) {
+      if (project.id === projectId) {
         //get the associated tags
         currentTags = project.tags;
         //remove it from the project pool
@@ -58,7 +58,7 @@ export class Blog extends Component<{}> {
           break;
         }
       }
-      if (this.SimilarProjects.length == 2) {
+      if (this.SimilarProjects.length === 2) {
         break;
       }
     }
@@ -114,8 +114,6 @@ export class Blog extends Component<{}> {
         return <Mouseless source={source} demo={demo} />;
       case "custom-assembly-compiler":
         return <AssemblyCompiler source={source} demo={demo} />;
-      case "mouseless":
-        return <Mouseless source={source} demo={demo} />;
       case "autonomous-kart":
         return <AutonomousKart source={source} demo={demo} />;
       case "Alt-Manager":

@@ -3,7 +3,6 @@ import "./AltCard.css";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import Cookies from "js-cookie";
 import CryptoJS from "crypto-js";
-import { useEffect } from "react";
 
 export function AltCard({
   alt,
@@ -57,7 +56,7 @@ export function AltCard({
     }
 
     const secret = Cookies.get("secret") ?? "";
-    if (secret == "" || !secret) {
+    if (secret === "" || !secret) {
       console.warn("No secret available in cookies for decryption");
       window.dispatchEvent(
         new CustomEvent("clipboard-copied", {
@@ -115,8 +114,9 @@ export function AltCard({
   return (
     <a
       target="_blank"
+      rel="noreferrer"
       href={`https://tracker.gg/overwatch/profile/battlenet/${alt.userTag}/overview`}
-      className="Alt-Card"
+      className={`Alt-Card ${alt.tankRankTier < 0 ? "hidden" : ""}`}
       key={alt.userTag}
     >
       <img src={alt.avatarImagePath} alt="Avatar" className="altcard-avatar" />
@@ -141,7 +141,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.tankSeason == currentSeason.toString() || alt.tankRankTier <= 0
+            alt.tankSeason === currentSeason.toString() || alt.tankRankTier <= 0
               ? "hidden"
               : ""
           }`}
@@ -152,7 +152,7 @@ export function AltCard({
                 : getSeasonColor(currentSeason - 1, currentSeason),
           }}
         >
-          {alt.tankSeason != undefined
+          {alt.tankSeason !== undefined
             ? `S${alt.tankSeason}`
             : `S${currentSeason - 1}`}
         </span>
@@ -173,7 +173,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.damageSeason == currentSeason.toString() ||
+            alt.damageSeason === currentSeason.toString() ||
             alt.damageRankTier <= 0
               ? "hidden"
               : ""
@@ -185,7 +185,7 @@ export function AltCard({
                 : getSeasonColor(currentSeason - 1, currentSeason),
           }}
         >
-          {alt.damageSeason != undefined
+          {alt.damageSeason !== undefined
             ? `S${alt.damageSeason}`
             : `S${currentSeason - 1}`}
         </span>
@@ -206,7 +206,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.supportSeason == currentSeason.toString() ||
+            alt.supportSeason === currentSeason.toString() ||
             alt.supportRankTier <= 0
               ? "hidden"
               : ""
@@ -218,7 +218,7 @@ export function AltCard({
                 : getSeasonColor(currentSeason - 1, currentSeason),
           }}
         >
-          {alt.supportSeason != undefined
+          {alt.supportSeason !== undefined
             ? `S${alt.supportSeason}`
             : `S${currentSeason - 1}`}
         </span>

@@ -92,7 +92,7 @@ export function AltCardHeader({
       >
         <span>Owner</span>
         <span className="filter-indicator">
-          {selectedOwners.length != ownerOptions.length ? "•" : ""}
+          {selectedOwners.length !== ownerOptions.length ? "•" : ""}
         </span>
       </div>
 
@@ -103,7 +103,7 @@ export function AltCardHeader({
         <div className="altcard-tag-header">
           Tags
           <span className="filter-indicator">
-            {selectedTags.length != tagOptions.length ? "•" : ""}
+            {selectedTags.length !== tagOptions.length ? "•" : ""}
           </span>
         </div>
       </div>
