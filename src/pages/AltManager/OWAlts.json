@@ -42,6 +42,13 @@
     "encryptedEmail": "U2FsdGVkX18sX3zhQOsrSlrFdmx9AK6NvVBDrkNrNZ0oEds4C/WJ7wO0BNrPqVLt"
   },
   {
+    "userName": "GaybesAlt",
+    "userTag": "GaybesPP-1522",
+    "owner": "Joey",
+    "tags": ["Alt", "Shared"],
+    "encryptedEmail": "U2FsdGVkX1+VzRqMReCDtCnjrIPrUdPYDZy9S89nB2JtT38Vb6t2bsPDLFvzH9rm"
+  },
+  {
     "userName": "GarrettNorth",
     "userTag": "GarrettNorth-1971",
     "owner": "Garrett",
@@ -95,12 +102,6 @@
     "userTag": "Ladiesman217-11267",
     "owner": "Rae",
     "tags": ["Main"]
-  },
-  {
-    "userName": "Traceronly",
-    "userTag": "traceronly-1854",
-    "owner": "Joey",
-    "tags": ["Alt", "Hero Locked"]
   },
   {
     "userName": "LucioOnly",

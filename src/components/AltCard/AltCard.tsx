@@ -141,7 +141,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.tankSeason === currentSeason.toString() || alt.tankRankTier <= 0
+            alt.tankSeason == currentSeason.toString() || alt.tankRankTier <= 0
               ? "hidden"
               : ""
           }`}
@@ -173,7 +173,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.damageSeason === currentSeason.toString() ||
+            alt.damageSeason == currentSeason.toString() ||
             alt.damageRankTier <= 0
               ? "hidden"
               : ""
@@ -206,7 +206,7 @@ export function AltCard({
         </span>
         <span
           className={`season-overlay ${
-            alt.supportSeason === currentSeason.toString() ||
+            alt.supportSeason == currentSeason.toString() ||
             alt.supportRankTier <= 0
               ? "hidden"
               : ""
