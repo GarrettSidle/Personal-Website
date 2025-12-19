@@ -72,6 +72,29 @@ function loadRankFromCookie(userTag: string, role: Role): CachedRank | null {
 }
 
 export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
+  // First: populate any cached rank data immediately so UI can show cached
+  // ranks while the API call is in progress.
+  (alt as any).isLoading = true;
+  let hasAnyCached = false;
+  const roles: Role[] = ["tank", "damage", "support"];
+  for (const role of roles) {
+    const cached = loadRankFromCookie(alt.userTag, role);
+    const roleKey = role.charAt(0).toUpperCase() + role.slice(1);
+    if (cached) {
+      hasAnyCached = true;
+      (alt as any)[`${role}RankImagePath`] = cached.icon;
+      (alt as any)[`${role}RankTier`] = cached.tier;
+      (alt as any)[`${role}Rank`] = cached.rank;
+      (alt as any)[`${role}Season`] = cached.season ? cached.season : undefined;
+      (alt as any)[`unrankedCached${roleKey}`] = true;
+      (alt as any)[`isCached${roleKey}`] = true;
+    } else {
+      (alt as any)[`unrankedCached${roleKey}`] = false;
+      (alt as any)[`isCached${roleKey}`] = false;
+    }
+  }
+  (alt as any).hasAnyCached = hasAnyCached;
+
   const summary = await fetchWithBackoff(
     `https://overfast-api.tekrop.fr/players/${alt.userTag}/summary`
   );
@@ -91,12 +114,13 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
     return alt;
   }
 
+  // API finished loading
+  (alt as any).isLoading = false;
+
   if (!summary) return alt;
 
   alt.avatarImagePath = summary.avatar || alt.avatarImagePath;
   alt.lastUpdated = convertUnixToEST(summary.last_updated_at);
-
-  const roles: Role[] = ["tank", "damage", "support"];
   for (const role of roles) {
     let roleData = summary.competitive?.pc?.[role];
     const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"

@@ -119,7 +119,20 @@ export function AltCard({
       className={`Alt-Card ${alt.tankRankTier < 0 ? "hidden" : ""}`}
       key={alt.userTag}
     >
-      <img src={alt.avatarImagePath} alt="Avatar" className="altcard-avatar" />
+      <div className="altcard-avatar-wrapper">
+        <img
+          src={alt.avatarImagePath}
+          alt="Avatar"
+          className="altcard-avatar"
+        />
+        {(alt as any).isLoading && (alt as any).hasAnyCached ? (
+          <div
+            className="altcard-loading-icon"
+            title="Updating..."
+            aria-hidden={false}
+          />
+        ) : null}
+      </div>
       <div className="altcard-username-container">
         <div className="altcard-username">{alt.userName}</div>
         <div className="altcard-last-updated">
@@ -132,6 +145,13 @@ export function AltCard({
           alt="Tank Rank"
           className="altcard-img"
         />
+        {(alt as any).isLoading && (alt as any).isCachedTank ? (
+          <div
+            className="role-loading-icon"
+            title="Updating rank"
+            aria-hidden={false}
+          />
+        ) : null}
         <span
           className={`role-rank-overlay ${
             alt.tankRankTier <= 0 ? "hidden" : ""
@@ -164,6 +184,13 @@ export function AltCard({
           alt="Damage Rank"
           className="altcard-img"
         />
+        {(alt as any).isLoading && (alt as any).isCachedDamage ? (
+          <div
+            className="role-loading-icon"
+            title="Updating rank"
+            aria-hidden={false}
+          />
+        ) : null}
         <span
           className={`role-rank-overlay ${
             alt.damageRankTier <= 0 ? "hidden" : ""
@@ -197,6 +224,13 @@ export function AltCard({
           alt="Support Rank"
           className="altcard-img"
         />
+        {(alt as any).isLoading && (alt as any).isCachedSupport ? (
+          <div
+            className="role-loading-icon"
+            title="Updating rank"
+            aria-hidden={false}
+          />
+        ) : null}
         <span
           className={`role-rank-overlay ${
             alt.supportRankTier <= 0 ? "hidden" : ""
