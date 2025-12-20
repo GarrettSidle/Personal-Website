@@ -125,21 +125,40 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
     const apiRoleData = summary.competitive?.pc?.[role];
     const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"
 
-    // If the API explicitly reports no rank for this role, show Unranked logo
-    if (!apiRoleData) {
-      (alt as any)[`unrankedCached${roleKey}`] = false;
-      (alt as any)[`${role}RankImagePath`] = "/assets/AltManager/Unranked.png";
-      (alt as any)[`${role}RankTier`] = 0;
-      (alt as any)[`${role}Rank`] = 0;
-      (alt as any)[`${role}Season`] = 1;
-      (alt as any)[`isCached${roleKey}`] = false;
-      console.log(`roleData for ${alt.userTag} ${role}:`, null);
-      continue;
-    }
+    // Prefer API data; if API returns null, try to use cached cookie value instead of marking unranked
+    let roleData: any = apiRoleData;
+    if (!roleData) {
+      const cached = loadRankFromCookie(alt.userTag, role);
+      if (cached) {
+        roleData = {
+          rank_icon: cached.icon,
+          tier: cached.tier,
+          division: "",
+          season: cached.season,
+          rank: cached.rank,
+        };
 
-    let roleData = apiRoleData;
-    (alt as any)[`unrankedCached${roleKey}`] = false;
-    console.log(`roleData for ${alt.userTag} ${role}:`, roleData);
+        (alt as any)[`unrankedCached${roleKey}`] = true;
+        (alt as any)[`isCached${roleKey}`] = true;
+        console.log(
+          `roleData for ${alt.userTag} ${role}: (from cache)`,
+          roleData
+        );
+      } else {
+        (alt as any)[`unrankedCached${roleKey}`] = false;
+        (alt as any)[`${role}RankImagePath`] =
+          "/assets/AltManager/Unranked.png";
+        (alt as any)[`${role}RankTier`] = 0;
+        (alt as any)[`${role}Rank`] = 0;
+        (alt as any)[`${role}Season`] = 1;
+        (alt as any)[`isCached${roleKey}`] = false;
+        console.log(`roleData for ${alt.userTag} ${role}:`, null);
+        continue;
+      }
+    } else {
+      (alt as any)[`unrankedCached${roleKey}`] = false;
+      console.log(`roleData for ${alt.userTag} ${role}: (from API)`, roleData);
+    }
 
     if (roleData) {
       // Found a rank (either from API or cache)

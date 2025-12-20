@@ -39,7 +39,9 @@ export function AltManager() {
   const [sortAsc, setSortAsc] = useState<boolean>(true);
   const baseSeason = 18;
   const baseDate = new Date("2025-08-26"); // starting point
-  const season = getCurrentSeason(baseSeason, baseDate);
+  const [season, setSeason] = useState<number>(
+    getCurrentSeason(baseSeason, baseDate)
+  );
 
   // load secret from cookie on first render
   const [secretInput, setSecretInput] = useState<string>(
@@ -212,6 +214,37 @@ export function AltManager() {
     const allAlts = [...OWAlts, ...pinnedAlts];
     allAlts.forEach(async (alt) => {
       const updatedAlt = await fetchPlayerSummary(alt);
+
+      // If API provided non-cached season values, compare and update global season state
+      if (updatedAlt) {
+        const roles: Array<"tank" | "damage" | "support"> = [
+          "tank",
+          "damage",
+          "support",
+        ];
+        roles.forEach((role) => {
+          const roleKey = role.charAt(0).toUpperCase() + role.slice(1);
+          const isCachedFlag = (updatedAlt as any)[`isCached${roleKey}`];
+          const apiSeason = (updatedAlt as any)[`${role}Season`];
+          if (!isCachedFlag && apiSeason != null) {
+            const apiSeasonNum =
+              typeof apiSeason === "string" ? parseInt(apiSeason) : apiSeason;
+            setSeason((prev) => {
+              console.log(
+                `Comparing seasons for ${updatedAlt.userTag} ${role}: currentSeason=${prev}, apiSeason=${apiSeasonNum}`
+              );
+              if (!Number.isNaN(apiSeasonNum) && apiSeasonNum > prev) {
+                console.log(
+                  `Updating current season from ${prev} to ${apiSeasonNum} based on ${updatedAlt.userTag} ${role}`
+                );
+                return apiSeasonNum;
+              }
+              return prev;
+            });
+          }
+        });
+      }
+
       setSummaries((prev) => {
         const index = allAlts.findIndex((a) => a.userTag === alt.userTag);
         const newSummaries = [...prev];
