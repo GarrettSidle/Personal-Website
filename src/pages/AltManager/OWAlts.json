@@ -73,12 +73,6 @@
     "tags": ["Main"]
   },
   {
-    "userName": "DarionBuns",
-    "userTag": "DarionBuns-1562",
-    "owner": "Darion",
-    "tags": ["Main"]
-  },
-  {
     "userName": "HaydenPres",
     "userTag": "HaydenPres-1434",
     "owner": "Hayden",
@@ -96,17 +90,5 @@
     "userTag": "actrojan-1701",
     "owner": "Avery",
     "tags": ["Main"]
-  },
-  {
-    "userName": "Ladiesman217",
-    "userTag": "Ladiesman217-11267",
-    "owner": "Rae",
-    "tags": ["Main"]
-  },
-  {
-    "userName": "LucioOnly",
-    "userTag": "LucioOnly-1108",
-    "owner": "Joey",
-    "tags": ["Alt", "Hero Locked"]
   }
 ]
