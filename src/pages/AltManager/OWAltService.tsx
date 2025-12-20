@@ -122,28 +122,23 @@ export async function fetchPlayerSummary(alt: OWAlt): Promise<OWAlt> {
   alt.avatarImagePath = summary.avatar || alt.avatarImagePath;
   alt.lastUpdated = convertUnixToEST(summary.last_updated_at);
   for (const role of roles) {
-    let roleData = summary.competitive?.pc?.[role];
+    const apiRoleData = summary.competitive?.pc?.[role];
     const roleKey = role.charAt(0).toUpperCase() + role.slice(1); // "Tank", "Damage", "Support"
 
-    // If roleData is null (unranked), try to get cached data
-    if (!roleData) {
-      const cached = loadRankFromCookie(alt.userTag, role);
-      if (cached) {
-        roleData = {
-          rank_icon: cached.icon,
-          tier: cached.tier,
-          division: "",
-          season: cached.season,
-          rank: cached.rank,
-        };
-
-        (alt as any)[`unrankedCached${roleKey}`] = true;
-      } else {
-        (alt as any)[`unrankedCached${roleKey}`] = false;
-      }
-    } else {
+    // If the API explicitly reports no rank for this role, show Unranked logo
+    if (!apiRoleData) {
       (alt as any)[`unrankedCached${roleKey}`] = false;
+      (alt as any)[`${role}RankImagePath`] = "/assets/AltManager/Unranked.png";
+      (alt as any)[`${role}RankTier`] = 0;
+      (alt as any)[`${role}Rank`] = 0;
+      (alt as any)[`${role}Season`] = 1;
+      (alt as any)[`isCached${roleKey}`] = false;
+      console.log(`roleData for ${alt.userTag} ${role}:`, null);
+      continue;
     }
+
+    let roleData = apiRoleData;
+    (alt as any)[`unrankedCached${roleKey}`] = false;
     console.log(`roleData for ${alt.userTag} ${role}:`, roleData);
 
     if (roleData) {
