@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { OWAlt } from "../../models/OWAlt";
 
-async function fetchWithBackoff(url: string, delay = 1000): Promise<any> {
+async function fetchWithBackoff(url: string, delay = 5000): Promise<any> {
   while (true) {
     try {
       const res = await fetch(url);
