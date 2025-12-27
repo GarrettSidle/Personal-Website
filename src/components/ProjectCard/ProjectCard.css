@@ -1,139 +1,201 @@
 .Project-Card {
-    border: 1px solid gray;
-    text-align: center;
-    opacity: .9;
-    background-color: #A0A0A0;
-    flex-direction: column;
-    border-radius: 15px;
-    padding: 1%;
-    flex: 1 1 200px;
+  border: 1px solid gray;
+  text-align: center;
+  opacity: 0.9;
+  background-color: #a0a0a0;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 1%;
+  flex: 1 1 200px;
 
-    max-width: 700px;
-    display: flex;
+  max-width: 700px;
+  display: flex;
 
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .Project-Tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .75vw;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75vw;
+  justify-content: center;
 }
 
 .In-Progress-Overlay {
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    z-index: 10;
-
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 10;
 }
 
-
 .Project-Tag {
-    background-color: rgb(43, 43, 43);
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .About-Section {
-    padding-bottom: 10%;
+  padding-bottom: 10%;
 }
 
 .Project-Link:hover {
-    transform: scale(1.02);
-    overflow: hidden;
-    border: 2px solid #f05c0c;
-    transition: 500ms;
+  transform: scale(1.02);
+  overflow: hidden;
+  border: 2px solid #f05c0c;
+  transition: 500ms;
 }
 
 .Project-Link {
-    float: left;
-    padding: 1em;
-    border: #888888 1px solid;
-    border-radius: 15px;
-    margin-top: .5em;
+  float: left;
+  padding: 1em;
+  border: #888888 1px solid;
+  border-radius: 15px;
+  margin-top: 0.5em;
 }
 
 .Link-Img {
-    width: 2em;
-    height: 2em;
+  width: 2em;
+  height: 2em;
 }
 
 .Link-Desc {
-    color: white;
-    font-size: 20px;
-    padding-top: 5%;
+  color: white;
+  font-size: 20px;
+  padding-top: 5%;
 }
 
-
 .Project-Links {
-    display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
-    padding-left: 5%;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  padding-left: 5%;
 }
 
 .Project-Title {
-    font-size: 2em;
-    color: #f05c0c;
-    font-weight: bold;
+  font-size: 2em;
+  color: #f05c0c;
+  font-weight: bold;
 }
 
 .Project-Date {
-    font-size: 1.1em;
-    color: white;
+  font-size: 1.1em;
+  color: white;
 }
 
 .Project-Card:hover {
-    transform: scale(1.03);
-    overflow: hidden;
-    border: 4px solid #f05c0c;
-    transition: 500ms;
+  transform: scale(1.03);
+  overflow: hidden;
+  border: 4px solid #f05c0c;
+  transition: 500ms;
+}
+
+.Project-Image-Container {
+  position: relative;
+  margin: 1em;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
 }
 
 .Project-Image {
-    border-radius: 15px;
-    margin: 1em;
-    margin-bottom: .5em;
-    max-width: 100%;
-    height: auto;
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease,
+    height 0.3s ease;
+  transform-origin: center;
+}
+
+.Project-Image.sized {
+  max-width: none;
+  height: auto;
+}
+
+.Project-Image.active {
+  position: relative;
+  z-index: 10;
+}
+
+.Project-Image:not(.active) {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.Project-Image.behind {
+  pointer-events: none;
+}
+
+.Project-Image-Nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.Project-Image-Nav:hover {
+  background-color: rgba(240, 92, 12, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.Project-Image-Nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.Project-Image-Nav-Left {
+  left: 10px;
+}
+
+.Project-Image-Nav-Right {
+  right: 10px;
 }
 
 .Project-Link {
-    padding: 1em 2em 1em 2em;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+  padding: 1em 2em 1em 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
-
 @media (max-width: 1500px) {
-    .Project-Card:hover {
-        transform: scale(1.00);
-        transition: 0ms;
-    }
+  .Project-Card:hover {
+    transform: scale(1);
+    transition: 0ms;
+  }
 
-    .Project-Card {
-        flex: 1 1 100%;
-    }
+  .Project-Card {
+    flex: 1 1 100%;
+  }
 }
 
 @media (max-width: 750px) {
-    .Project-Card {
-        flex: 1 1 100%;
-        max-width: 90%;
-        padding: 16px;
-        font-size: 0.9em;
-    }
+  .Project-Card {
+    flex: 1 1 100%;
+    max-width: 90%;
+    padding: 16px;
+    font-size: 0.9em;
+  }
 
-    .Project-Link,
-    .Project-Links {
-        display: none ;
-    }
+  .Project-Link,
+  .Project-Links {
+    display: none;
+  }
 }

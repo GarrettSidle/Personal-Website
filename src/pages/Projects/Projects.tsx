@@ -76,7 +76,7 @@ export class Projects extends Component<{}, { selectedFilter: string }> {
   
     return projects.map((project: Project) => {
       const shouldShow = project.tags.includes(filter) || filter === "Newest" || filter === "Oldest";
-      return shouldShow ? ProjectCard.projectCard(project) : null;
+      return shouldShow ? <ProjectCard key={project.id} project={project} /> : null;
     });
   }
 

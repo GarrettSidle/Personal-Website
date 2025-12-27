@@ -4,7 +4,7 @@ export class Project {
     source: string;
     date: string;
     demo: string;
-    imgPath: string;
+    imgPaths: string[];
     tags: string[];
     inProgress: Boolean;
   
@@ -14,7 +14,7 @@ export class Project {
       source: string,
       date: string,
       demo: string,
-      imgPath: string,
+      imgPaths: string[],
       tags: string[],
       inProgress: boolean
     ) {
@@ -23,7 +23,7 @@ export class Project {
       this.source = source;
       this.date = date;
       this.demo = demo;
-      this.imgPath = imgPath;
+      this.imgPaths = imgPaths;
       this.tags = tags;
       this.inProgress = inProgress;
     }

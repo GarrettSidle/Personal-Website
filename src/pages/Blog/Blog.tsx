@@ -128,9 +128,9 @@ export class Blog extends Component<{}> {
   private getSimilarProjects() {
     return (
       <div className="similar-projects">
-        {this.SimilarProjects.map((project: any) =>
-          ProjectCard.projectCard(project)
-        )}
+        {this.SimilarProjects.map((project: Project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
       </div>
     );
   }

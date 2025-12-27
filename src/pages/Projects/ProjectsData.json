@@ -5,7 +5,7 @@
     "source": "https://github.com/GarrettSidle/Personal-Website/tree/main/src/pages/AltManager",
     "demo": "/AltManager",
     "date": "October 2025",
-    "imgPath": "Projects/OWALT/Tracker.png",
+    "imgPaths": ["Projects/OWALT/Tracker.png"],
     "tags": ["Web Development", "API Integration", "Encryption"],
     "inProgress": false
   },
@@ -15,7 +15,14 @@
     "source": "https://github.com/GarrettSidle/Autonomous-Kart",
     "demo": "",
     "date": "August 2024 - April 2025",
-    "imgPath": "Projects/Autonomous-Kart/Overview.png",
+    "imgPaths": [
+      "Projects/Autonomous-Kart/Overview.png",
+      "Projects/Autonomous-Kart/CameraImage.png",
+      "Projects/Autonomous-Kart/Lidar.png",
+      "Projects/Autonomous-Kart/ControlPanel.png",
+      "Projects/Autonomous-Kart/Sch_Kart.png",
+      "Projects/Autonomous-Kart/Sch_Controls.png"
+    ],
     "tags": [
       "Electrical Engineering",
       "Embedded Programming",
@@ -31,7 +38,7 @@
     "source": "https://github.com/GarrettSidle/OW-Alt-Manager",
     "demo": "",
     "date": "March 2025",
-    "imgPath": "Projects/Alt-Manager/Overview.png",
+    "imgPaths": ["Projects/Alt-Manager/Overview.png"],
     "tags": ["Python", "Tkinter"],
     "inProgress": false
   },
@@ -41,7 +48,7 @@
     "source": "https://github.com/GarrettSidle/Mouseless",
     "date": "January 2025 - Present",
     "demo": "",
-    "imgPath": "Projects/Mouseless/Overview.png",
+    "imgPaths": ["Projects/Mouseless/Overview.png"],
     "tags": [
       "Javascript",
       "Web Development",
@@ -58,7 +65,7 @@
     "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
     "date": "January 2025",
     "demo": "",
-    "imgPath": "Projects/AssemblyCompiler/Overview.png",
+    "imgPaths": ["Projects/AssemblyCompiler/Overview.png"],
     "tags": [
       "Electrical Engineering",
       "C++",
@@ -73,7 +80,14 @@
     "source": "",
     "date": "November 2024 - January 2025",
     "demo": "",
-    "imgPath": "Projects/8-Bit/Thumbnail.png",
+    "imgPaths": [
+      "Projects/8-Bit/Thumbnail.png",
+      "Projects/8-Bit/Sch-Overview.png",
+      "Projects/8-Bit/Sch-ALU.png",
+      "Projects/8-Bit/Sch-Control.png",
+      "Projects/8-Bit/Sch-Output.png",
+      "Projects/8-Bit/Sch-RAM.png"
+    ],
     "tags": ["Electrical Engineering", "Embedded Programming"],
     "inProgress": false
   },
@@ -83,7 +97,13 @@
     "source": "https://github.com/GarrettSidle/Word-Ladder",
     "date": "November 2024",
     "demo": "",
-    "imgPath": "Projects/WordLadder/Word-Ladder.png",
+    "imgPaths": [
+      "Projects/WordLadder/Word-Ladder.png",
+      "Projects/WordLadder/Diameter.png",
+      "Projects/WordLadder/3-12Dict.png",
+      "Projects/WordLadder/5-Scrabble.png",
+      "Projects/WordLadder/6-12Dict.png"
+    ],
     "tags": ["Python", "Data Analysis"],
     "inProgress": false
   },
@@ -93,7 +113,12 @@
     "source": "https://github.com/GarrettSidle/Hexagonal-Chess-Application",
     "date": "August 2023 - October 2024",
     "demo": "",
-    "imgPath": "Projects/HexagonalChess/Played Game.png",
+    "imgPaths": [
+      "Projects/HexagonalChess/Played Game.png",
+      "Projects/HexagonalChess/Home.png",
+      "Projects/HexagonalChess/Settings.png",
+      "Projects/HexagonalChess/Result Screen.png"
+    ],
     "tags": ["C#", "WPF Forms"],
     "inProgress": false
   },
@@ -103,7 +128,10 @@
     "source": "https://github.com/GarrettSidle/Personal-Website",
     "date": "June 2022 - Present",
     "demo": "/#Home",
-    "imgPath": "Projects/PersonalWebsite/Personal-Website.png",
+    "imgPaths": [
+      "Projects/PersonalWebsite/Personal-Website.png",
+      "Projects/PersonalWebsite/Blog.png"
+    ],
     "tags": ["Javascript", "Web Development", "React"],
     "inProgress": false
   },
@@ -113,7 +141,7 @@
     "source": "https://github.com/GarrettSidle/RC-Car",
     "date": "October 2022",
     "demo": "",
-    "imgPath": "Projects/RC-Car/Car.png",
+    "imgPaths": ["Projects/RC-Car/Car.png", "Projects/RC-Car/Electrical.png"],
     "tags": ["C++", "Embedded Programming"],
     "inProgress": false
   }
