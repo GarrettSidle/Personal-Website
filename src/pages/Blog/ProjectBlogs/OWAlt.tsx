@@ -6,6 +6,7 @@ import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 type BlogProps = {
   source: string;
   demo: string;
+  tags: string[];
 };
 
 export class OWALT extends Component<BlogProps> {
@@ -15,6 +16,11 @@ export class OWALT extends Component<BlogProps> {
         <h1>
           <strong>Overwatch</strong> Account Tracker
         </h1>
+        <div className="Project-Tags">
+          {this.props.tags.map((tag: string, index: number) => (
+            <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
+          ))}
+        </div>
         <div className="Blog-Links">
           {ProjectCard.getProjectLinks(this.props.source, this.props.demo)}
         </div>

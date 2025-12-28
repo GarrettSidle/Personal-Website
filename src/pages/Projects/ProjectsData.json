@@ -6,7 +6,7 @@
     "demo": "/AltManager",
     "date": "October 2025",
     "imgPaths": ["Projects/OWALT/Tracker.png"],
-    "tags": ["Web Development", "API Integration", "Encryption"],
+    "tags": ["Javascript", "Web Development", "React", "API Integration"],
     "inProgress": false
   },
   {
@@ -46,18 +46,25 @@
     "id": "mouseless",
     "name": "Mouseless.us",
     "source": "https://github.com/GarrettSidle/Mouseless",
-    "date": "January 2025 - Present",
+    "date": "January 2025 - December 2025",
     "demo": "",
-    "imgPaths": ["Projects/Mouseless/Overview.png"],
+    "imgPaths": [
+      "Projects/Mouseless/Overview.png",
+      "Projects/Mouseless/Home.mp4",
+      "Projects/Mouseless/Login.png",
+      "Projects/Mouseless/API.png",
+      "Projects/Mouseless/Stats.png",
+      "Projects/Mouseless/Shortcuts.mp4"
+    ],
     "tags": [
       "Javascript",
       "Web Development",
       "React",
-      "Django",
+      "FastAPI",
       "Python",
       "PostgreSQL"
     ],
-    "inProgress": true
+    "inProgress": false
   },
   {
     "id": "custom-assembly-compiler",

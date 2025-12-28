@@ -57,6 +57,12 @@
   text-align: center;
 }
 
+.Blog-Post video {
+  width: 70%;
+  text-align: center;
+  border-radius: 10px;
+}
+
 .Blog-Post .Listed {
   text-indent: 6rem;
   padding: 0;
@@ -152,6 +158,22 @@ td {
 
 .Blog-Links .Project-Links .Project-Link {
   margin-left: 5px;
+}
+
+.Blog-Post .Project-Tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75vw;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.Blog-Post .Project-Tag {
+  background-color: rgb(43, 43, 43);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 @media (max-width: 1500px) {

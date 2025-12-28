@@ -24,6 +24,7 @@ export class Blog extends Component<{}> {
 
   projectDemos: Map<string, string> = new Map();
   projectSources: Map<string, string> = new Map();
+  projectTags: Map<string, string[]> = new Map();
 
   private findProjects(projectId: any) {
     let currentTags: Array<string> = [];
@@ -32,6 +33,7 @@ export class Blog extends Component<{}> {
       this.projectDemos.set(project.id, project.demo);
 
       this.projectSources.set(project.id, project.source);
+      this.projectTags.set(project.id, project.tags);
 
       //if we are looking at the current project
       if (project.id === projectId) {
@@ -96,30 +98,31 @@ export class Blog extends Component<{}> {
     this.findProjects(this.projectId);
     let source = String(this.projectSources.get(this.projectId));
     let demo = String(this.projectDemos.get(this.projectId));
+    let tags = this.projectTags.get(this.projectId) || [];
 
     console.log(source, demo);
 
     switch (this.projectId) {
       case "word-ladder-analysis":
-        return <WordLadder source={source} demo={demo} />;
+        return <WordLadder source={source} demo={demo} tags={tags} />;
       case "hexagonal-chess-app":
-        return <HexChess source={source} demo={demo} />;
+        return <HexChess source={source} demo={demo} tags={tags} />;
       case "personal-website":
-        return <PersonalWebsite source={source} demo={demo} />;
+        return <PersonalWebsite source={source} demo={demo} tags={tags} />;
       case "rc-car":
-        return <RCCar source={source} demo={demo} />;
+        return <RCCar source={source} demo={demo} tags={tags} />;
       case "8-bit-cpu-core":
-        return <EightBit source={source} demo={demo} />;
+        return <EightBit source={source} demo={demo} tags={tags} />;
       case "mouseless":
-        return <Mouseless source={source} demo={demo} />;
+        return <Mouseless source={source} demo={demo} tags={tags} />;
       case "custom-assembly-compiler":
-        return <AssemblyCompiler source={source} demo={demo} />;
+        return <AssemblyCompiler source={source} demo={demo} tags={tags} />;
       case "autonomous-kart":
-        return <AutonomousKart source={source} demo={demo} />;
+        return <AutonomousKart source={source} demo={demo} tags={tags} />;
       case "Alt-Manager":
-        return <AltManager source={source} demo={demo} />;
+        return <AltManager source={source} demo={demo} tags={tags} />;
       case "overwatch-account-tracker":
-        return <OWALT source={source} demo={demo} />;
+        return <OWALT source={source} demo={demo} tags={tags} />;
       default:
         return <h1 className="h404">404 - Project Not Found</h1>;
     }

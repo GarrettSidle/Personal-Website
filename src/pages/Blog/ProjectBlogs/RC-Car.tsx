@@ -7,6 +7,7 @@ import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 type BlogProps = {
     source : string;
     demo   : string;
+    tags   : string[];
   };
 
 export class RCCar extends Component<BlogProps> {
@@ -14,6 +15,11 @@ export class RCCar extends Component<BlogProps> {
         return (
             <div className="Blog-Post">
                     <h1><strong>C++</strong> Remote Control Car</h1>
+                <div className="Project-Tags">
+                    {this.props.tags.map((tag: string, index: number) => (
+                        <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
+                    ))}
+                </div>
                 <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 <div className="Image-Container">
                     <img src={'/assets/Projects/RC-Car/Car.png'} />

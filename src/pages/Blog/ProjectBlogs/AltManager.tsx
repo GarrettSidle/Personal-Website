@@ -6,6 +6,7 @@ import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 type BlogProps = {
     source: string;
     demo: string;
+    tags: string[];
 };
 
 export class AltManager extends Component<BlogProps> {
@@ -15,7 +16,11 @@ export class AltManager extends Component<BlogProps> {
             <div className="Blog-Post">
                 <div>
                     <h1><strong className="Orange">Alternative</strong> Account Manager </h1>
-
+                    <div className="Project-Tags">
+                        {this.props.tags.map((tag: string, index: number) => (
+                            <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
+                        ))}
+                    </div>
                     <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                     <div className="Image-Container">
                         <img src={'/assets/Projects/Alt-Manager/Overview.png'} />

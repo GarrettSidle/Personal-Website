@@ -7,6 +7,7 @@ import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 type BlogProps = {
     source : string;
     demo   : string;
+    tags   : string[];
   };
 
 export class WordLadder extends Component<BlogProps> {
@@ -15,7 +16,11 @@ export class WordLadder extends Component<BlogProps> {
             <div className="Blog-Post Page">
                     
                 <h1>Analyzing Connections in a <strong className="Orange">Word Ladder</strong> Network Graph</h1>
-                
+                <div className="Project-Tags">
+                    {this.props.tags.map((tag: string, index: number) => (
+                        <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
+                    ))}
+                </div>
                 <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
                 
 

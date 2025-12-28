@@ -6,6 +6,7 @@ import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 type BlogProps = {
     source: string;
     demo: string;
+    tags: string[];
 };
 
 export class AutonomousKart extends Component<BlogProps> {
@@ -14,6 +15,11 @@ export class AutonomousKart extends Component<BlogProps> {
             <div className="Blog-Post">
 
                 <h1><strong className="Orange">Autonomous</strong> Go-Kart</h1>
+                <div className="Project-Tags">
+                    {this.props.tags.map((tag: string, index: number) => (
+                        <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
+                    ))}
+                </div>
                 <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
 
 

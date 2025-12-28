@@ -16,14 +16,31 @@ interface ProjectCardState {
 }
 
 export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
-  private firstImageRef: React.RefObject<HTMLImageElement>;
+  private firstMediaRef: React.RefObject<HTMLImageElement | HTMLVideoElement>;
+  private videoRefs: Map<number, React.RefObject<HTMLVideoElement>>;
+  private cardRef: React.RefObject<HTMLAnchorElement>;
 
   constructor(props: ProjectCardProps) {
     super(props);
     this.state = {
       currentImageIndex: 0,
     };
-    this.firstImageRef = React.createRef();
+    this.firstMediaRef = React.createRef();
+    this.videoRefs = new Map();
+    this.cardRef = React.createRef();
+
+    // Initialize video refs for all videos (except index 0, which uses firstMediaRef)
+    props.project.imgPaths.forEach((path, index) => {
+      if (this.isVideo(path) && index !== 0) {
+        this.videoRefs.set(index, React.createRef());
+      }
+    });
+  }
+
+  private isVideo(path: string): boolean {
+    const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".avi"];
+    const lowerPath = path.toLowerCase();
+    return videoExtensions.some((ext) => lowerPath.endsWith(ext));
   }
 
   private handlePreviousImage = (e: React.MouseEvent) => {
@@ -48,18 +65,16 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     }));
   };
 
-  private handleFirstImageLoad = (
-    e: React.SyntheticEvent<HTMLImageElement>
-  ) => {
+  private handleFirstMediaLoad = () => {
     if (
       !this.state.imageWidth &&
       !this.state.imageHeight &&
-      this.firstImageRef.current
+      this.firstMediaRef.current
     ) {
       // Use requestAnimationFrame to ensure measurement happens after layout
       requestAnimationFrame(() => {
-        if (this.firstImageRef.current) {
-          const rect = this.firstImageRef.current.getBoundingClientRect();
+        if (this.firstMediaRef.current) {
+          const rect = this.firstMediaRef.current.getBoundingClientRect();
           if (rect.width > 0 && rect.height > 0) {
             this.setState({
               imageWidth: rect.width,
@@ -71,26 +86,126 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     }
   };
 
+  private playActiveVideo = () => {
+    const { currentImageIndex } = this.state;
+    const { imgPaths } = this.props.project;
+
+    if (
+      currentImageIndex >= 0 &&
+      currentImageIndex < imgPaths.length &&
+      this.isVideo(imgPaths[currentImageIndex])
+    ) {
+      if (
+        currentImageIndex === 0 &&
+        this.firstMediaRef.current instanceof HTMLVideoElement
+      ) {
+        this.firstMediaRef.current.play().catch((err) => {
+          console.log("Video autoplay prevented:", err);
+        });
+      } else {
+        const videoRef = this.videoRefs.get(currentImageIndex);
+        if (videoRef?.current) {
+          videoRef.current.play().catch((err) => {
+            console.log("Video autoplay prevented:", err);
+          });
+        }
+      }
+    }
+  };
+
+  private handleCardMouseEnter = () => {
+    // Play the active video when hovering over the card
+    this.playActiveVideo();
+  };
+
+  private handleCardMouseLeave = () => {
+    // Pause all videos when mouse leaves the card
+    if (this.firstMediaRef.current instanceof HTMLVideoElement) {
+      this.firstMediaRef.current.pause();
+      this.firstMediaRef.current.currentTime = 0;
+    }
+
+    this.videoRefs.forEach((ref) => {
+      if (ref.current) {
+        ref.current.pause();
+        ref.current.currentTime = 0; // Reset to start
+      }
+    });
+  };
+
   public componentDidMount() {
-    // If the first image is already loaded, measure it after layout
-    if (this.firstImageRef.current && this.firstImageRef.current.complete) {
-      requestAnimationFrame(() => {
-        if (this.firstImageRef.current) {
-          const rect = this.firstImageRef.current.getBoundingClientRect();
-          if (
-            rect.width > 0 &&
-            rect.height > 0 &&
-            !this.state.imageWidth &&
-            !this.state.imageHeight
-          ) {
-            this.setState({
-              imageWidth: rect.width,
-              imageHeight: rect.height,
-            });
+    // If the first media is already loaded, measure it after layout
+    if (this.firstMediaRef.current) {
+      const isImage = this.firstMediaRef.current instanceof HTMLImageElement;
+      const isVideo = this.firstMediaRef.current instanceof HTMLVideoElement;
+
+      if (
+        isImage &&
+        (this.firstMediaRef.current as HTMLImageElement).complete
+      ) {
+        this.measureFirstMedia();
+      } else if (
+        isVideo &&
+        (this.firstMediaRef.current as HTMLVideoElement).readyState >= 2
+      ) {
+        this.measureFirstMedia();
+      }
+    }
+  }
+
+  public componentDidUpdate(
+    prevProps: ProjectCardProps,
+    prevState: ProjectCardState
+  ) {
+    // If the current image index changed, pause and reset videos that are no longer active
+    if (prevState.currentImageIndex !== this.state.currentImageIndex) {
+      const { imgPaths } = this.props.project;
+      const { currentImageIndex } = this.state;
+
+      // Pause and reset the previously active video if it was a video
+      const prevIndex = prevState.currentImageIndex;
+      if (
+        prevIndex >= 0 &&
+        prevIndex < imgPaths.length &&
+        this.isVideo(imgPaths[prevIndex])
+      ) {
+        if (
+          prevIndex === 0 &&
+          this.firstMediaRef.current instanceof HTMLVideoElement
+        ) {
+          this.firstMediaRef.current.pause();
+          this.firstMediaRef.current.currentTime = 0;
+        } else {
+          const prevVideoRef = this.videoRefs.get(prevIndex);
+          if (prevVideoRef?.current) {
+            prevVideoRef.current.pause();
+            prevVideoRef.current.currentTime = 0;
           }
         }
-      });
+      }
+
+      // Play the newly active video if it's a video
+      this.playActiveVideo();
     }
+  }
+
+  private measureFirstMedia() {
+    requestAnimationFrame(() => {
+      if (this.firstMediaRef.current) {
+        const rect = this.firstMediaRef.current.getBoundingClientRect();
+        if (
+          rect.width > 0 &&
+          rect.height > 0 &&
+          !this.state.imageWidth &&
+          !this.state.imageHeight
+        ) {
+          this.setState({
+            imageWidth: rect.width,
+            imageHeight: rect.height,
+          });
+        }
+      }
+    });
   }
 
   public render() {
@@ -99,22 +214,29 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     const hasMultipleImages = project.imgPaths.length > 1;
 
     return (
-      <a className="Project-Card" href={`/Blog?id=${project.id}`}>
+      <a
+        className="Project-Card"
+        href={`/Blog?id=${project.id}`}
+        ref={this.cardRef}
+        onMouseEnter={this.handleCardMouseEnter}
+        onMouseLeave={this.handleCardMouseLeave}
+      >
         <div className="Project-Title"> {project.name}</div>
         <div className="Project-Date"> {project.date}</div>
 
         {project.inProgress ? this.inProgress() : ""}
 
         <div className="Project-Image-Container">
-          {project.imgPaths.map((imgPath, index) => {
+          {project.imgPaths.map((mediaPath, index) => {
             const offset = index - currentImageIndex;
             const isVisible = Math.abs(offset) <= 1;
 
             if (!isVisible) return null;
 
             const isActive = index === currentImageIndex;
-            const isFirstImage = index === 0;
+            const isFirstMedia = index === 0;
             const { imageWidth, imageHeight } = this.state;
+            const isVideoFile = this.isVideo(mediaPath);
 
             const baseStyle: React.CSSProperties = {
               opacity: 1,
@@ -137,19 +259,50 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                   opacity: 0.85,
                 };
 
-            return (
-              <img
-                key={index}
-                ref={isFirstImage ? this.firstImageRef : undefined}
-                src={`/assets/${imgPath}`}
-                alt={`${project.name} - Image ${index + 1}`}
-                className={`Project-Image ${isActive ? "active" : ""} ${
-                  offset !== 0 ? "behind" : ""
-                } ${hasSized ? "sized" : ""}`}
-                style={style}
-                onLoad={isFirstImage ? this.handleFirstImageLoad : undefined}
-              />
-            );
+            if (isVideoFile) {
+              const videoRef = this.videoRefs.get(index);
+              return (
+                <video
+                  key={index}
+                  ref={
+                    isFirstMedia
+                      ? (this
+                          .firstMediaRef as React.RefObject<HTMLVideoElement>)
+                      : videoRef
+                  }
+                  src={`/assets/${mediaPath}`}
+                  className={`Project-Image ${isActive ? "active" : ""} ${
+                    offset !== 0 ? "behind" : ""
+                  } ${hasSized ? "sized" : ""}`}
+                  style={style}
+                  muted
+                  loop
+                  playsInline
+                  onLoadedMetadata={
+                    isFirstMedia ? this.handleFirstMediaLoad : undefined
+                  }
+                />
+              );
+            } else {
+              return (
+                <img
+                  key={index}
+                  ref={
+                    isFirstMedia
+                      ? (this
+                          .firstMediaRef as React.RefObject<HTMLImageElement>)
+                      : undefined
+                  }
+                  src={`/assets/${mediaPath}`}
+                  alt={`${project.name} - Image ${index + 1}`}
+                  className={`Project-Image ${isActive ? "active" : ""} ${
+                    offset !== 0 ? "behind" : ""
+                  } ${hasSized ? "sized" : ""}`}
+                  style={style}
+                  onLoad={isFirstMedia ? this.handleFirstMediaLoad : undefined}
+                />
+              );
+            }
           })}
 
           {hasMultipleImages && (
