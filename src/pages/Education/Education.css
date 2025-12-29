@@ -1,101 +1,96 @@
-.Edu-Shell{
-  background: linear-gradient(to bottom, #ecedf1, gray); 
-}
+.Edu-Shell {
+  background: linear-gradient(to bottom, #ecedf1, lightgray);
 
-.Education {
-  width: 80%;
-  max-width: 1100px; 
-  margin: 0 auto;  
-  padding-bottom: 5%;
-}
+  .Education {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 5%;
+  }
 
-.Cards {
-  display: flex;
-  flex-direction: row; 
-}
-.Card {
-  margin: 1vw .75vw .75vw .75vw;
-  padding: 2em;
-  border: 1px solid gray;
-  text-align: center;
-  opacity: .9;
-  background-color: darkgray;
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px
-}
+  .Cards {
+    display: flex;
+    flex-direction: row;
+  }
+  .Card {
+    margin: 1vw 0.75vw 0.75vw 0.75vw;
+    padding: 2em;
+    border: 1px solid gray;
+    text-align: center;
+    opacity: 0.9;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
 
+  .Card:hover {
+    transform: scale(1.05);
+    overflow: hidden;
+    border: 4px solid #f05c0c;
+    transition: 500ms;
+  }
 
-.Card:hover {
-  transform: scale(1.05);
-  overflow: hidden;
-  border: 4px solid #f05c0c;
-  transition: 500ms;
-}
+  .Card-Logo {
+    width: 80%;
+    padding: 2vw;
+  }
 
-.Card-Logo{
-  width: 80%;
-  padding: 2vw;
-}
+  .Card-Header {
+    color: white;
+    font-size: 1.3vw;
+    margin: 0.5vw;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
 
-.Card-Header {
-  color: white;
-  font-size: 1.3vw;
-  margin: .5vw;
-  margin-bottom: 0 ;
-  font-weight: bold;
-}
+  .Card-Underheader {
+    font-size: 1.1vw;
+    color: white;
+    margin-bottom: 0.5vw;
+  }
 
-.Card-Underheader{
-  font-size: 1.1vw;
-  color: white;
-  margin-bottom: .5vw ;
-}
+  .Card-SubHeader {
+    font-size: 1.1vw;
+    color: white;
+  }
 
-.Card-SubHeader {
-  font-size: 1.1vw;
-  color: white;
-}
+  .Edu-HR {
+    color: white;
+  }
 
-.Edu-HR{
-  color: white;
-}
+  .Card-Dates {
+    font-size: 0.65vw;
+    color: white;
+    text-decoration: none;
+  }
 
-.Card-Dates {
-  font-size: .65vw;
-  color: white;
-  text-decoration: none;
-}
+  .Card.Miami {
+    background-image: url(/public/assets/Miami-Background.png);
+  }
 
-.Miami{
-  background-image: url(/public/assets/Miami-Background.png); ;
-}
+  .Card.Northwest {
+    background-color: #1d3532;
+  }
 
-.Northwest{
-  background-color: #1d3532;
-}
-
-.GATech{
-  background-color: #153256;
-}
-
+  .Card.GATech {
+    background-color: #153256;
+  }
 
   @media (max-width: 750px) {
-
     .Education {
       width: 95%;
-  
     }
 
     .Card-Header {
       font-size: 2.4vw;
     }
-    
+
     .Card-SubHeader {
       font-size: 1.8vw;
     }
     .Card-Dates {
       font-size: 1.7vw;
     }
-  
-  } 
+  }
+}

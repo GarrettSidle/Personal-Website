@@ -1,0 +1,143 @@
+.WorkExperience-Shell {
+  background: linear-gradient(to bottom, lightgray, gray);
+
+  .WorkExperience {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 5%;
+  }
+
+  .Cards {
+    display: flex;
+    flex-direction: row;
+  }
+  .Card {
+    margin: 1vw 0.75vw 0.75vw 0.75vw;
+    padding: 2em;
+    border: 1px solid gray;
+    text-align: center;
+    opacity: 0.9;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .Card-Content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .Card-Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    padding: 2em;
+    border-radius: 15px;
+  }
+
+  .Card:hover .Card-Overlay {
+    opacity: 1;
+  }
+
+  .Card-Description {
+    color: #ffffff;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .Card:hover {
+    transform: scale(1.05);
+    overflow: hidden;
+    border: 1px solid gray;
+    box-shadow: 0 0 0 3px #f05c0c;
+    transition: transform 500ms, box-shadow 500ms;
+  }
+
+  .Card-Logo {
+    width: 80%;
+    padding: 2vw;
+  }
+
+  .Card-Header {
+    color: white;
+    font-size: 1.3vw;
+    margin: 0.5vw;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  .Card-Underheader {
+    font-size: 1.1vw;
+    color: white;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+
+  .Card-SubHeader {
+    font-size: 1.1vw;
+    color: white;
+    font-weight: bold;
+  }
+
+  .Card-HR {
+    color: white;
+    margin: 0.5vw 0;
+    width: 100%;
+  }
+
+  .Card-Dates {
+    font-size: 0.65vw;
+    color: white;
+    text-decoration: none;
+  }
+
+  .Card.GEICO {
+    background-color: #104293;
+  }
+
+  .Card.AFCO {
+    background-color: #e51e25;
+  }
+
+  .Card.DRS {
+    background-color: black;
+  }
+
+  @media (max-width: 750px) {
+    .WorkExperience {
+      width: 95%;
+    }
+
+    .Card-Header {
+      font-size: 2.4vw;
+    }
+
+    .Card-SubHeader {
+      font-size: 1.8vw;
+    }
+    .Card-Dates {
+      font-size: 1.7vw;
+    }
+
+    .Card-Description {
+      font-size: 2vw;
+    }
+  }
+}

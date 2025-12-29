@@ -17,11 +17,11 @@
     "date": "August 2024 - April 2025",
     "imgPaths": [
       "Projects/Autonomous-Kart/Overview.png",
-      "Projects/Autonomous-Kart/CameraImage.png",
-      "Projects/Autonomous-Kart/Lidar.png",
       "Projects/Autonomous-Kart/ControlPanel.png",
       "Projects/Autonomous-Kart/Sch_Kart.png",
-      "Projects/Autonomous-Kart/Sch_Controls.png"
+      "Projects/Autonomous-Kart/Sch_Controls.png",
+      "Projects/Autonomous-Kart/CameraImage.png",
+      "Projects/Autonomous-Kart/Lidar.png"
     ],
     "tags": [
       "Electrical Engineering",

@@ -2,39 +2,43 @@ import { Component } from "react";
 
 import "./Navigation.css";
 
-
 const NavLinks = [
   {
     title: "Home",
     link: "/#Home",
-    target: ""
+    target: "",
   },
   {
     title: "Education",
     link: "/#Education",
-    target: ""
+    target: "",
+  },
+  {
+    title: "Experience",
+    link: "/#WorkExperience",
+    target: "",
   },
   {
     title: "Projects",
     link: "/#Projects",
-    target: ""
+    target: "",
   },
   {
     title: "About",
     link: "/#About",
-    target: ""
+    target: "",
   },
   {
     title: "Connect",
     link: "/#Contact",
-    target: ""
+    target: "",
   },
   {
     title: "Github",
     link: "https://github.com/GarrettSidle",
-    target: "blank"
-  }
-]
+    target: "blank",
+  },
+];
 export class Navigation extends Component<{}, { navUnfolded: boolean }> {
   constructor(props: {}) {
     super(props);
@@ -49,17 +53,31 @@ export class Navigation extends Component<{}, { navUnfolded: boolean }> {
     }));
   };
 
-
   public render() {
     return (
       <div className={this.state.navUnfolded ? "Enabled" : ""}>
         <nav className="Navigation">
           <div className="Nav-Objects">
-            <a href="/#Home" className="Nav-Brand">Garrett Sidle</a>
-            <button className="Hamburger" onClick={() => { this.toggleNav() }}>☰</button>
+            <a href="/#Home" className="Nav-Brand">
+              Garrett Sidle
+            </a>
+            <button
+              className="Hamburger"
+              onClick={() => {
+                this.toggleNav();
+              }}
+            >
+              ☰
+            </button>
             <div className="Nav-Links">
               {NavLinks.map((NavLink) => (
-                <a key={NavLink.title} target={NavLink.target} href={NavLink.link}>{NavLink.title.toLocaleUpperCase()}</a>
+                <a
+                  key={NavLink.title}
+                  target={NavLink.target}
+                  href={NavLink.link}
+                >
+                  {NavLink.title.toLocaleUpperCase()}
+                </a>
               ))}
             </div>
           </div>
@@ -67,7 +85,5 @@ export class Navigation extends Component<{}, { navUnfolded: boolean }> {
       </div>
     );
   }
-
-
 }
 export default Navigation;

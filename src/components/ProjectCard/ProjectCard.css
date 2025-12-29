@@ -105,12 +105,12 @@
 }
 
 .Project-Image {
-    border-radius: 15px;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease,
-        height 0.3s ease;
-    transform-origin: center;
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease,
+    height 0.3s ease;
+  transform-origin: center;
 }
 
 .Project-Image.sized {
@@ -190,7 +190,7 @@
   .Project-Card {
     flex: 1 1 100%;
     max-width: 90%;
-    padding: 16px;
+    padding: 0px;
     font-size: 0.9em;
   }
 
