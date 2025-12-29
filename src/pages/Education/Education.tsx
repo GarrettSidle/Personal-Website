@@ -16,7 +16,7 @@ export class Education extends Component<{}> {
     return (
       <div className={`Card ${className}`}>
         <a href={link} target="_blank" style={{ textDecoration: "none" }}>
-          <div >
+          <div>
             <img className="Card-Logo" src={img} />
           </div>
           <div className="Card-Header">{header}</div>
@@ -32,7 +32,7 @@ export class Education extends Component<{}> {
 
   public render() {
     return (
-      <div className="Edu-Shell Page" id='Education'>
+      <div className="Edu-Shell Page" id="Education">
         <Header>My Education</Header>
         <div className="Education">
           {this.card(
@@ -60,7 +60,7 @@ export class Education extends Component<{}> {
                 "",
                 "Northwest State Community College",
                 "Aug 2021 – Nov 2023",
-                "https://northweststate.edu/electro-mechanical-engineering-technology",
+                "https://catalog.northweststate.edu/preview_program.php?catoid=5&poid=663&returnto=156",
                 "/assets/Northwest.png",
                 "Northwest"
               )}
@@ -71,7 +71,7 @@ export class Education extends Component<{}> {
                 "",
                 "Northwest State Community College",
                 "Aug 2021 – May 2023",
-                "https://northweststate.edu/computer-science-engineering-technology",
+                "https://catalog.northweststate.edu/preview_program.php?catoid=5&poid=658&returnto=156",
                 "/assets/Northwest.png",
                 "Northwest"
               )}
