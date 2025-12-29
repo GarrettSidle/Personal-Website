@@ -2,10 +2,10 @@ import { Component } from "react";
 
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
+import { ProjectLink } from "../../../models/Project";
 
 type BlogProps = {
-  source: string;
-  demo: string;
+  links: ProjectLink[];
   tags: string[];
 };
 
@@ -22,7 +22,7 @@ export class OWALT extends Component<BlogProps> {
           ))}
         </div>
         <div className="Blog-Links">
-          {ProjectCard.getProjectLinks(this.props.source, this.props.demo)}
+          {ProjectCard.getProjectLinks(this.props.links)}
         </div>
         <div className="Image-Container">
           <img src={"/assets/Projects/OWALT/Tracker.png"} />

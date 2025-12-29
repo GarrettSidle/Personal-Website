@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./ProjectCard.css";
 import { FaGithub, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
-import { Project } from "../../models/Project";
+import { Project, ProjectLink } from "../../models/Project";
 
 interface ProjectCardProps {
   project: Project;
@@ -332,16 +332,17 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
             </div>
           ))}
         </div>
-        {ProjectCard.getProjectLinks(project.source, project.demo)}
+        {ProjectCard.getProjectLinks(project.links)}
       </a>
     );
   }
 
-  public static getProjectLinks(source: string, demo: string) {
+  public static getProjectLinks(links: ProjectLink[]) {
     return (
       <div className="Project-Links">
-        {source !== "" ? ProjectCard.github(source) : ""}
-        {demo !== "" ? ProjectCard.demo(demo) : ""}
+        {links
+          .filter((link) => link.url !== "")
+          .map((link, index) => ProjectCard.renderLink(link, index))}
       </div>
     );
   }
@@ -350,37 +351,50 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     return <div className="In-Progress-Overlay">In Progress</div>;
   }
 
-  public static github(source: string) {
+  public static renderLink(link: ProjectLink, key?: number) {
+    const text = link.text ?? this.getDefaultText(link.logo);
+    const icon = this.getIcon(link.logo);
+
     return (
-      <a href={source} target="blank" rel="noreferrer">
+      <a
+        key={key}
+        href={link.url}
+        target="blank"
+        rel="noreferrer"
+        className="Project-Link-Anchor"
+      >
         <div className="Project-Link">
+          <div>{icon}</div>
           <div>
-            <FaGithub className="Link-Img" color="white" />
-          </div>
-          <div>
-            <div className="Link-Desc">Source</div>
+            <div className="Link-Desc">{text}</div>
           </div>
         </div>
       </a>
     );
   }
 
-  public static demo(link: string) {
-    return (
-      <a
-        className="Project-Link-Shell"
-        href={link}
-        target="blank"
-        rel="noreferrer"
-      >
-        <div className="Project-Link">
-          <MdLiveTv className="Link-Img" color="white" />
-          <div>
-            <div className="Link-Desc">Demo</div>
-          </div>
-        </div>
-      </a>
-    );
+  private static getIcon(logo: string) {
+    switch (logo.toLowerCase()) {
+      case "github":
+        return <FaGithub className="Link-Img" color="white" />;
+      case "demo":
+      case "live":
+        return <MdLiveTv className="Link-Img" color="white" />;
+      default:
+        return <FaGithub className="Link-Img" color="white" />;
+    }
+  }
+
+  private static getDefaultText(logo: string): string {
+    switch (logo.toLowerCase()) {
+      case "github":
+        return "Source";
+      case "demo":
+      case "live":
+        return "Demo";
+      default:
+        return "Link";
+    }
   }
 }
 export default ProjectCard;

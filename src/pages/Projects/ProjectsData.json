@@ -2,8 +2,16 @@
   {
     "id": "overwatch-account-tracker",
     "name": "Overwatch Account Tracker",
-    "source": "https://github.com/GarrettSidle/Personal-Website/tree/main/src/pages/AltManager",
-    "demo": "/AltManager",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Personal-Website/tree/main/src/pages/AltManager",
+        "logo": "github"
+      },
+      {
+        "url": "/AltManager",
+        "logo": "demo"
+      }
+    ],
     "date": "October 2025",
     "imgPaths": ["Projects/OWALT/Tracker.png"],
     "tags": ["Javascript", "Web Development", "React", "API Integration"],
@@ -12,8 +20,12 @@
   {
     "id": "autonomous-kart",
     "name": "Autonomous Go Kart",
-    "source": "https://github.com/GarrettSidle/Autonomous-Kart",
-    "demo": "",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Autonomous-Kart",
+        "logo": "github"
+      }
+    ],
     "date": "August 2024 - April 2025",
     "imgPaths": [
       "Projects/Autonomous-Kart/Overview.png",
@@ -35,8 +47,12 @@
   {
     "id": "Alt-Manager",
     "name": "Alternative Account Manager",
-    "source": "https://github.com/GarrettSidle/OW-Alt-Manager",
-    "demo": "",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/OW-Alt-Manager",
+        "logo": "github"
+      }
+    ],
     "date": "March 2025",
     "imgPaths": ["Projects/Alt-Manager/Overview.png"],
     "tags": ["Python", "Tkinter"],
@@ -45,9 +61,19 @@
   {
     "id": "mouseless",
     "name": "Mouseless.us",
-    "source": "https://github.com/GarrettSidle/Mouseless",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Mouseless",
+        "text": "Webclient",
+        "logo": "github"
+      },
+      {
+        "url": "https://github.com/GarrettSidle/Mouseless-API",
+        "text": "API",
+        "logo": "github"
+      }
+    ],
     "date": "January 2025 - December 2025",
-    "demo": "",
     "imgPaths": [
       "Projects/Mouseless/Overview.png",
       "Projects/Mouseless/Home.mp4",
@@ -69,9 +95,13 @@
   {
     "id": "custom-assembly-compiler",
     "name": "ROM Assembly Compiler",
-    "source": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/8-Bit-Assembly-Compiler",
+        "logo": "github"
+      }
+    ],
     "date": "January 2025",
-    "demo": "",
     "imgPaths": ["Projects/AssemblyCompiler/Overview.png"],
     "tags": [
       "Electrical Engineering",
@@ -84,9 +114,8 @@
   {
     "id": "8-bit-cpu-core",
     "name": "8-Bit CPU Core",
-    "source": "",
+    "links": [],
     "date": "November 2024 - January 2025",
-    "demo": "",
     "imgPaths": [
       "Projects/8-Bit/Thumbnail.png",
       "Projects/8-Bit/Sch-Overview.png",
@@ -101,9 +130,13 @@
   {
     "id": "word-ladder-analysis",
     "name": "Word Ladder Analysis",
-    "source": "https://github.com/GarrettSidle/Word-Ladder",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Word-Ladder",
+        "logo": "github"
+      }
+    ],
     "date": "November 2024",
-    "demo": "",
     "imgPaths": [
       "Projects/WordLadder/Word-Ladder.png",
       "Projects/WordLadder/Diameter.png",
@@ -117,9 +150,13 @@
   {
     "id": "hexagonal-chess-app",
     "name": "Hexagonal Chess Application",
-    "source": "https://github.com/GarrettSidle/Hexagonal-Chess-Application",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Hexagonal-Chess-Application",
+        "logo": "github"
+      }
+    ],
     "date": "August 2023 - October 2024",
-    "demo": "",
     "imgPaths": [
       "Projects/HexagonalChess/Played Game.png",
       "Projects/HexagonalChess/Home.png",
@@ -132,9 +169,17 @@
   {
     "id": "personal-website",
     "name": "Personal Website",
-    "source": "https://github.com/GarrettSidle/Personal-Website",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Personal-Website",
+        "logo": "github"
+      },
+      {
+        "url": "/#Home",
+        "logo": "demo"
+      }
+    ],
     "date": "June 2022 - Present",
-    "demo": "/#Home",
     "imgPaths": [
       "Projects/PersonalWebsite/Personal-Website.png",
       "Projects/PersonalWebsite/Blog.png"
@@ -145,9 +190,13 @@
   {
     "id": "rc-car",
     "name": "Remote-Control Car",
-    "source": "https://github.com/GarrettSidle/RC-Car",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/RC-Car",
+        "logo": "github"
+      }
+    ],
     "date": "October 2022",
-    "demo": "",
     "imgPaths": ["Projects/RC-Car/Car.png", "Projects/RC-Car/Electrical.png"],
     "tags": ["C++", "Embedded Programming"],
     "inProgress": false

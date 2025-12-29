@@ -2,14 +2,12 @@
   background: linear-gradient(to bottom, gray, black);
 }
 
-
 .Portfolio {
   height: 100%;
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
 }
-
 
 .Projects {
   display: flex;
@@ -21,49 +19,39 @@
   box-sizing: border-box;
 }
 
-.Project-Sorting{
+.Project-Sorting {
   display: flex;
   flex-wrap: wrap;
-  gap: .5vw;
+  gap: 0.5vw;
   margin-top: 1%;
   justify-content: center;
 }
 
-
-.Project-Sorting button{
+.Project-Sorting button {
   color: white;
   border-radius: 10px;
   padding: 6px;
   cursor: pointer;
 }
 
-.Sorting-Button{
+.Sorting-Button {
   background-color: rgb(141, 56, 13);
   border-color: rgb(141, 56, 13);
-
-
 }
 
-.Selected-Button{
+.Selected-Button {
   background-color: #f05c0c;
   border-color: #f05c0c;
 }
 
-
 @media (max-width: 1500px) {
-  .Project-Sorting{
+  .Project-Sorting {
     justify-content: center;
   }
 }
 
 @media (max-width: 750px) {
-
-
   .Portfolio {
     width: 100%;
   }
-
-
-
-
 }

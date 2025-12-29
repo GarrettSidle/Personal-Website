@@ -2,11 +2,11 @@ import { Component } from "react";
 
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
+import { ProjectLink } from "../../../models/Project";
 
 type BlogProps = {
-    source : string;
-    demo   : string;
-    tags   : string[];
+    links: ProjectLink[];
+    tags: string[];
   };
 
 export class Mouseless extends Component<BlogProps> {
@@ -19,7 +19,7 @@ export class Mouseless extends Component<BlogProps> {
                         <div key={index} className="Project-Tag">{"</ " + tag + " >"}</div>
                     ))}
                 </div>
-                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.source, this.props.demo)}</div>
+                <div className="Blog-Links">{ProjectCard.getProjectLinks(this.props.links)}</div>
 
                 <div className="Image-Container">
                     <img src={'/assets/Projects/Mouseless/Overview.png'} />

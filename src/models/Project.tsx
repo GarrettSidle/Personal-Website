@@ -1,9 +1,14 @@
+export interface ProjectLink {
+  url: string;
+  text?: string | null;
+  logo: string;
+}
+
 export class Project {
     id: string;
     name: string;
-    source: string;
+    links: ProjectLink[];
     date: string;
-    demo: string;
     imgPaths: string[];
     tags: string[];
     inProgress: Boolean;
@@ -11,18 +16,16 @@ export class Project {
     constructor(
       id: string,
       name: string,
-      source: string,
+      links: ProjectLink[],
       date: string,
-      demo: string,
       imgPaths: string[],
       tags: string[],
       inProgress: boolean
     ) {
       this.id = id;
       this.name = name;
-      this.source = source;
+      this.links = links;
       this.date = date;
-      this.demo = demo;
       this.imgPaths = imgPaths;
       this.tags = tags;
       this.inProgress = inProgress;
