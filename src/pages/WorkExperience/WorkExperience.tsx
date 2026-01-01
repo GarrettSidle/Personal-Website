@@ -67,7 +67,7 @@ export class WorkExperience extends Component<{}> {
           },
           {
             title: "Software Engineering Intern",
-            dates: "April 2024 – Aug 2024",
+            dates: "May 2024 – Aug 2024",
           },
         ],
         description:
