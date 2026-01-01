@@ -43,6 +43,16 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     return videoExtensions.some((ext) => lowerPath.endsWith(ext));
   }
 
+  private getVideoMimeType(path: string): string {
+    const lowerPath = path.toLowerCase();
+    if (lowerPath.endsWith(".mp4")) return "video/mp4";
+    if (lowerPath.endsWith(".webm")) return "video/webm";
+    if (lowerPath.endsWith(".ogg")) return "video/ogg";
+    if (lowerPath.endsWith(".mov")) return "video/quicktime";
+    if (lowerPath.endsWith(".avi")) return "video/x-msvideo";
+    return "video/mp4"; // default
+  }
+
   private handlePreviousImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -270,7 +280,6 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                           .firstMediaRef as React.RefObject<HTMLVideoElement>)
                       : videoRef
                   }
-                  src={`/assets/${mediaPath}`}
                   className={`Project-Image ${isActive ? "active" : ""} ${
                     offset !== 0 ? "behind" : ""
                   } ${hasSized ? "sized" : ""}`}
@@ -281,7 +290,13 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                   onLoadedMetadata={
                     isFirstMedia ? this.handleFirstMediaLoad : undefined
                   }
-                />
+                >
+                  <source
+                    src={`/assets/${mediaPath}`}
+                    type={this.getVideoMimeType(mediaPath)}
+                  />
+                  Your browser does not support the video tag.
+                </video>
               );
             } else {
               return (
