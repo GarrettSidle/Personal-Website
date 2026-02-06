@@ -1,5 +1,24 @@
 [
   {
+    "id": "hexagonal-chess-engine",
+    "name": "Hexagonal Chess Engine",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/Hexagonal-Chess-Engine",
+        "logo": "github"
+      }
+    ],
+    "date": "January 2026 - February 2026",
+    "imgPaths": [
+      "Projects/HexChessEngine/SystenDiagram.png",
+      "Projects/HexChessEngine/Overview.png",
+      "Projects/HexChessEngine/BotPlay.mp4",
+      "Projects/HexChessEngine/MinimaxTree.png"
+    ],
+    "tags": ["C++", "Mulitthreading", "Algorithms", "Data Structures"],
+    "inProgress": false
+  },
+  {
     "id": "overwatch-account-tracker",
     "name": "Overwatch Account Tracker",
     "links": [
@@ -156,7 +175,7 @@
         "logo": "github"
       }
     ],
-    "date": "August 2023 - Feb 2026",
+    "date": "August 2023 - February 2026",
     "imgPaths": [
       "Projects/HexagonalChess/Played Game.png",
       "Projects/HexagonalChess/Home.png",

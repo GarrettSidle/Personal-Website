@@ -69,6 +69,27 @@
   margin-bottom: 0;
 }
 
+.Blog-Post pre {
+  background: rgb(30, 30, 30);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2% 0;
+  font-size: calc(0.35vw + 8px);
+}
+
+.Blog-Post code {
+  font-family: monospace;
+  background: rgb(43, 43, 43);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+.Blog-Post pre code {
+  background: none;
+  padding: 0;
+}
+
 .Blog-Post table {
   width: 50%;
   border-collapse: collapse;

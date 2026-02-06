@@ -3,6 +3,7 @@ import { Component } from "react";
 import "./Blog.css";
 import { WordLadder } from "./ProjectBlogs/WordLadder";
 import { HexChess } from "./ProjectBlogs/HexChess";
+import { HexChessEngine } from "./ProjectBlogs/HexChessEngine";
 import { PersonalWebsite } from "./ProjectBlogs/PersonalWebsite";
 import { RCCar } from "./ProjectBlogs/RC-Car";
 import { EightBit } from "./ProjectBlogs/8-Bit";
@@ -102,6 +103,8 @@ export class Blog extends Component<{}> {
         return <WordLadder links={links} tags={tags} />;
       case "hexagonal-chess-app":
         return <HexChess links={links} tags={tags} />;
+      case "hexagonal-chess-engine":
+        return <HexChessEngine links={links} tags={tags} />;
       case "personal-website":
         return <PersonalWebsite links={links} tags={tags} />;
       case "rc-car":
