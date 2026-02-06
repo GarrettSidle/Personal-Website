@@ -43,8 +43,23 @@ export class HexChess extends Component<BlogProps> {
                     <img src={'/assets/Projects/HexagonalChess/McCooey Board.png'} />
                     <img src={'/assets/Projects/HexagonalChess/Hexofren Board.png'} />
                 </div>
+                <h2>Bot / Engine</h2>
+                <p>The application includes a <strong>built-in chess bot</strong> for single-player games. The bot logic lives in a separate C++ engine; for the full source code and build instructions, see the <a href="https://github.com/GarrettSidle/Hexagonal-Chess-Engine" target="_blank" rel="noopener noreferrer">Hexagonal Chess Engine</a> repository.</p>
+                <p>The engine uses a material-based evaluation (piece values such as pawn=1, knight/bishop=3, rook=5, queen=9) and searches the game tree with the <strong>minimax</strong> algorithm. To stay fast under tight node limits, it employs several classic chess-engine techniques: <strong>alpha–beta pruning</strong>, <strong>Zobrist hashing</strong> and transposition tables to avoid re-evaluating identical positions, <strong>iterative deepening</strong> to improve move ordering and provide a best move at any depth, and a <strong>killer move heuristic</strong> to prioritize historically strong moves and trigger early cutoffs. The WPF application talks to the engine over stdin/stdout, sending commands like the variant name and moves, and receives the bot's replies in turn.</p>
+                <div className="Image-Container">
+                    <video autoPlay loop muted playsInline controls>
+                        <source src={"/assets/Projects/HexagonalChess/BotPlay.mp4"} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                 <h2>Online Play</h2>
                 <p>The application supports <strong>peer-to-peer</strong> multiplayer, allowing users to play against others with minimal setup. Using <strong>asynchronous communication</strong>, the game ensures smooth turns and state synchronization across devices. Advanced networking features, such as automatic reconnection enhance the multiplayer experience, making it intuitive and accessible.</p>
+                <div className="Image-Container">
+                    <video autoPlay loop muted playsInline controls>
+                        <source src={"/assets/Projects/HexagonalChess/PeerToPeerPlay.mp4"} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                 <h2>Other Images</h2>
                 <h4>Home Screen</h4>
                 <div className="Image-Container">
