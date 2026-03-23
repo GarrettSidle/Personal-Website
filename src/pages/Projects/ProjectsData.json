@@ -216,7 +216,11 @@
       }
     ],
     "date": "October 2022",
-    "imgPaths": ["Projects/RC-Car/Car.png", "Projects/RC-Car/Electrical.png"],
+    "imgPaths": [
+      "Projects/RC-Car/Car.png",
+      "Projects/RC-Car/Electrical.png",
+      "Projects/RC-Car/Moving.mp4"
+    ],
     "tags": ["C++", "Embedded Programming"],
     "inProgress": false
   }
