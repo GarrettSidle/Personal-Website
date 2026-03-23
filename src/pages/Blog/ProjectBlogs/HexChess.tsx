@@ -3,6 +3,7 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
+import { publicAssetUrl } from "../../../utils/publicAssetUrl";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -101,7 +102,7 @@ export class HexChess extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline controls>
             <source
-              src={"/assets/Projects/HexagonalChess/BotPlay.mp4"}
+              src={publicAssetUrl("/assets/Projects/HexagonalChess/BotPlay.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -119,7 +120,9 @@ export class HexChess extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline controls>
             <source
-              src={"/assets/Projects/HexagonalChess/PeerToPeerPlay.mp4"}
+              src={publicAssetUrl(
+                "/assets/Projects/HexagonalChess/PeerToPeerPlay.mp4"
+              )}
               type="video/mp4"
             />
             Your browser does not support the video tag.

@@ -3,6 +3,7 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
+import { publicAssetUrl } from "../../../utils/publicAssetUrl";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -69,7 +70,7 @@ export class Mouseless extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline>
             <source
-              src={"/assets/Projects/Mouseless/Home.mp4"}
+              src={publicAssetUrl("/assets/Projects/Mouseless/Home.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -86,7 +87,7 @@ export class Mouseless extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline>
             <source
-              src={"/assets/Projects/Mouseless/Editor.mp4"}
+              src={publicAssetUrl("/assets/Projects/Mouseless/Editor.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -105,7 +106,7 @@ export class Mouseless extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline>
             <source
-              src={"/assets/Projects/Mouseless/Shortcuts.mp4"}
+              src={publicAssetUrl("/assets/Projects/Mouseless/Shortcuts.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.

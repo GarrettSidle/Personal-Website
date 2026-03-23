@@ -4,6 +4,7 @@ import "./ProjectCard.css";
 import { FaGithub, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 import { Project, ProjectLink } from "../../models/Project";
+import { publicAssetUrl } from "../../utils/publicAssetUrl";
 
 interface ProjectCardProps {
   project: Project;
@@ -292,7 +293,7 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                   }
                 >
                   <source
-                    src={`/assets/${mediaPath}`}
+                    src={publicAssetUrl(`/assets/${mediaPath}`)}
                     type={this.getVideoMimeType(mediaPath)}
                   />
                   Your browser does not support the video tag.
@@ -308,7 +309,7 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                           .firstMediaRef as React.RefObject<HTMLImageElement>)
                       : undefined
                   }
-                  src={`/assets/${mediaPath}`}
+                  src={publicAssetUrl(`/assets/${mediaPath}`)}
                   alt={`${project.name} - Image ${index + 1}`}
                   className={`Project-Image ${isActive ? "active" : ""} ${
                     offset !== 0 ? "behind" : ""
