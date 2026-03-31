@@ -231,6 +231,15 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     });
   }
 
+  private getCircularOffset(index: number, currentIndex: number, length: number) {
+    if (length <= 1) return 0;
+    let offset = index - currentIndex;
+    const half = length / 2;
+    if (offset > half) offset -= length;
+    if (offset < -half) offset += length;
+    return offset;
+  }
+
   public render() {
     const { project } = this.props;
     const { currentImageIndex } = this.state;
@@ -251,7 +260,11 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
 
         <div className="Project-Image-Container">
           {project.imgPaths.map((mediaPath, index) => {
-            const offset = index - currentImageIndex;
+            const offset = this.getCircularOffset(
+              index,
+              currentImageIndex,
+              project.imgPaths.length
+            );
             const isVisible = Math.abs(offset) <= 1;
 
             if (!isVisible) return null;
