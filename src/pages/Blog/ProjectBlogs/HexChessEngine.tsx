@@ -3,7 +3,7 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
-import { publicAssetUrl } from "../../../utils/publicAssetUrl";
+import hexChessEngineBotPlay from "../../../assets/videos/HexChessEngine-BotPlay.mp4";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -370,7 +370,7 @@ export class HexChessEngine extends Component<BlogProps> {
         <div className="Image-Container">
           <video autoPlay loop muted playsInline controls>
             <source
-              src={publicAssetUrl("/assets/Projects/HexChessEngine/BotPlay.mp4")}
+              src={hexChessEngineBotPlay}
               type="video/mp4"
             />
             Your browser does not support the video tag.

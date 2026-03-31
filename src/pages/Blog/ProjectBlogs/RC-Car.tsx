@@ -3,7 +3,7 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
-import { publicAssetUrl } from "../../../utils/publicAssetUrl";
+import rcCarMoving from "../../../assets/videos/RC-Car-Moving.mp4";
 
 
 type BlogProps = {
@@ -35,7 +35,7 @@ export class RCCar extends Component<BlogProps> {
                 <div className="Image-Container">
                     <video autoPlay loop muted playsInline controls>
                         <source
-                            src={publicAssetUrl("/assets/Projects/RC-Car/Moving.mp4")}
+                            src={rcCarMoving}
                             type="video/mp4"
                         />
                         Your browser does not support the video tag.

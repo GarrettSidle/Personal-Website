@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Project } from "../../models/Project";
 
-const ProjectsData: Project[] = require('./ProjectsData.json');
+import { projectsData as ProjectsData } from "./projectsData";
 
 //get every unique tag
 const ProjectTags = new Set<string>();

@@ -54,6 +54,18 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     return "video/mp4"; // default
   }
 
+  private getMediaSrc(mediaPath: string): string {
+    if (mediaPath.startsWith("http://") || mediaPath.startsWith("https://")) {
+      return mediaPath;
+    }
+
+    if (mediaPath.startsWith("/")) {
+      return publicAssetUrl(mediaPath);
+    }
+
+    return publicAssetUrl(`/assets/${mediaPath}`);
+  }
+
   private handlePreviousImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -293,7 +305,7 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                   }
                 >
                   <source
-                    src={publicAssetUrl(`/assets/${mediaPath}`)}
+                    src={this.getMediaSrc(mediaPath)}
                     type={this.getVideoMimeType(mediaPath)}
                   />
                   Your browser does not support the video tag.
@@ -309,7 +321,7 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                           .firstMediaRef as React.RefObject<HTMLImageElement>)
                       : undefined
                   }
-                  src={publicAssetUrl(`/assets/${mediaPath}`)}
+                  src={this.getMediaSrc(mediaPath)}
                   alt={`${project.name} - Image ${index + 1}`}
                   className={`Project-Image ${isActive ? "active" : ""} ${
                     offset !== 0 ? "behind" : ""

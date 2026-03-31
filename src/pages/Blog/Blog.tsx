@@ -14,12 +14,13 @@ import { Project, ProjectLink } from "../../models/Project";
 import { AutonomousKart } from "./ProjectBlogs/AutonomousKart";
 import { AltManager } from "./ProjectBlogs/AltManager";
 import { OWALT } from "./ProjectBlogs/OWAlt";
+import { projectsData } from "../Projects/projectsData";
 
 export class Blog extends Component<{}> {
   urlParams = new URLSearchParams(window.location.search);
   projectId: string = this.urlParams.get("id") ?? "";
 
-  ProjectsData: Array<Project> = require("../Projects/ProjectsData.json");
+  ProjectsData: Array<Project> = [...projectsData];
 
   SimilarProjects: Array<Project> = [];
 
