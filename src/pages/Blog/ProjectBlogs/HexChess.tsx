@@ -3,8 +3,6 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
-import hexChessBotPlay from "../../../assets/videos/HexagonalChess-BotPlay.mp4";
-import hexChessPeerToPeerPlay from "../../../assets/videos/HexagonalChess-PeerToPeerPlay.mp4";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -100,15 +98,16 @@ export class HexChess extends Component<BlogProps> {
           the engine over stdin/stdout, sending commands like the variant name
           and moves, and receives the bot's replies in turn.
         </p>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline controls>
-            <source
-              src={hexChessBotPlay}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/HexagonalChess/Result Screen.png"}
+            alt="Completed game against the built-in bot"
+          />
+          <figcaption>
+            A finished bot game: the WPF client streams moves to the C++
+            engine and renders the reply each turn.
+          </figcaption>
+        </figure>
         <h2>Online Play</h2>
         <p>
           The application supports <strong>peer-to-peer</strong> multiplayer,
@@ -118,15 +117,17 @@ export class HexChess extends Component<BlogProps> {
           features, such as automatic reconnection enhance the multiplayer
           experience, making it intuitive and accessible.
         </p>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline controls>
-            <source
-              src={hexChessPeerToPeerPlay}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/HexagonalChess/Home.png"}
+            alt="Hexagonal chess application home screen"
+          />
+          <figcaption>
+            Multiplayer flows start from the same shell as single-player
+            sessions—home keeps setup lightweight before a peer session spins
+            up.
+          </figcaption>
+        </figure>
         <h2>Other Images</h2>
         <h4>Home Screen</h4>
         <div className="Image-Container">

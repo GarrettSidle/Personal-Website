@@ -57,10 +57,31 @@
   text-align: center;
 }
 
-.Blog-Post video {
-  width: 70%;
-  text-align: center;
+.Blog-Post .Image-Container img,
+.Blog-Post .Blog-Figure img {
   border-radius: 10px;
+}
+
+.Blog-Post .Blog-Figure {
+  margin: 1.25em auto;
+  text-align: center;
+}
+
+.Blog-Post .Blog-Figure figcaption {
+  font-size: calc(0.35vw + 8px);
+  color: #aaa;
+  margin-top: 0.6em;
+  text-indent: 0;
+  padding: 0 4%;
+}
+
+.Blog-Post .Blog-Lead-In {
+  font-size: calc(0.38vw + 9px);
+  color: #bbb;
+  text-indent: 0;
+  text-align: center;
+  font-style: italic;
+  margin: 0.5em 0 1em;
 }
 
 .Blog-Post .Listed {

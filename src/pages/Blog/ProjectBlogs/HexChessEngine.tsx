@@ -3,7 +3,6 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
-import hexChessEngineBotPlay from "../../../assets/videos/HexChessEngine-BotPlay.mp4";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -367,15 +366,17 @@ export class HexChessEngine extends Component<BlogProps> {
             alt="Radial tree"
           />
         </div>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline controls>
-            <source
-              src={hexChessEngineBotPlay}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/HexChessEngine/Overview.png"}
+            alt="Engine integration overview"
+          />
+          <figcaption>
+            The engine exposes a stdin/stdout protocol; the radial tree above
+            is exported search data, while this panel captures how the binary
+            sits alongside the visualization tooling.
+          </figcaption>
+        </figure>
       </div>
     );
   }

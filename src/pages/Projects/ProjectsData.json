@@ -12,7 +12,7 @@
     "imgPaths": [
       "Projects/HexChessEngine/SystenDiagram.png",
       "Projects/HexChessEngine/Overview.png",
-      "Projects/HexChessEngine/BotPlay.mp4",
+      "Projects/HexChessEngine/RadialTree.png",
       "Projects/HexChessEngine/MinimaxTree.png"
     ],
     "tags": ["C++", "Mulitthreading", "Algorithms", "Data Structures"],
@@ -95,11 +95,10 @@
     "date": "January 2025 - December 2025",
     "imgPaths": [
       "Projects/Mouseless/Overview.png",
-      "Projects/Mouseless/Home.mp4",
+      "Projects/Mouseless/Home.png",
       "Projects/Mouseless/Login.png",
       "Projects/Mouseless/API.png",
-      "Projects/Mouseless/Stats.png",
-      "Projects/Mouseless/Shortcuts.mp4"
+      "Projects/Mouseless/Stats.png"
     ],
     "tags": [
       "Javascript",
@@ -218,8 +217,7 @@
     "date": "October 2022",
     "imgPaths": [
       "Projects/RC-Car/Car.png",
-      "Projects/RC-Car/Electrical.png",
-      "Projects/RC-Car/Moving.mp4"
+      "Projects/RC-Car/Electrical.png"
     ],
     "tags": ["C++", "Embedded Programming"],
     "inProgress": false

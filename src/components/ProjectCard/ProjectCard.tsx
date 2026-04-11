@@ -17,8 +17,7 @@ interface ProjectCardState {
 }
 
 export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
-  private firstMediaRef: React.RefObject<HTMLImageElement | HTMLVideoElement>;
-  private videoRefs: Map<number, React.RefObject<HTMLVideoElement>>;
+  private firstImageRef: React.RefObject<HTMLImageElement>;
   private cardRef: React.RefObject<HTMLAnchorElement>;
 
   constructor(props: ProjectCardProps) {
@@ -26,35 +25,11 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     this.state = {
       currentImageIndex: 0,
     };
-    this.firstMediaRef = React.createRef();
-    this.videoRefs = new Map();
+    this.firstImageRef = React.createRef();
     this.cardRef = React.createRef();
-
-    // Initialize video refs for all videos (except index 0, which uses firstMediaRef)
-    props.project.imgPaths.forEach((path, index) => {
-      if (this.isVideo(path) && index !== 0) {
-        this.videoRefs.set(index, React.createRef());
-      }
-    });
   }
 
-  private isVideo(path: string): boolean {
-    const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".avi"];
-    const lowerPath = path.toLowerCase();
-    return videoExtensions.some((ext) => lowerPath.endsWith(ext));
-  }
-
-  private getVideoMimeType(path: string): string {
-    const lowerPath = path.toLowerCase();
-    if (lowerPath.endsWith(".mp4")) return "video/mp4";
-    if (lowerPath.endsWith(".webm")) return "video/webm";
-    if (lowerPath.endsWith(".ogg")) return "video/ogg";
-    if (lowerPath.endsWith(".mov")) return "video/quicktime";
-    if (lowerPath.endsWith(".avi")) return "video/x-msvideo";
-    return "video/mp4"; // default
-  }
-
-  private getMediaSrc(mediaPath: string): string {
+  private getImageSrc(mediaPath: string): string {
     if (mediaPath.startsWith("http://") || mediaPath.startsWith("https://")) {
       return mediaPath;
     }
@@ -88,16 +63,15 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     }));
   };
 
-  private handleFirstMediaLoad = () => {
+  private handleFirstImageLoad = () => {
     if (
       !this.state.imageWidth &&
       !this.state.imageHeight &&
-      this.firstMediaRef.current
+      this.firstImageRef.current
     ) {
-      // Use requestAnimationFrame to ensure measurement happens after layout
       requestAnimationFrame(() => {
-        if (this.firstMediaRef.current) {
-          const rect = this.firstMediaRef.current.getBoundingClientRect();
+        if (this.firstImageRef.current) {
+          const rect = this.firstImageRef.current.getBoundingClientRect();
           if (rect.width > 0 && rect.height > 0) {
             this.setState({
               imageWidth: rect.width,
@@ -109,113 +83,18 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     }
   };
 
-  private playActiveVideo = () => {
-    const { currentImageIndex } = this.state;
-    const { imgPaths } = this.props.project;
-
-    if (
-      currentImageIndex >= 0 &&
-      currentImageIndex < imgPaths.length &&
-      this.isVideo(imgPaths[currentImageIndex])
-    ) {
-      if (
-        currentImageIndex === 0 &&
-        this.firstMediaRef.current instanceof HTMLVideoElement
-      ) {
-        this.firstMediaRef.current.play().catch((err) => {
-          console.log("Video autoplay prevented:", err);
-        });
-      } else {
-        const videoRef = this.videoRefs.get(currentImageIndex);
-        if (videoRef?.current) {
-          videoRef.current.play().catch((err) => {
-            console.log("Video autoplay prevented:", err);
-          });
-        }
-      }
-    }
-  };
-
-  private handleCardMouseEnter = () => {
-    // Play the active video when hovering over the card
-    this.playActiveVideo();
-  };
-
-  private handleCardMouseLeave = () => {
-    // Pause all videos when mouse leaves the card
-    if (this.firstMediaRef.current instanceof HTMLVideoElement) {
-      this.firstMediaRef.current.pause();
-      this.firstMediaRef.current.currentTime = 0;
-    }
-
-    this.videoRefs.forEach((ref) => {
-      if (ref.current) {
-        ref.current.pause();
-        ref.current.currentTime = 0; // Reset to start
-      }
-    });
-  };
-
   public componentDidMount() {
-    // If the first media is already loaded, measure it after layout
-    if (this.firstMediaRef.current) {
-      const isImage = this.firstMediaRef.current instanceof HTMLImageElement;
-      const isVideo = this.firstMediaRef.current instanceof HTMLVideoElement;
-
-      if (
-        isImage &&
-        (this.firstMediaRef.current as HTMLImageElement).complete
-      ) {
-        this.measureFirstMedia();
-      } else if (
-        isVideo &&
-        (this.firstMediaRef.current as HTMLVideoElement).readyState >= 2
-      ) {
-        this.measureFirstMedia();
+    if (this.firstImageRef.current instanceof HTMLImageElement) {
+      if (this.firstImageRef.current.complete) {
+        this.measureFirstImage();
       }
     }
   }
 
-  public componentDidUpdate(
-    prevProps: ProjectCardProps,
-    prevState: ProjectCardState
-  ) {
-    // If the current image index changed, pause and reset videos that are no longer active
-    if (prevState.currentImageIndex !== this.state.currentImageIndex) {
-      const { imgPaths } = this.props.project;
-      const { currentImageIndex } = this.state;
-
-      // Pause and reset the previously active video if it was a video
-      const prevIndex = prevState.currentImageIndex;
-      if (
-        prevIndex >= 0 &&
-        prevIndex < imgPaths.length &&
-        this.isVideo(imgPaths[prevIndex])
-      ) {
-        if (
-          prevIndex === 0 &&
-          this.firstMediaRef.current instanceof HTMLVideoElement
-        ) {
-          this.firstMediaRef.current.pause();
-          this.firstMediaRef.current.currentTime = 0;
-        } else {
-          const prevVideoRef = this.videoRefs.get(prevIndex);
-          if (prevVideoRef?.current) {
-            prevVideoRef.current.pause();
-            prevVideoRef.current.currentTime = 0;
-          }
-        }
-      }
-
-      // Play the newly active video if it's a video
-      this.playActiveVideo();
-    }
-  }
-
-  private measureFirstMedia() {
+  private measureFirstImage() {
     requestAnimationFrame(() => {
-      if (this.firstMediaRef.current) {
-        const rect = this.firstMediaRef.current.getBoundingClientRect();
+      if (this.firstImageRef.current) {
+        const rect = this.firstImageRef.current.getBoundingClientRect();
         if (
           rect.width > 0 &&
           rect.height > 0 &&
@@ -231,7 +110,11 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
     });
   }
 
-  private getCircularOffset(index: number, currentIndex: number, length: number) {
+  private getCircularOffset(
+    index: number,
+    currentIndex: number,
+    length: number
+  ) {
     if (length <= 1) return 0;
     let offset = index - currentIndex;
     const half = length / 2;
@@ -250,8 +133,6 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
         className="Project-Card"
         href={`/Blog?id=${project.id}`}
         ref={this.cardRef}
-        onMouseEnter={this.handleCardMouseEnter}
-        onMouseLeave={this.handleCardMouseLeave}
       >
         <div className="Project-Title"> {project.name}</div>
         <div className="Project-Date"> {project.date}</div>
@@ -270,9 +151,8 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
             if (!isVisible) return null;
 
             const isActive = index === currentImageIndex;
-            const isFirstMedia = index === 0;
+            const isFirstImage = index === 0;
             const { imageWidth, imageHeight } = this.state;
-            const isVideoFile = this.isVideo(mediaPath);
 
             const baseStyle: React.CSSProperties = {
               opacity: 1,
@@ -295,55 +175,19 @@ export class ProjectCard extends Component<ProjectCardProps, ProjectCardState> {
                   opacity: 0.85,
                 };
 
-            if (isVideoFile) {
-              const videoRef = this.videoRefs.get(index);
-              return (
-                <video
-                  key={index}
-                  ref={
-                    isFirstMedia
-                      ? (this
-                          .firstMediaRef as React.RefObject<HTMLVideoElement>)
-                      : videoRef
-                  }
-                  className={`Project-Image ${isActive ? "active" : ""} ${
-                    offset !== 0 ? "behind" : ""
-                  } ${hasSized ? "sized" : ""}`}
-                  style={style}
-                  muted
-                  loop
-                  playsInline
-                  onLoadedMetadata={
-                    isFirstMedia ? this.handleFirstMediaLoad : undefined
-                  }
-                >
-                  <source
-                    src={this.getMediaSrc(mediaPath)}
-                    type={this.getVideoMimeType(mediaPath)}
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              );
-            } else {
-              return (
-                <img
-                  key={index}
-                  ref={
-                    isFirstMedia
-                      ? (this
-                          .firstMediaRef as React.RefObject<HTMLImageElement>)
-                      : undefined
-                  }
-                  src={this.getMediaSrc(mediaPath)}
-                  alt={`${project.name} - Image ${index + 1}`}
-                  className={`Project-Image ${isActive ? "active" : ""} ${
-                    offset !== 0 ? "behind" : ""
-                  } ${hasSized ? "sized" : ""}`}
-                  style={style}
-                  onLoad={isFirstMedia ? this.handleFirstMediaLoad : undefined}
-                />
-              );
-            }
+            return (
+              <img
+                key={index}
+                ref={isFirstImage ? this.firstImageRef : undefined}
+                src={this.getImageSrc(mediaPath)}
+                alt={`${project.name} — slide ${index + 1}`}
+                className={`Project-Image ${isActive ? "active" : ""} ${
+                  offset !== 0 ? "behind" : ""
+                } ${hasSized ? "sized" : ""}`}
+                style={style}
+                onLoad={isFirstImage ? this.handleFirstImageLoad : undefined}
+              />
+            );
           })}
 
           {hasMultipleImages && (

@@ -3,9 +3,6 @@ import { Component } from "react";
 import "../Blog.css";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import { ProjectLink } from "../../../models/Project";
-import mouselessHome from "../../../assets/videos/Mouseless-Home.mp4";
-import mouselessEditor from "../../../assets/videos/Mouseless-Editor.mp4";
-import mouselessShortcuts from "../../../assets/videos/Mouseless-Shortcuts.mp4";
 
 type BlogProps = {
   links: ProjectLink[];
@@ -29,14 +26,17 @@ export class Mouseless extends Component<BlogProps> {
         </div>
 
         <div className="Image-Container">
-          <img src={"/assets/Projects/Mouseless/Overview.png"} />
+          <img
+            src={"/assets/Projects/Mouseless/Overview.png"}
+            alt="Mouseless product overview"
+          />
         </div>
 
         <p>
           As a developer, speed and efficiency are critical when working with
           code. Traditional typing practice tools focus on raw words-per-minute,
           but coding requires a different approach—one that emphasizes
-          keybindings, syntax manipulation, and precision. That's where{" "}
+          keybindings, syntax manipulation, and precision. That&apos;s where{" "}
           <strong>Mouseless</strong> comes in.
         </p>
 
@@ -68,33 +68,40 @@ export class Mouseless extends Component<BlogProps> {
 
         <h2>Key Features</h2>
 
+        <p className="Blog-Lead-In">
+          Selected screenshots from the live product—each panel matches a real
+          screen in the app.
+        </p>
+
         <h3>Homepage</h3>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline>
-            <source
-              src={mouselessHome}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/Mouseless/Home.png"}
+            alt="Mouseless marketing homepage"
+          />
+          <figcaption>
+            Landing view introduces the product and routes newcomers into
+            practice or account flows.
+          </figcaption>
+        </figure>
         <p>
           The homepage serves as the entry point to Mouseless, clearly
           explaining what the platform is and what it does. It provides users
-          with an overview of the site's purpose and guides them through the key
-          features and benefits of practicing code editing skills.
+          with an overview of the site&apos;s purpose and guides them through
+          the key features and benefits of practicing code editing skills.
         </p>
 
         <h3>Editor</h3>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline>
-            <source
-              src={mouselessEditor}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/Mouseless/Stats.png"}
+            alt="In-session stats during a practice problem"
+          />
+          <figcaption>
+            During a run, the UI surfaces timing, CCPM, completion, and
+            keystrokes so feedback stays immediate.
+          </figcaption>
+        </figure>
         <p>
           The core of Mouseless is the interactive editor where users actually
           work on coding problems. The editor presents real code snippets that
@@ -104,27 +111,30 @@ export class Mouseless extends Component<BlogProps> {
           percentage, and keystrokes as they work through each problem.
         </p>
 
-        <h3>Shortcuts Page</h3>
-        <div className="Image-Container">
-          <video autoPlay loop muted playsInline>
-            <source
-              src={mouselessShortcuts}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <h3>Shortcuts &amp; reference</h3>
+        <figure className="Blog-Figure">
+          <img
+            src={"/assets/Projects/Mouseless/Overview.png"}
+            alt="High-level view of Mouseless navigation and flows"
+          />
+          <figcaption>
+            The same information architecture that powers shortcut drills shows
+            up across navigation—everything routes back to deliberate practice.
+          </figcaption>
+        </figure>
         <p>
-          The shortcuts page displays all the best keyboard shortcuts for
-          efficient coding. It includes interactive text demonstrations to help
-          users learn and practice these essential shortcuts, making it easier
-          to master the keybindings that make coding faster and more efficient.
-          Users can see the shortcuts in action through visual demonstrations.
+          Shortcut mastery is woven into the product rather than isolated on a
+          single page: hints, drills, and navigation reinforce the same
+          bindings users rely on in the editor, so muscle memory stays
+          consistent end to end.
         </p>
 
         <h3>Stats and Leaderboards</h3>
         <div className="Image-Container">
-          <img src={"/assets/Projects/Mouseless/Stats.png"} />
+          <img
+            src={"/assets/Projects/Mouseless/Stats.png"}
+            alt="Mouseless stats and comparisons"
+          />
         </div>
         <p>
           The stats page provides comprehensive performance analytics for each
@@ -150,7 +160,8 @@ export class Mouseless extends Component<BlogProps> {
 
         <p>
           This allows users to track their progress, identify areas for
-          improvement, and compete with the community to achieve better scores.
+          improvement, and compete with the community to achieve better
+          scores.
         </p>
 
         <h2>Technology Stack</h2>
@@ -184,7 +195,10 @@ export class Mouseless extends Component<BlogProps> {
         <h2>Authentication System</h2>
 
         <div className="Image-Container">
-          <img src={"/assets/Projects/Mouseless/Login.png"} />
+          <img
+            src={"/assets/Projects/Mouseless/Login.png"}
+            alt="Mouseless sign-in"
+          />
         </div>
 
         <p>
@@ -199,15 +213,15 @@ export class Mouseless extends Component<BlogProps> {
         <h2>API Architecture</h2>
 
         <div className="Image-Container">
-          <img src={"/assets/Projects/Mouseless/API.png"} />
+          <img src={"/assets/Projects/Mouseless/API.png"} alt="Mouseless API" />
         </div>
 
         <p>
           The backend is built using <strong>FastAPI</strong>, providing a
           high-performance, modern Python web framework. The RESTful
           architecture ensures that all endpoints follow consistent patterns,
-          making the API intuitive to use and maintain. FastAPI's automatic API
-          documentation and type validation help ensure reliability and make
+          making the API intuitive to use and maintain. FastAPI&apos;s automatic
+          API documentation and type validation help ensure reliability and make
           development more efficient.
         </p>
       </div>
