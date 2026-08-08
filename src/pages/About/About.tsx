@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { CgCPlusPlus } from "react-icons/cg";
 import { AiOutlineConsoleSql, AiOutlineCode } from "react-icons/ai";
-import { DiReact, DiPython, DiGit, DiJava, DiPostgresql } from "react-icons/di";
+import { DiReact, DiPython, DiGit, DiJava, DiPostgresql, DiRedis } from "react-icons/di";
 import {
   SiLinux,
   SiTypescript,
@@ -11,7 +11,6 @@ import {
   SiFastapi,
   SiMicrosoftazure,
   SiDocker,
-  SiRedis,
   SiDotnet,
   SiGradle,
   SiMicrosoftsqlserver,
@@ -52,7 +51,7 @@ const toolStack = [
   { Component: DiGit, Tooltip: "Git" },
   { Component: SiLinux, Tooltip: "Linux" },
   { Component: SiGrafana, Tooltip: "Grafana" },
-  { Component: SiRedis, Tooltip: "Redis" },
+  { Component: DiRedis, Tooltip: "Redis" },
   { Component: SiGradle, Tooltip: "Maven / Gradle" },
   { Component: SiMicrosoftazure, Tooltip: "Azure Service Bus" },
   { Component: GrVmware, Tooltip: "VMWare" },
