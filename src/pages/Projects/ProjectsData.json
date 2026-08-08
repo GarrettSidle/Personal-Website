@@ -1,5 +1,33 @@
 [
   {
+    "id": "power-grid",
+    "name": "Power Grid Simulation",
+    "links": [
+      {
+        "url": "https://github.com/GarrettSidle/PowerGrid.git",
+        "logo": "github"
+      }
+    ],
+    "date": "May 2026 – August 2026",
+    "imgPaths": [
+      "Projects/PowerGrid/Overview.png",
+      "Projects/PowerGrid/UML.jpg",
+      "Projects/PowerGrid/Sequence.png",
+      "Projects/PowerGrid/Login.png",
+      "Projects/PowerGrid/PowerPlants.png",
+      "Projects/PowerGrid/Billing.png"
+    ],
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "PostgreSQL",
+      "Docker",
+      "Software Architecture"
+    ],
+    "inProgress": false
+  },
+  {
     "id": "hexagonal-chess-engine",
     "name": "Hexagonal Chess Engine",
     "links": [
@@ -215,10 +243,7 @@
       }
     ],
     "date": "October 2022",
-    "imgPaths": [
-      "Projects/RC-Car/Car.png",
-      "Projects/RC-Car/Electrical.png"
-    ],
+    "imgPaths": ["Projects/RC-Car/Car.png", "Projects/RC-Car/Electrical.png"],
     "tags": ["C++", "Embedded Programming"],
     "inProgress": false
   }

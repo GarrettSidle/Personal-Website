@@ -14,6 +14,7 @@ import { Project, ProjectLink } from "../../models/Project";
 import { AutonomousKart } from "./ProjectBlogs/AutonomousKart";
 import { AltManager } from "./ProjectBlogs/AltManager";
 import { OWALT } from "./ProjectBlogs/OWAlt";
+import { PowerGrid } from "./ProjectBlogs/PowerGrid";
 import { projectsData } from "../Projects/projectsData";
 
 export class Blog extends Component<{}> {
@@ -122,6 +123,8 @@ export class Blog extends Component<{}> {
         return <AltManager links={links} tags={tags} />;
       case "overwatch-account-tracker":
         return <OWALT links={links} tags={tags} />;
+      case "power-grid":
+        return <PowerGrid links={links} tags={tags} />;
       default:
         return <h1 className="h404">404 - Project Not Found</h1>;
     }
